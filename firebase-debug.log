@@ -1,0 +1,50 @@
+[debug] [2018-10-19T21:22:38.199Z] ----------------------------------------------------------------------
+[debug] [2018-10-19T21:22:38.202Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bfredrickson\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-10-19T21:22:38.202Z] CLI Version:   5.1.1
+[debug] [2018-10-19T21:22:38.202Z] Platform:      win32
+[debug] [2018-10-19T21:22:38.202Z] Node Version:  v8.12.0
+[debug] [2018-10-19T21:22:38.203Z] Time:          Fri Oct 19 2018 15:22:38 GMT-0600 (Mountain Daylight Time)
+[debug] [2018-10-19T21:22:38.203Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-19T21:22:38.212Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-19T21:22:38.212Z] > authorizing via signed-in user
+[debug] [2018-10-19T21:22:38.212Z] [iam] checking project coffee-tracker-b7337 for permissions ["firebase.projects.get"]
+[debug] [2018-10-19T21:22:38.214Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/coffee-tracker-b7337:testIamPermissions  
+
+[debug] [2018-10-19T21:22:38.543Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-19T21:22:38.545Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/coffee-tracker-b7337  
+ 
+[debug] [2018-10-19T21:22:38.827Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\bfredrickson\source\repos\CoffeeTracker'...
+[info] 
+[debug] [2018-10-19T21:22:38.831Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/373245353342/clients/_:getWebAppConfig  
+ 
+[debug] [2018-10-19T21:22:39.090Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+[debug] [2018-10-19T21:35:02.694Z] ----------------------------------------------------------------------
+[debug] [2018-10-19T21:35:02.697Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bfredrickson\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-10-19T21:35:02.698Z] CLI Version:   5.1.1
+[debug] [2018-10-19T21:35:02.698Z] Platform:      win32
+[debug] [2018-10-19T21:35:02.698Z] Node Version:  v8.12.0
+[debug] [2018-10-19T21:35:02.698Z] Time:          Fri Oct 19 2018 15:35:02 GMT-0600 (Mountain Daylight Time)
+[debug] [2018-10-19T21:35:02.698Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-19T21:35:02.710Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-19T21:35:02.710Z] > authorizing via signed-in user
+[debug] [2018-10-19T21:35:02.710Z] [iam] checking project coffee-tracker-b7337 for permissions ["firebase.projects.get"]
+[debug] [2018-10-19T21:35:02.712Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/coffee-tracker-b7337:testIamPermissions  
+
+[debug] [2018-10-19T21:35:03.075Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-19T21:35:03.076Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/coffee-tracker-b7337  
+ 
+[debug] [2018-10-19T21:35:03.381Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\bfredrickson\source\repos\CoffeeTracker'...
+[info] 
+[debug] [2018-10-19T21:35:03.384Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/373245353342/clients/_:getWebAppConfig  
+ 
+[debug] [2018-10-19T21:35:03.709Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
