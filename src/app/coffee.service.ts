@@ -28,6 +28,7 @@ export class CoffeeService {
     // Get the Coffee document
     this.coffeeDoc = this.db.doc<Coffee>(`${config.collection_endpoint}/${id}`);
 
+    // Update the Coffee document
     this.coffeeDoc.update(update);
   }
 
@@ -35,6 +36,7 @@ export class CoffeeService {
     // Get the Coffee document
     this.coffeeDoc = this.db.doc<Coffee>(`${config.collection_endpoint}/${id}`);
 
+    // Delete the Coffee document
     this.coffeeDoc.delete();
   }
 }
