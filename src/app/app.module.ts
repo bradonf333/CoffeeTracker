@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -15,7 +20,9 @@ import { environment } from '../environments/environment';
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    BrowserAnimationsModule,
+    MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatSelectModule, MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

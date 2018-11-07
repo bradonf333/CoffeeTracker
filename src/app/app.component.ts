@@ -54,4 +54,13 @@ export class AppComponent implements OnInit {
     const coffeeId = this.coffeeToEdit.id;
     this.coffeeService.updateCoffee(coffeeId, this.coffeeToEdit);
   }
+
+  addCoffee() {
+    const newCoffee: Coffee = {
+      description: this.coffeeDesc,
+      date: this.coffeeDate
+    };
+
+    this.coffeeService.addCoffee(newCoffee);
+  }
 }

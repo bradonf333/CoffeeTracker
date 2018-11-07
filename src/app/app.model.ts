@@ -1,5 +1,5 @@
 export interface Coffee {
-    id: string;
+    id?: string;
     description: string;
     date: string;
 }

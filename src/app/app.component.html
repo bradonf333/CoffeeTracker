@@ -18,8 +18,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
+            <a class="navbar-brand" href="#">Angular Firestore</a>
           </button>
-          <a class="navbar-brand" href="#">Angular Firestore</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,17 +41,13 @@
       <form #f="ngForm">
         <div class="form-group">
           <input [(ngModel)]="coffeeDesc" name="coffeeDesc" type="text" class="form-control" placeholder="Coffee Description" required>
-          <input [(ngModel)]="coffeeDate" name="coffeeDate" type="text" class="form-control" placeholder="Coffee Date" required>
+          <input [(ngModel)]="coffeeDate" name="coffeeDate" type="datetime" class="form-control" placeholder="Coffee Date" required>
         </div>
 
-        <!-- <p *ngIf="loading">
-          <i class="fa fa-spinner fa-spin"></i>
-        </p> -->
-
         <div class="form-group">
-          <!-- <button class="btn btn-primary" [disabled]="!f.valid" (click)="saveCoffee()">
-            Save Task
-          </button> -->
+          <button class="btn btn-primary" [disabled]="!f.valid" (click)="addCoffee()">
+            Add Coffee
+          </button>
         </div>
       </form>
     </div>
@@ -64,7 +60,7 @@
           <th>Edit/Delete</th>
         </tr>
         <tr *ngFor="let coffee of coffees | async; let i = index" [attr.data-index]="i">
-          <td>{{i + 1}}</td>
+          <td>{{ i + 1 }}</td>
           <td>{{ coffee.description }}</td>
           <td>{{ coffee.date }}</td>
           <td>
@@ -81,3 +77,12 @@
     </div>
   </div>
 </section>
+
+<h4>Basic mat-select</h4>
+<mat-form-field>
+  <mat-select placeholder="Favorite food">
+    <mat-option *ngFor="let coffee of coffees | async" [value]="coffee.description">
+      {{coffee.description}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
