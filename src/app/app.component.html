@@ -18,6 +18,9 @@
   </li>
 </ul>
 
-<div *ngFor="let coffee of coffees | async">
-  {{ coffee | json }}
+<div>
+  <tr *ngFor="let coffee of coffees | async; let i = index" [attr.data-index]="i">
+    <td>{{ i + 1 }}</td>
+    <td>{{ coffee.description }}</td>
+  </tr>
 </div>
