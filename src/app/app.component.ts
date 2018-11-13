@@ -43,10 +43,6 @@ export class AppComponent implements OnInit {
   editCoffee(coffee) {
     console.log(coffee);
 
-    // Set coffeeToEdit and editMode
-    this.coffeeToEdit = coffee;
-    this.editMode = true;
-
     // Set form value
     coffee.description = this.coffeeDesc;
     coffee.date = this.coffeeDate;
@@ -56,11 +52,18 @@ export class AppComponent implements OnInit {
   }
 
   addCoffee() {
+
     const newCoffee: Coffee = {
       description: this.coffeeDesc,
       date: this.coffeeDate
     };
 
     this.coffeeService.addCoffee(newCoffee);
+  }
+
+  deleteCoffee(coffee) {
+
+    const coffeeId = coffee.id;
+    this.coffeeService.deleteCoffee(coffeeId);
   }
 }
