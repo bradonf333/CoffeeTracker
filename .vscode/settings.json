@@ -1,0 +1,7 @@
+{
+    "files.autoSave": "afterDelay",
+    "vscode_custom_css.policy": true,
+    "vscode_custom_css.imports": [
+        "file:///C:/Users/bfredrickson/Documents/styles.css"
+    ],
+}

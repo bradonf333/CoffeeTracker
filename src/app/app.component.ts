@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { MatSort, MatTableDataSource } from '@angular/material';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Coffee } from './app.model';
 import { config } from './app.config';
 import { CoffeeService } from './coffee.service';
+import * as _ from 'underscore';
 
 
 @Component({
@@ -16,6 +18,7 @@ import { CoffeeService } from './coffee.service';
 export class AppComponent implements OnInit {
   title = 'CoffeeTracker';
   coffeeCollection: AngularFirestoreCollection<Coffee>;
+  coffeesObservable: Observable<Coffee[]>;
   coffeeDoc: AngularFirestoreDocument<Coffee>;
   coffees: Observable<Coffee[]>;
   coffeeDesc: string;
@@ -31,7 +34,7 @@ export class AppComponent implements OnInit {
     this.coffeeCollection = this.db.collection(config.collection_endpoint);
 
     this.coffees = this.coffeeCollection.snapshotChanges()
-    .pipe(map(actions => actions.map(a => {
+    .pipe(map(coffees => coffees.map(a => {
       const data = a.payload.doc.data() as Coffee;
       const id = a.payload.doc.id;
       console.log(a.payload);
