@@ -15,18 +15,20 @@ import { MatInputModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { CoffeeTableComponent } from './coffee-table/coffee-table.component';
+import { CoffeeListComponent } from './coffee-list/coffee-list.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const appRoutes: Routes = [
-  { path: 'coffee-list', component: CoffeeTableComponent, pathMatch: 'full' },
-  { path: '', component: AppComponent, pathMatch: 'full' }
+  { path: 'coffee-list', component: CoffeeListComponent, pathMatch: 'full' },
+  { path: '', component: WelcomeComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    CoffeeTableComponent
+    CoffeeListComponent,
+    WelcomeComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -43,7 +45,7 @@ const appRoutes: Routes = [
     MatTableModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  exports: [NavBarComponent, CoffeeTableComponent]
+  bootstrap: [ AppComponent ],
+  exports: [ NavBarComponent, CoffeeListComponent ]
 })
 export class AppModule { }

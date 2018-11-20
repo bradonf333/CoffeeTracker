@@ -21,11 +21,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-coffee-table',
-  templateUrl: './coffee-table.component.html',
-  styleUrls: ['./coffee-table.component.css']
+  selector: 'app-coffee-list',
+  templateUrl: './coffee-list.component.html',
+  styleUrls: ['./coffee-list.component.css']
 })
-export class CoffeeTableComponent implements OnInit {
+export class CoffeeListComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
