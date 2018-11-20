@@ -13,7 +13,7 @@ export class CoffeeDataListComponent implements OnInit {
   dataSource: CoffeeDataListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['id', 'description', 'date'];
 
   ngOnInit() {
     this.dataSource = new CoffeeDataListDataSource(this.paginator, this.sort);

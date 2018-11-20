@@ -21,7 +21,7 @@ import { CoffeeDataListComponent } from './coffee-data-list/coffee-data-list.com
 
 const appRoutes: Routes = [
   { path: 'coffee-list', component: CoffeeListComponent, pathMatch: 'full' },
-  { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full'}
+  { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full'},
   { path: '', component: WelcomeComponent, pathMatch: 'full' }
 ];
 

@@ -1,3 +1,9 @@
 .full-width-table {
   width: 100%;
 }
+
+.coffee-data-list {
+  width: 80%;
+  margin: 20px auto;
+}
+
