@@ -4,4 +4,9 @@
     "vscode_custom_css.imports": [
         "file:///C:/Users/bfredrickson/Documents/styles.css"
     ],
+    "workbench.colorCustomizations": {
+        "textBlockQuote.background":"#ff0000"
+    },
+    "workbench.colorTheme": "One Dark Pro",
+    "editor.fontLigatures": true,
 }

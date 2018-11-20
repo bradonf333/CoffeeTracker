@@ -43,8 +43,13 @@ export class CoffeeListComponent implements OnInit {
     })));
   }
 
+  /** Edit Coffee */
   editCoffee(coffee) {
     console.log(coffee);
+
+    // Set coffeeToEdit and editMode
+    this.coffeeToEdit = coffee;
+    this.editMode = true;
 
     // Set form value
     coffee.description = this.coffeeDesc;
@@ -54,6 +59,7 @@ export class CoffeeListComponent implements OnInit {
     this.coffeeService.updateCoffee(coffeeId, this.coffeeToEdit);
   }
 
+  /** Add a new Coffee */
   addCoffee() {
 
     const newCoffee: Coffee = {
@@ -64,6 +70,7 @@ export class CoffeeListComponent implements OnInit {
     this.coffeeService.addCoffee(newCoffee);
   }
 
+  /** Delete a Coffee */
   deleteCoffee(coffee) {
 
     const coffeeId = coffee.id;

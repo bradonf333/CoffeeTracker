@@ -23,9 +23,14 @@ export class CoffeeService {
    }
 
    /** Return the Coffees from the DB */
-   getCoffees() {
+   getAllCoffees() {
      return this.db.collection(config.collection_endpoint).valueChanges();
    }
+
+   /** Return the Coffees from the DB */
+   getCoffee(id) {
+    return this.db.doc<Coffee>(`${config.collection_endpoint}/${id}`);
+  }
 
    /** Add the new Coffee to the collection */
    addCoffee(coffee) {
@@ -36,7 +41,8 @@ export class CoffeeService {
    updateCoffee(id, update) {
 
      // Get the Coffee Document
-     this.coffeeDoc = this.db.doc<Coffee>(`${config.collection_endpoint}/${id}`);
+     this.coffeeDoc = this.getCoffee(id);
+     console.log(update);
 
      // Update the Coffee Document
      this.coffeeDoc.update(update);
@@ -46,7 +52,7 @@ export class CoffeeService {
    deleteCoffee(id) {
 
     // Get the Coffee Document
-    this.coffeeDoc = this.db.doc<Coffee>(`${config.collection_endpoint}/${id}`);
+    this.coffeeDoc = this.getCoffee(id);
 
     // Delete the Coffee Document
     this.coffeeDoc.delete();

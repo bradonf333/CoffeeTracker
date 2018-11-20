@@ -37,6 +37,7 @@ export class CoffeeDataListDataSource extends DataSource<CoffeeDataListItem> {
    * @returns A stream of the items to be rendered.
    */
   connect(): Observable<CoffeeDataListItem[]> {
+
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
