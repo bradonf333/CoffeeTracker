@@ -1,10 +1,11 @@
 <mat-toolbar color="primary">
   
   <span><button mat-button [routerLink]="['/']"><mat-icon>home</mat-icon> Coffee Tracker</button></span>
-  <span><button mat-button [routerLink]="['/coffee-list']"><mat-icon>ballot</mat-icon> View Coffees </button></span>
+  
     
   <!-- This fills the remaining space of the current row -->
   <span class="example-fill-remaining-space"></span>
 
-  <span>Right Aligned Text</span>
+  <span><button mat-button [routerLink]="['/coffee-list']"><mat-icon>ballot</mat-icon> View Coffees </button></span>
+  <span><button mat-button [routerLink]="['/coffee-data-list']"><mat-icon>ballot</mat-icon> View Coffees Data List </button></span>
 </mat-toolbar>

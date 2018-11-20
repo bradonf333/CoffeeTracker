@@ -11,15 +11,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatCardModule, MatToolbarModule, MatTableModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CoffeeListComponent } from './coffee-list/coffee-list.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { CoffeeDataListComponent } from './coffee-data-list/coffee-data-list.component';
 
 const appRoutes: Routes = [
   { path: 'coffee-list', component: CoffeeListComponent, pathMatch: 'full' },
+  { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full'}
   { path: '', component: WelcomeComponent, pathMatch: 'full' }
 ];
 
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
     AppComponent,
     NavBarComponent,
     CoffeeListComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    CoffeeDataListComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -42,7 +45,9 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatToolbarModule,
     MatSelectModule, MatInputModule, MatMenuModule, MatCardModule, MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [ AppComponent ],
