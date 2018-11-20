@@ -22,12 +22,17 @@ export class CoffeeService {
     this.coffees = db.collection<Coffee>(config.collection_endpoint);
    }
 
-   /// Add the new Coffee to the collection
+   /** Return the Coffees from the DB */
+   getCoffees() {
+     return this.db.collection(config.collection_endpoint).valueChanges();
+   }
+
+   /** Add the new Coffee to the collection */
    addCoffee(coffee) {
      this.coffees.add(coffee);
    }
 
-   /// Update an existing Coffee
+   /** Update an existing Coffee */
    updateCoffee(id, update) {
 
      // Get the Coffee Document
@@ -37,7 +42,7 @@ export class CoffeeService {
      this.coffeeDoc.update(update);
    }
 
-   /// Delete a Coffee
+   /** Delete a Coffee */
    deleteCoffee(id) {
 
     // Get the Coffee Document

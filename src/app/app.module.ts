@@ -3,10 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
-
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
-import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatCardModule, MatToolbarModule, MatTableModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,6 +10,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+
+import { environment } from '../environments/environment';
+
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CoffeeListComponent } from './coffee-list/coffee-list.component';
 import { WelcomeComponent } from './welcome/welcome.component';
