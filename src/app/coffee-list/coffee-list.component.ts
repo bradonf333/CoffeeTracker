@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 
-import { Coffee } from '../app.model';
+import { Coffee } from '../ICoffee';
 import { config } from '../app.config';
 import { CoffeeService } from '../coffee.service';
 import * as _ from 'underscore';
@@ -22,7 +22,7 @@ export class CoffeeListComponent implements OnInit {
   coffeeDoc: AngularFirestoreDocument<Coffee>;
   coffees: Observable<Coffee[]>;
   coffeeDesc: string;
-  coffeeDate: string;
+  coffeeDate: Date;
   editMode = false;
   coffeeToEdit: any = {};
 
@@ -56,6 +56,7 @@ export class CoffeeListComponent implements OnInit {
     coffee.date = this.coffeeDate;
 
     const coffeeId = this.coffeeToEdit.id;
+    console.log(coffeeId);
     this.coffeeService.updateCoffee(coffeeId, this.coffeeToEdit);
   }
 
@@ -74,6 +75,7 @@ export class CoffeeListComponent implements OnInit {
   deleteCoffee(coffee) {
 
     const coffeeId = coffee.id;
+    console.log(coffeeId);
     this.coffeeService.deleteCoffee(coffeeId);
   }
 

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,10 +20,12 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CoffeeListComponent } from './coffee-list/coffee-list.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { CoffeeDataListComponent } from './coffee-data-list/coffee-data-list.component';
+import { CoffeeEditComponent } from './coffee-edit/coffee-edit.component';
 
 const appRoutes: Routes = [
   { path: 'coffee-list', component: CoffeeListComponent, pathMatch: 'full' },
   { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full'},
+  { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full'},
   { path: '', component: WelcomeComponent, pathMatch: 'full' }
 ];
 
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
     NavBarComponent,
     CoffeeListComponent,
     WelcomeComponent,
-    CoffeeDataListComponent
+    CoffeeDataListComponent,
+    CoffeeEditComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -42,6 +45,7 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     BrowserAnimationsModule,

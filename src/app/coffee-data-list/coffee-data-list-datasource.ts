@@ -3,7 +3,7 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import { Coffee } from '../app.model';
+import { Coffee } from '../ICoffee';
 
 /**
  * Data source for the CoffeeDataList view. This class should

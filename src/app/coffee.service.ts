@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { config } from './app.config';
-import { Coffee } from './app.model';
+import { Coffee } from './ICoffee';
 
 import {
   AngularFirestoreDocument,

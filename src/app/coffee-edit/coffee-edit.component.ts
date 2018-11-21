@@ -1,0 +1,41 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormControl, Validators, Form } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { CoffeeService } from '../coffee.service';
+
+@Component({
+  selector: 'app-coffee-edit',
+  templateUrl: './coffee-edit.component.html',
+  styleUrls: ['./coffee-edit.component.css']
+})
+export class CoffeeEditComponent implements OnInit, OnDestroy {
+
+  description = new FormControl('', [Validators.required]);
+  date = new FormControl('', [Validators.required]);
+  id: string;
+  private sub: any;
+  coffeeDescription: string;
+
+  constructor(private route: ActivatedRoute, private coffeeService: CoffeeService) {
+    this.route.params.subscribe();
+   }
+
+  ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      this.id = params['id'];
+      console.log('This is the id we pulled from the route: ', this.id);
+    });
+
+    const coffeeToEdit = this.coffeeService.getCoffee(this.id).valueChanges();
+    console.log(coffeeToEdit);
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+
+  getErrorMessage(validator: FormControl) {
+    return validator.hasError('required') ? 'You must enter a value' : '';
+  }
+
+}

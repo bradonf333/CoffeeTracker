@@ -1,0 +1,15 @@
+<div class="example-container">
+  <mat-card class="mat-elevation-z8">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Description" [(ngModel)]="coffeeDescription" [formControl]="description" required>
+        <mat-error *ngIf="description.invalid">{{getErrorMessage(description)}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Date" [formControl]="date" required>
+        <mat-error *ngIf="date.invalid">{{getErrorMessage(date)}}</mat-error>
+      </mat-form-field>
+      </form>
+  </mat-card>
+</div>
