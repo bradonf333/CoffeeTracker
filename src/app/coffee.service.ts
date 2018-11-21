@@ -18,18 +18,17 @@ export class CoffeeService {
   private coffeeDoc: AngularFirestoreDocument<Coffee>;
 
   constructor(private db: AngularFirestore) {
-
     this.coffees = db.collection<Coffee>(config.collection_endpoint);
    }
 
    /** Return the Coffees from the DB */
    getAllCoffees() {
-     return this.db.collection(config.collection_endpoint).valueChanges();
+     return this.db.collection<Coffee>(config.collection_endpoint).valueChanges();
    }
 
    /** Return the Coffees from the DB */
    getCoffee(id) {
-    return this.db.doc<Coffee>(`${config.collection_endpoint}/${id}`);
+     return this.db.doc<Coffee>(`${config.collection_endpoint}/${id}`);
   }
 
    /** Add the new Coffee to the collection */

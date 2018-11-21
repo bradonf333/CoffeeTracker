@@ -13,16 +13,12 @@ export class CoffeeDataListComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   dataSource: CoffeeDataListDataSource;
 
-  private coffees: any;
-
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'description', 'date'];
 
   constructor(private coffeeService: CoffeeService) {}
 
   ngOnInit() {
-    this.dataSource = new CoffeeDataListDataSource(this.paginator, this.sort, this.coffeeService);
-    this.coffees = this.coffeeService.getAllCoffees();
-    console.log(this.coffees);
+    this.dataSource = new CoffeeDataListDataSource(this.coffeeService);
   }
 }
