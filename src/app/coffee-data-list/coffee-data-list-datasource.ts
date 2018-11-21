@@ -11,7 +11,6 @@ import { Coffee } from '../app.model';
  * (including sorting, pagination, and filtering).
  */
 export class CoffeeDataListDataSource extends DataSource<Coffee> {
-  // data: CoffeeDataListItem[] = EXAMPLE_DATA;
   data: Coffee[] = [];
 
   constructor(private coffeeService: CoffeeService) {
