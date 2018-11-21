@@ -1,3 +1,4 @@
+import { CoffeeService } from './../coffee.service';
 import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
@@ -19,6 +20,7 @@ const EXAMPLE_DATA: CoffeeDataListItem[] = [
   {id: '5', description: 'Monkey Bite Espresso', date: '11/01/2018'},
 ];
 
+
 /**
  * Data source for the CoffeeDataList view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
@@ -27,21 +29,28 @@ const EXAMPLE_DATA: CoffeeDataListItem[] = [
 export class CoffeeDataListDataSource extends DataSource<CoffeeDataListItem> {
   data: CoffeeDataListItem[] = EXAMPLE_DATA;
 
-  constructor(private paginator: MatPaginator, private sort: MatSort) {
+
+  constructor(private paginator: MatPaginator,
+    private sort: MatSort,
+    private coffeeService: CoffeeService) {
     super();
   }
 
+  // TODO: Dont really think this is correct but it kind of works
+  data2 = this.coffeeService.getAllCoffees();
   /**
    * Connect this data source to the table. The table will only update when
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<CoffeeDataListItem[]> {
+  connect(): Observable<any> {
 
+    // TODO: Most likely wrong
+    return this.data2;
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
-      observableOf(this.data),
+      observableOf(this.data2),
       this.paginator.page,
       this.sort.sortChange
     ];

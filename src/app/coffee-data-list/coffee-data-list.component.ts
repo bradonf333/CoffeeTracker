@@ -21,7 +21,7 @@ export class CoffeeDataListComponent implements OnInit {
   constructor(private coffeeService: CoffeeService) {}
 
   ngOnInit() {
-    this.dataSource = new CoffeeDataListDataSource(this.paginator, this.sort);
+    this.dataSource = new CoffeeDataListDataSource(this.paginator, this.sort, this.coffeeService);
     this.coffees = this.coffeeService.getAllCoffees();
     console.log(this.coffees);
   }
