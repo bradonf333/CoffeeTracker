@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, Validators, Form } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CoffeeService } from '../coffee.service';
+import { AngularFirestoreDocument } from '@angular/fire/firestore';
+import { ICoffee } from '../ICoffee';
 
 @Component({
   selector: 'app-coffee-edit',
@@ -15,6 +17,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   id: string;
   private sub: any;
   coffeeDescription: string;
+  coffeeDocToEdit: AngularFirestoreDocument<ICoffee>;
 
   constructor(private route: ActivatedRoute, private coffeeService: CoffeeService) {
     this.route.params.subscribe();
@@ -24,6 +27,8 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe(params => {
       this.id = params['id'];
       console.log('This is the id we pulled from the route: ', this.id);
+      this.coffeeDocToEdit = this.coffeeService.getCoffee(this.id);
+      // coffeeDescription = this.coffeeDocToEdit.snapshotChanges().pipe(map)
     });
 
     const coffeeToEdit = this.coffeeService.getCoffee(this.id).valueChanges();
