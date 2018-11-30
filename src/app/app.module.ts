@@ -4,12 +4,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatCardModule, MatToolbarModule, MatTableModule } from '@angular/material';
+import {
+  MatButtonModule, MatCheckboxModule, MatCardModule, MatToolbarModule
+  , MatTableModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
@@ -51,9 +55,9 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatToolbarModule,
     MatSelectModule, MatInputModule, MatMenuModule, MatCardModule, MatIconModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
+    MatTableModule, MatPaginatorModule, MatSortModule,
+    MatSidenavModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [ AppComponent ],

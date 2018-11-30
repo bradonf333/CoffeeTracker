@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+
+import { ICoffee } from '../ICoffee';
+import { config } from '../app.config';
+import { CoffeeService } from '../coffee.service';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-
-import { Coffee } from '../ICoffee';
-import { config } from '../app.config';
-import { CoffeeService } from '../coffee.service';
-import * as _ from 'underscore';
 
 @Component({
   selector: 'app-coffee-list',
@@ -17,10 +15,10 @@ import * as _ from 'underscore';
 })
 export class CoffeeListComponent implements OnInit {
 
-  coffeeCollection: AngularFirestoreCollection<Coffee>;
-  coffeesObservable: Observable<Coffee[]>;
-  coffeeDoc: AngularFirestoreDocument<Coffee>;
-  coffees: Observable<Coffee[]>;
+  coffeeCollection: AngularFirestoreCollection<ICoffee>;
+  coffeesObservable: Observable<ICoffee[]>;
+  coffeeDoc: AngularFirestoreDocument<ICoffee>;
+  coffees: Observable<ICoffee[]>;
   coffeeDesc: string;
   coffeeDate: Date;
   editMode = false;
@@ -35,7 +33,7 @@ export class CoffeeListComponent implements OnInit {
 
     this.coffees = this.coffeeCollection.snapshotChanges()
     .pipe(map(coffees => coffees.map(a => {
-      const data = a.payload.doc.data() as Coffee;
+      const data = a.payload.doc.data() as ICoffee;
       const id = a.payload.doc.id;
       console.log(a.payload);
       console.log({id, ...data });
@@ -60,10 +58,12 @@ export class CoffeeListComponent implements OnInit {
     this.coffeeService.updateCoffee(coffeeId, this.coffeeToEdit);
   }
 
-  /** Add a new Coffee */
+  /**
+   * Add a new Coffee
+   */
   addCoffee() {
 
-    const newCoffee: Coffee = {
+    const newCoffee: ICoffee = {
       description: this.coffeeDesc,
       date: this.coffeeDate
     };
@@ -71,7 +71,9 @@ export class CoffeeListComponent implements OnInit {
     this.coffeeService.addCoffee(newCoffee);
   }
 
-  /** Delete a Coffee */
+  /**
+   * Delete a Coffee
+   */
   deleteCoffee(coffee) {
 
     const coffeeId = coffee.id;
