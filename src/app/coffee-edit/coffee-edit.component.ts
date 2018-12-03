@@ -17,6 +17,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   id: string;
   private sub: any;
   coffeeDescription: string;
+  coffeeDate: Date;
   coffeeDocToEdit: AngularFirestoreDocument<ICoffee>;
 
   constructor(private route: ActivatedRoute, private coffeeService: CoffeeService) {
@@ -28,10 +29,13 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
       this.id = params['id'];
       console.log('This is the id we pulled from the route: ', this.id);
       this.coffeeDocToEdit = this.coffeeService.getCoffee(this.id);
-      // coffeeDescription = this.coffeeDocToEdit.snapshotChanges().pipe(map)
     });
 
     const coffeeToEdit = this.coffeeService.getCoffee(this.id).valueChanges();
+    coffeeToEdit.subscribe(value => {
+      this.coffeeDescription = value.description;
+      this.coffeeDate = value.date;
+    });
     console.log(coffeeToEdit);
   }
 
