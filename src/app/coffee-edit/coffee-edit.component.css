@@ -24,6 +24,11 @@
   width: 100%;
 }
 
+.mat-form-field {
+  margin-bottom: 9px;
+  font-size: 110%;
+}
+
 .mat-card-image {
   margin: 15px;
   max-width: 60px;
