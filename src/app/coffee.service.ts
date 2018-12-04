@@ -37,14 +37,17 @@ export class CoffeeService {
    }
 
    /** Update an existing Coffee */
-   updateCoffee(id, update) {
+   updateCoffee(id: string, coffeeToUpdate: ICoffee) {
 
      // Get the Coffee Document
      this.coffeeDoc = this.getCoffee(id);
-     console.log(update);
 
      // Update the Coffee Document
-     this.coffeeDoc.update(update);
+     this.coffeeDoc.update(coffeeToUpdate)
+     .catch(error => {
+       console.log(error);
+       throw new Error('Error: Could not update the Coffee.');
+     });
    }
 
    /** Delete a Coffee */

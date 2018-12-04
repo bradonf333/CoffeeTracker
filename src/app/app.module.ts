@@ -6,14 +6,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule, MatCheckboxModule, MatCardModule, MatToolbarModule
-  , MatTableModule } from '@angular/material';
+  , MatTableModule, MatInputModule, MatPaginatorModule, MatSortModule, MatListModule
+} from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { MatInputModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
@@ -25,6 +26,7 @@ import { CoffeeListComponent } from './coffee-list/coffee-list.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { CoffeeDataListComponent } from './coffee-data-list/coffee-data-list.component';
 import { CoffeeEditComponent } from './coffee-edit/coffee-edit.component';
+import { CoffeeEditConfirmationComponent } from './coffee-edit-confirmation/coffee-edit-confirmation.component';
 
 const appRoutes: Routes = [
   { path: 'coffee-list', component: CoffeeListComponent, pathMatch: 'full' },
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
     CoffeeListComponent,
     WelcomeComponent,
     CoffeeDataListComponent,
-    CoffeeEditComponent
+    CoffeeEditComponent,
+    CoffeeEditConfirmationComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -55,9 +58,12 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatToolbarModule,
     MatSelectModule, MatInputModule, MatMenuModule, MatCardModule, MatIconModule,
-    MatTableModule, MatPaginatorModule, MatSortModule,
+    MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatListModule,
     MatSidenavModule,
     FlexLayoutModule
+  ],
+  entryComponents: [
+    CoffeeEditConfirmationComponent
   ],
   providers: [],
   bootstrap: [ AppComponent ],

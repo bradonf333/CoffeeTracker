@@ -39,8 +39,7 @@
   margin-left: 20px;
 }
 
-/*   
-  .example-container {
-    width: 80%;
-    margin: 20px auto;
-  } */
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
