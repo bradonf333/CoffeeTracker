@@ -42,8 +42,8 @@ export class CoffeeListComponent implements OnInit {
   }
 
   /** Edit Coffee */
-  editCoffee(coffee) {
-    console.log(coffee);
+  editCoffee(coffee: ICoffee) {
+    console.log('Here is the coffee ', typeof coffee);
 
     // Set coffeeToEdit and editMode
     this.coffeeToEdit = coffee;
@@ -55,6 +55,8 @@ export class CoffeeListComponent implements OnInit {
 
     const coffeeId = this.coffeeToEdit.id;
     console.log(coffeeId);
+    console.log('Here is the CoffeeToEdit: ', this.coffeeToEdit);
+    console.log('Here is the CoffeeToEdit: ', typeof this.coffeeToEdit);
     this.coffeeService.updateCoffee(coffeeId, this.coffeeToEdit);
   }
 
