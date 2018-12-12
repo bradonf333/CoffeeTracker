@@ -20,14 +20,13 @@ export class CoffeeEditConfirmationComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<CoffeeEditConfirmationComponent>,
     private coffeeService: CoffeeService,
-    @Inject(MAT_DIALOG_DATA) public data: ICoffeeConfirmation, private router: Router) {}
+    @Inject(MAT_DIALOG_DATA) public coffeeConfirmation: ICoffeeConfirmation, private router: Router) {}
 
     ngOnInit() {
-      console.log(this.data.coffee);
-      console.log(this.data);
-      this.mode = this.data.mode;
-      this.coffeeToUpdate = this.data.coffee;
-      this.coffeeId = this.data.coffee.id;
+
+      this.mode = this.coffeeConfirmation.mode;
+      this.coffeeToUpdate = this.coffeeConfirmation.coffee;
+      this.coffeeId = this.coffeeConfirmation.coffee.id;
     }
 
     onNoClick(): void {

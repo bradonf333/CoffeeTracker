@@ -19,8 +19,8 @@
       </mat-form-field>
 
       <div class="example-button-row">
-        <button mat-raised-button [disabled]="disableSubmitButton()" color="primary" (click)="editCoffee()">Submit</button>
-        <button mat-raised-button [disabled]="disableSubmitButton()" color="warn" (click)="deleteCoffee()">Delete</button>
+        <button mat-raised-button [disabled]="disableButton()" color="primary" (click)="editCoffee()">Submit</button>
+        <button mat-raised-button [disabled]="disableButton()" color="warn" (click)="deleteCoffee()">Delete</button>
       </div>
     </mat-card-content>
   </mat-card>

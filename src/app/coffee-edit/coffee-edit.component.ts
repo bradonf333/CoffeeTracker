@@ -3,10 +3,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute  } from '@angular/router';
 import { CoffeeService } from '../coffee.service';
 import { MatDialog } from '@angular/material';
-import { ICoffee } from '../ICoffee';
-import { Observable } from 'rxjs';
 import { CoffeeEditConfirmationComponent } from '../coffee-edit-confirmation/coffee-edit-confirmation.component';
-import { Mode } from '../ICoffeeConfirmation';
+import { Mode, ICoffeeConfirmation } from '../ICoffeeConfirmation';
 
 @Component({
   selector: 'app-coffee-edit',
@@ -15,15 +13,20 @@ import { Mode } from '../ICoffeeConfirmation';
 })
 export class CoffeeEditComponent implements OnInit, OnDestroy {
 
+  // Form Validators
   description = new FormControl('', [Validators.required]);
   date = new FormControl('', [Validators.required]);
+
+  // Routing
   id: string;
   private sub: any;
+
+  // Form Values
   coffeeDescription: string;
   coffeeDate: Date;
-  coffeeObservable: Observable <ICoffee> ;
-  coffeeDocToEdit: ICoffee;
-  mode: Mode;
+
+  // Coffee and Edit Object used to edit or delete the coffee
+  coffeeConfirmation: ICoffeeConfirmation;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,13 +41,18 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
       this.id = params['id'];
     });
 
-    this.coffeeObservable = this.coffeeService.getCoffee(this.id).valueChanges();
-    this.coffeeObservable.subscribe(coffee => {
+    const coffeeObservable = this.coffeeService.getCoffee(this.id).valueChanges();
+    coffeeObservable.subscribe(coffee => {
+
+      // Bind the form values to the Coffee from the DB.
       this.coffeeDescription = coffee.description;
       this.coffeeDate = coffee.date;
 
-      // Initialize the CoffeeToEdit here so that it is not null
-      this.coffeeDocToEdit = coffee;
+      // Initialize the Coffee Objects here so that they are not null
+      this.coffeeConfirmation = {
+        coffee: coffee,
+        mode: Mode.None
+      };
     });
   }
 
@@ -57,7 +65,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   }
 
   /** If any validation Errors then Disable the button */
-  disableSubmitButton() {
+  disableButton() {
     if (this.description.hasError('required') || this.date.hasError('required')) {
       return true;
     } else {
@@ -68,17 +76,21 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   /** Edit Coffee */
   editCoffee() {
 
-    this.coffeeDocToEdit.description = this.coffeeDescription;
-    this.coffeeDocToEdit.date = this.coffeeDate;
-    this.mode = Mode.Edit;
+    this.setCoffeeForEdit();
     this.confirmDialog();
   }
 
   /** Delete Coffee */
   deleteCoffee() {
-    console.log(this.id);
-    this.mode = Mode.Delete;
+    this.coffeeConfirmation.mode = Mode.Delete;
     this.confirmDialog();
+  }
+
+  /** Set the necessary values for the Coffee to be modified */
+  setCoffeeForEdit() {
+    this.coffeeConfirmation.coffee.date = this.coffeeDate;
+    this.coffeeConfirmation.coffee.description = this.coffeeDescription;
+    this.coffeeConfirmation.mode = Mode.Edit;
   }
 
   /**
@@ -89,7 +101,16 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     const dialogRef = this.dialog.open(CoffeeEditConfirmationComponent, {
       width: '80%',
       maxWidth: '450px',
-      data: {mode: this.mode, coffee: this.coffeeDocToEdit}
+      /*
+      * NOTE: The Object passed to the dialogRef has to be called data.
+      * However you can build this data object however you want.
+      * I want this data object to follow the model of my ICoffeeConfirmation interface.
+      * Then in the CoffeeEditConfirmationComponent it can now receive an ICoffeeConfirmation object and be strongly
+      */
+      data: {
+        coffee: this.coffeeConfirmation.coffee,
+        mode: this.coffeeConfirmation.mode
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
