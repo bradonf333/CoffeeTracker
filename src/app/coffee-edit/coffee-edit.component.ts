@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material';
 import { ICoffee } from '../ICoffee';
 import { Observable } from 'rxjs';
 import { CoffeeEditConfirmationComponent } from '../coffee-edit-confirmation/coffee-edit-confirmation.component';
+import { Mode } from '../ICoffeeConfirmation';
 
 @Component({
   selector: 'app-coffee-edit',
@@ -22,7 +23,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   coffeeDate: Date;
   coffeeObservable: Observable <ICoffee> ;
   coffeeDocToEdit: ICoffee;
-  isDisabled: true;
+  mode: Mode;
 
   constructor(
     private route: ActivatedRoute,
@@ -55,6 +56,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     return validator.hasError('required') ? 'You must enter a value' : '';
   }
 
+  /** If any validation Errors then Disable the button */
   disableSubmitButton() {
     if (this.description.hasError('required') || this.date.hasError('required')) {
       return true;
@@ -68,18 +70,26 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
 
     this.coffeeDocToEdit.description = this.coffeeDescription;
     this.coffeeDocToEdit.date = this.coffeeDate;
-
-    this.coffeeService.updateCoffee(this.id, this.coffeeDocToEdit);
-
-    this.successDialog();
-    // this.router.navigate(['/coffee-data-list']);
+    this.mode = Mode.Edit;
+    this.confirmDialog();
   }
 
-  successDialog(): void {
+  /** Delete Coffee */
+  deleteCoffee() {
+    console.log(this.id);
+    this.mode = Mode.Delete;
+    this.confirmDialog();
+  }
+
+  /**
+   * Pass the necessary info into the CoffeeEditConfirmationComponent.
+   * Depending on the Mode, this will either Edit or Delete the current Coffee Object.
+   */
+  confirmDialog(): void {
     const dialogRef = this.dialog.open(CoffeeEditConfirmationComponent, {
       width: '80%',
       maxWidth: '450px',
-      data: {description: this.coffeeDescription, date: this.coffeeDate}
+      data: {mode: this.mode, coffee: this.coffeeDocToEdit}
     });
 
     dialogRef.afterClosed().subscribe(result => {
