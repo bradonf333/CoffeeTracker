@@ -4,10 +4,35 @@
 @import '~@angular/material/theming';
 
 @import url('//fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet"');
 
 $config: mat-typography-config();
 
 body {
-    font-family: mat-font-family($config);
-    font-weight: normal;
-  }
+  font-family: mat-font-family($config);
+  font-weight: normal;
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+mat-card {
+  // max-width: 80%;
+  // margin: 2em auto;
+  // height: 100%;
+  text-align: center;
+}
+
+mat-toolbar-row {
+  justify-content: space-between;
+}
+
+.done {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+}
+
+.mat-card-header-text{
+  width: 100% !important;
+}

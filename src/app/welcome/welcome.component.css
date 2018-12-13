@@ -1,0 +1,10 @@
+.main {
+  text-align: center;
+  background-color: white;
+  height: 100%;
+}
+
+.card-container-center {
+  display: inline;
+  align-content: center;
+}

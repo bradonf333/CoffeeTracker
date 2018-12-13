@@ -1,0 +1,50 @@
+mat-sidenav-content {
+  height: 1000px !important;
+}
+.example-container mat-drawer-content mat-sidenav-content {
+  // height: 1000px !important;
+  display: flex;
+  // width: 500px;
+  // height: 300px;
+
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.img.mat-card-image {
+  // display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  display: flex;
+  padding: 20px;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+.mat-card-image {
+  max-width: 160px;
+  max-height: 160px;
+}
