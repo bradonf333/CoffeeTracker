@@ -17,20 +17,24 @@
 
     </div>
 
-    <div fxShow="true" fxHide.gt-sm="true">
+    <!-- <div fxShow="true" fxHide.gt-sm="true"> -->
       <button mat-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-    </div>
+    <!-- </div> -->
 
   </mat-toolbar>
 
   <mat-sidenav-container fxFlexFill class="example-container">
     <mat-sidenav 
       #sidenav 
-      [opened]="mobileQuery.matches ? 'false' : 'true'"
       [mode]="mobileQuery.matches ? 'over' : 'side'" 
       class="example-sidenav">
+      <!-- <mat-sidenav 
+      #sidenav 
+      [opened]="mobileQuery.matches ? 'false' : 'true'" --This opens the sidenav based on the size of the screen
+      [mode]="mobileQuery.matches ? 'over' : 'side'" 
+      class="example-sidenav"> -->
       <mat-card color="primary" class="example-card">
         <img mat-card-image src="../../assets/img/avatar_many.png">
         <mat-card-content>

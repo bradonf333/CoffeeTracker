@@ -13,5 +13,6 @@ export interface ICoffeeConfirmation {
 export enum Mode {
   Edit = 'Edit',
   Delete = 'Delete',
+  New = 'New',
   None = 'None'
 }

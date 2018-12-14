@@ -24,3 +24,7 @@
   font-weight: 600;
   font-size: medium;
 }
+
+button {
+  margin: 5px;
+}
