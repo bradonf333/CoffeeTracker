@@ -27,18 +27,23 @@ export class CoffeeEditConfirmationComponent implements OnInit {
       this.mode = this.coffeeConfirmation.mode;
       this.coffeeToUpdate = this.coffeeConfirmation.coffee;
       this.coffeeId = this.coffeeConfirmation.coffee.id;
+      console.log(this.mode);
     }
 
     onNoClick(): void {
       this.dialogRef.close();
   }
 
+  /**  */
   onOkClick(): void {
     this.dialogRef.close();
+
     if (this.mode === Mode.Edit) {
       this.coffeeService.updateCoffee(this.coffeeId, this.coffeeToUpdate);
     } else if (this.mode === Mode.Delete) {
       this.coffeeService.deleteCoffee(this.coffeeId);
+    } else if (this.mode === Mode.Add) {
+      this.coffeeService.addCoffee(this.coffeeToUpdate);
     }
     this.router.navigate(['/coffee-data-list']);
   }

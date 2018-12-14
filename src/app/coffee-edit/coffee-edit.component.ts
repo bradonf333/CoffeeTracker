@@ -41,19 +41,36 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
       this.id = params['id'];
     });
 
-    const coffeeObservable = this.coffeeService.getCoffee(this.id).valueChanges();
-    coffeeObservable.subscribe(coffee => {
+    /*
+     * If this is a new Coffee, create a new object.
+     * If it is an existing Coffee, get all the information for that object.
+     */
+    if (this.id === '0') {
 
-      // Bind the form values to the Coffee from the DB.
-      this.coffeeDescription = coffee.description;
-      this.coffeeDate = coffee.date;
-
-      // Initialize the Coffee Objects here so that they are not null
+      // At this point the form will be blank, so these form values will be empty.
       this.coffeeConfirmation = {
-        coffee: coffee,
+        coffee: {
+          description: this.coffeeDescription,
+          date: this.coffeeDate
+        },
         mode: Mode.None
       };
-    });
+    } else {
+
+      const coffeeObservable = this.coffeeService.getCoffee(this.id).valueChanges();
+      coffeeObservable.subscribe(coffee => {
+
+        // Bind the form values to the Coffee from the DB.
+        this.coffeeDescription = coffee.description;
+        this.coffeeDate = coffee.date;
+
+        // Initialize the Coffee Objects here so that they are not null
+        this.coffeeConfirmation = {
+          coffee: coffee,
+          mode: Mode.None
+        };
+      });
+    }
   }
 
   ngOnDestroy() {
@@ -73,10 +90,9 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     }
   }
 
-  /** Edit Coffee */
-  editCoffee() {
-
-    this.setCoffeeForEdit();
+  /** Add or Edit Coffee */
+  submitCoffee() {
+    this.setCoffeeAndMode();
     this.confirmDialog();
   }
 
@@ -87,10 +103,14 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   }
 
   /** Set the necessary values for the Coffee to be modified */
-  setCoffeeForEdit() {
+  setCoffeeAndMode() {
     this.coffeeConfirmation.coffee.date = this.coffeeDate;
     this.coffeeConfirmation.coffee.description = this.coffeeDescription;
-    this.coffeeConfirmation.mode = Mode.Edit;
+    if (this.id === '0') {
+      this.coffeeConfirmation.mode = Mode.Add;
+    } else {
+      this.coffeeConfirmation.mode = Mode.Edit;
+    }
   }
 
   /**
