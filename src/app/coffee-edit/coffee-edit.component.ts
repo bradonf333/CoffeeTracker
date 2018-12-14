@@ -1,10 +1,11 @@
-import { Component, OnInit, OnDestroy  } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute  } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CoffeeService } from '../coffee.service';
 import { MatDialog } from '@angular/material';
 import { CoffeeEditConfirmationComponent } from '../coffee-edit-confirmation/coffee-edit-confirmation.component';
 import { Mode, ICoffeeConfirmation } from '../ICoffeeConfirmation';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-coffee-edit',
@@ -12,6 +13,8 @@ import { Mode, ICoffeeConfirmation } from '../ICoffeeConfirmation';
   styleUrls: ['./coffee-edit.component.css']
 })
 export class CoffeeEditComponent implements OnInit, OnDestroy {
+
+  now = moment().format();
 
   // Form Validators
   description = new FormControl('', [Validators.required]);
@@ -23,7 +26,8 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
 
   // Form Values
   coffeeDescription: string;
-  coffeeDate: Date;
+  // coffeeDate = moment().format('MM/DD/YYYY');
+  coffeeDate: string;
 
   // Coffee and Edit Object used to edit or delete the coffee
   coffeeConfirmation: ICoffeeConfirmation;
@@ -32,20 +36,20 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private coffeeService: CoffeeService,
     public dialog: MatDialog
-    ) {
+  ) {
     this.route.params.subscribe();
   }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      this.id = params['id'];
+    this.sub = this.route.paramMap.subscribe(params => {
+      this.id = params.get('id');
     });
 
     /*
      * If this is a new Coffee, create a new object.
      * If it is an existing Coffee, get all the information for that object.
      */
-    if (this.id === '0') {
+    if (this.id === 'new') {
 
       // At this point the form will be blank, so these form values will be empty.
       this.coffeeConfirmation = {
@@ -62,7 +66,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
 
         // Bind the form values to the Coffee from the DB.
         this.coffeeDescription = coffee.description;
-        this.coffeeDate = coffee.date;
+        this.coffeeDate = moment(coffee.date).format('MM/DD/YYYY');
 
         // Initialize the Coffee Objects here so that they are not null
         this.coffeeConfirmation = {
@@ -104,8 +108,9 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
 
   /** Set the necessary values for the Coffee to be modified */
   setCoffeeAndMode() {
-    this.coffeeConfirmation.coffee.date = this.coffeeDate;
+    this.coffeeConfirmation.coffee.date = moment(this.coffeeDate).format('MM/DD/YYYY');
     this.coffeeConfirmation.coffee.description = this.coffeeDescription;
+
     if (this.id === '0') {
       this.coffeeConfirmation.mode = Mode.Add;
     } else {

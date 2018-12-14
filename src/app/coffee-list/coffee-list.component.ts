@@ -20,7 +20,7 @@ export class CoffeeListComponent implements OnInit {
   coffeeDoc: AngularFirestoreDocument<ICoffee>;
   coffees: Observable<ICoffee[]>;
   coffeeDesc: string;
-  coffeeDate: Date;
+  coffeeDate: string;
   editMode = false;
   coffeeToEdit: any = {};
 

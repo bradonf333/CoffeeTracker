@@ -1,6 +1,6 @@
 <div>
 
-  <mat-toolbar color="accent">
+  <mat-toolbar color="primary">
 
     <!-- The following menu items will be hidden on both SM and XS screen sizes -->
     <div fxShow="true" fxHide.lt-md="true">
@@ -35,7 +35,7 @@
       [opened]="mobileQuery.matches ? 'false' : 'true'" --This opens the sidenav based on the size of the screen
       [mode]="mobileQuery.matches ? 'over' : 'side'" 
       class="example-sidenav"> -->
-      <mat-card color="primary" class="example-card">
+      <mat-card color="primary" class="mat-elevation-z6" >
         <img mat-card-image src="../../assets/img/avatar_many.png">
         <mat-card-content>
           <h4><b>Bradon Fredrickson</b></h4>

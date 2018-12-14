@@ -29,5 +29,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns" color="primary"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <button mat-raised-button color="accent" [routerLink]="['/coffee-edit', 0]">Add</button>
+  <button mat-raised-button color="accent" [routerLink]="['/coffee-edit', 'new']">Add</button>
 </div>
