@@ -13,3 +13,10 @@ $my-app-theme:   mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
     $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent);
     @include angular-material-theme($alternate-theme);
   }
+
+// Create your Sass color vars (will be available in all the project)
+$primary: mat-color($my-app-primary);
+$accent: mat-color($my-app-accent);
+$lighter-accent: mat-color(mat-palette($mat-brown, 50, 0, 0));
+$lightish-accent: mat-color(mat-palette($mat-brown, 400, 450, 500));
+$warn: mat-color($my-app-warn);

@@ -1,3 +1,5 @@
+@import '../../theme/theme.scss';
+
 .full-width-table {
   width: 100%;
 }
@@ -7,17 +9,9 @@
   margin: 20px auto;
 }
 
-/* 
-.coffee-data-list {
-  width: 40%;
-  margin: 20px auto;
-} */
-/* 
-.example-container {
-  display: flex;
-  flex-direction: column;
-  min-width: 300px;
-} */
+.mat-row:hover {
+  background-color: $lighter-accent;
+}
 
 .mat-header-cell {
   text-align: justify;

@@ -6,7 +6,7 @@ import { CoffeeService } from '../coffee.service';
 @Component({
   selector: 'app-coffee-data-list',
   templateUrl: './coffee-data-list.component.html',
-  styleUrls: ['./coffee-data-list.component.css'],
+  styleUrls: ['./coffee-data-list.component.scss'],
 })
 export class CoffeeDataListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
