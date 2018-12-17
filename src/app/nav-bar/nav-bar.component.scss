@@ -1,16 +1,31 @@
+
+@import '~@angular/material/theming';
+
 mat-sidenav-content {
   height: 1000px !important;
 }
 .example-container mat-drawer-content mat-sidenav-content {
-  // height: 1000px !important;
   display: flex;
-  // width: 500px;
-  // height: 300px;
+}
+
+.mat-card {
+  padding: 16px, 0px, 0px, 0px;
 }
 
 mat-card-content b, mat-card-content {
   font-size: 75% !important;
+  padding: 5px 5px 0px 5px;
+  margin: 10px 0px 0px 0px;
 }
+
+mat-card {
+  transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+  display: block;
+  position: relative;
+  padding: 16px 0px 0px 0px;
+  // @include mat-elevation(2);
+}
+
 .example-sidenav-content {
   display: flex;
   height: 100%;
@@ -21,7 +36,7 @@ mat-card-content b, mat-card-content {
 
 .example-sidenav {
   display: flex;
-  padding: 20px;
+  padding: 20px 5px 0px 5px;
 }
 
 .card {
@@ -43,4 +58,6 @@ mat-card-content b, mat-card-content {
 .mat-card-image {
   max-width: 100px;
   max-height: 100px;
+  margin: 0px;
+  padding: 0px;
 }

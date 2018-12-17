@@ -28,14 +28,17 @@
   <mat-sidenav-container fxFlexFill class="example-container">
     <mat-sidenav 
       #sidenav 
-      [mode]="mobileQuery.matches ? 'over' : 'side'" 
       class="example-sidenav">
-      <!-- <mat-sidenav 
+      <!-- 
+      <mat-sidenav 
       #sidenav 
-      [opened]="mobileQuery.matches ? 'false' : 'true'" --This opens the sidenav based on the size of the screen
-      [mode]="mobileQuery.matches ? 'over' : 'side'" 
+      [mode]= "mobileQuery.matches ? 'over' : 'side'" -- This will open the sidenav and move the rest of the content on larger screens.
+      -- Rather than opening it on top of the current content.
       class="example-sidenav"> -->
-      <mat-card color="primary" class="mat-elevation-z6" >
+      <!-- <mat-sidenav 
+      #sidenav [opened]="mobileQuery.matches ? 'false' : 'true'" --This opens the sidenav based on the size of the screen
+      [mode]="mobileQuery.matches ? 'over' : 'side'" class="example-sidenav"> -->
+      <mat-card color="primary" class="mat-elevation-z0">
         <img mat-card-image src="../../assets/img/avatar_many.png">
         <mat-card-content>
           <h4><b>Bradon Fredrickson</b></h4>
@@ -43,6 +46,7 @@
         </mat-card-content>
         <mat-card-header></mat-card-header>
       </mat-card>
+      <hr style="padding: 0px margin 0px;" />
       <div fxLayout="column" fxLayoutAlign="start" style="text-align:justify">
         <button (click)="sidenav.toggle()" style="text-align:justify" mat-button [routerLink]="['/']">
           <mat-icon>home</mat-icon> Coffee Tracker
