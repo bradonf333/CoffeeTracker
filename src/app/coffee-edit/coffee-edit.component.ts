@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CoffeeService } from '../coffee.service';
 import { MatDialog } from '@angular/material';
 import { CoffeeEditConfirmationComponent } from '../coffee-edit-confirmation/coffee-edit-confirmation.component';
@@ -33,16 +33,19 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   coffeeConfirmation: ICoffeeConfirmation;
 
   constructor(
-    private route: ActivatedRoute,
+    private actRoute: ActivatedRoute,
+    private router: Router,
     private coffeeService: CoffeeService,
     public dialog: MatDialog
   ) {
-    this.route.params.subscribe();
+    this.actRoute.params.subscribe();
   }
 
   ngOnInit() {
-    this.sub = this.route.paramMap.subscribe(params => {
+    this.sub = this.actRoute.paramMap.subscribe(params => {
       this.id = params.get('id');
+      console.log(`Id from the Route: ${this.id}`);
+      console.log(`${this.id === 'new'}`);
     });
 
     /*
@@ -57,8 +60,13 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
           description: this.coffeeDescription,
           date: this.coffeeDate
         },
-        mode: Mode.None
+        mode: Mode.Add
       };
+    } else if (this.id === 'undefined') {
+
+      // If undefined, then re-route because it is an error.
+      // TODO: Create an error page/component.
+      this.router.navigate(['']);
     } else {
 
       const coffeeObservable = this.coffeeService.getCoffee(this.id).valueChanges();
@@ -111,7 +119,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     this.coffeeConfirmation.coffee.date = moment(this.coffeeDate).format('MM/DD/YYYY');
     this.coffeeConfirmation.coffee.description = this.coffeeDescription;
 
-    if (this.id === '0') {
+    if (this.id === 'new') {
       this.coffeeConfirmation.mode = Mode.Add;
     } else {
       this.coffeeConfirmation.mode = Mode.Edit;
