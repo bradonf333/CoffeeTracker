@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { config } from './app.config';
-import { ICoffee } from './ICoffee';
+import { Coffee } from './Coffee';
 
 import {
   AngularFirestoreDocument,
@@ -14,21 +14,21 @@ import {
 })
 export class CoffeeService {
 
-  coffees: AngularFirestoreCollection<ICoffee>;
-  private coffeeDoc: AngularFirestoreDocument<ICoffee>;
+  coffees: AngularFirestoreCollection<Coffee>;
+  private coffeeDoc: AngularFirestoreDocument<Coffee>;
 
   constructor(private db: AngularFirestore) {
-    this.coffees = db.collection<ICoffee>(config.collection_endpoint);
+    this.coffees = db.collection<Coffee>(config.collection_endpoint);
    }
 
    /** Return the Coffees from the DB */
    getAllCoffees() {
-     return this.db.collection<ICoffee>(config.collection_endpoint).valueChanges();
+     return this.db.collection<Coffee>(config.collection_endpoint).valueChanges();
    }
 
    /** Return the Coffees from the DB */
    getCoffee(id) {
-     return this.db.doc<ICoffee>(`${config.collection_endpoint}/${id}`);
+     return this.db.doc<Coffee>(`${config.collection_endpoint}/${id}`);
   }
 
    /** Add the new Coffee to the collection */
@@ -37,7 +37,7 @@ export class CoffeeService {
    }
 
    /** Update an existing Coffee */
-   updateCoffee(id: string, coffeeToUpdate: ICoffee) {
+   updateCoffee(id: string, coffeeToUpdate: Coffee) {
 
      // Get the Coffee Document
      this.coffeeDoc = this.getCoffee(id);

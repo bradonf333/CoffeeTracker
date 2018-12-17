@@ -1,10 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { ICoffeeConfirmation } from '../ICoffeeConfirmation';
-import { Mode } from '../ICoffeeConfirmation';
+import { CoffeeConfirmation } from '../CoffeeConfirmation';
+import { Mode } from '../CoffeeConfirmation';
 import { CoffeeService } from '../coffee.service';
-import { ICoffee } from '../ICoffee';
+import { Coffee } from '../Coffee';
 
 @Component({
   selector: 'app-coffee-edit-confirmation',
@@ -14,13 +14,13 @@ import { ICoffee } from '../ICoffee';
 export class CoffeeEditConfirmationComponent implements OnInit {
 
   mode: Mode;
-  coffeeToUpdate: ICoffee;
+  coffeeToUpdate: Coffee;
   coffeeId: string;
 
   constructor(
     public dialogRef: MatDialogRef<CoffeeEditConfirmationComponent>,
     private coffeeService: CoffeeService,
-    @Inject(MAT_DIALOG_DATA) public coffeeConfirmation: ICoffeeConfirmation, private router: Router) {}
+    @Inject(MAT_DIALOG_DATA) public coffeeConfirmation: CoffeeConfirmation, private router: Router) {}
 
     ngOnInit() {
 

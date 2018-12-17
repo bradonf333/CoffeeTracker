@@ -1,12 +1,12 @@
-import { ICoffee } from './ICoffee';
+import { Coffee } from './Coffee';
 
 /**
  * CoffeeConfirmation Interface.
  * Contains an added Mode enum, to know what to do with the Coffee.
  * i.e. Update or Delete.
  */
-export interface ICoffeeConfirmation {
-  coffee: ICoffee;
+export interface CoffeeConfirmation {
+  coffee: Coffee;
   mode: Mode;
 }
 

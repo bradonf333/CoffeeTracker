@@ -3,15 +3,15 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import { ICoffee } from '../ICoffee';
+import { Coffee } from '../Coffee';
 
 /**
  * Data source for the CoffeeDataList view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class CoffeeDataListDataSource extends DataSource<ICoffee> {
-  data: ICoffee[] = [];
+export class CoffeeDataListDataSource extends DataSource<Coffee> {
+  data: Coffee[] = [];
 
   constructor(private coffeeService: CoffeeService) {
     super();
@@ -28,7 +28,7 @@ export class CoffeeDataListDataSource extends DataSource<ICoffee> {
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<ICoffee[]> {
+  connect(): Observable<Coffee[]> {
 
     return this.coffeeService.getAllCoffees();
     // this.coffeeService.getAllCoffees().subscribe((coffees) => {

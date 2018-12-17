@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CoffeeService } from '../coffee.service';
 import { MatDialog } from '@angular/material';
 import { CoffeeEditConfirmationComponent } from '../coffee-edit-confirmation/coffee-edit-confirmation.component';
-import { Mode, ICoffeeConfirmation } from '../ICoffeeConfirmation';
+import { Mode, CoffeeConfirmation } from '../CoffeeConfirmation';
 import * as moment from 'moment';
 
 @Component({
@@ -30,7 +30,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   coffeeDate: string;
 
   // Coffee and Edit Object used to edit or delete the coffee.
-  coffeeConfirmation: ICoffeeConfirmation;
+  coffeeConfirmation: CoffeeConfirmation;
 
   constructor(
     private actRoute: ActivatedRoute,

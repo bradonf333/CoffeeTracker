@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 
-import { ICoffee } from '../ICoffee';
+import { Coffee } from '../Coffee';
 import { config } from '../app.config';
 import { CoffeeService } from '../coffee.service';
 
@@ -15,10 +15,10 @@ import { map } from 'rxjs/operators';
 })
 export class CoffeeListComponent implements OnInit {
 
-  coffeeCollection: AngularFirestoreCollection<ICoffee>;
-  coffeesObservable: Observable<ICoffee[]>;
-  coffeeDoc: AngularFirestoreDocument<ICoffee>;
-  coffees: Observable<ICoffee[]>;
+  coffeeCollection: AngularFirestoreCollection<Coffee>;
+  coffeesObservable: Observable<Coffee[]>;
+  coffeeDoc: AngularFirestoreDocument<Coffee>;
+  coffees: Observable<Coffee[]>;
   coffeeDesc: string;
   coffeeDate: string;
   editMode = false;
@@ -33,7 +33,7 @@ export class CoffeeListComponent implements OnInit {
 
     this.coffees = this.coffeeCollection.snapshotChanges()
     .pipe(map(coffees => coffees.map(a => {
-      const data = a.payload.doc.data() as ICoffee;
+      const data = a.payload.doc.data() as Coffee;
       const id = a.payload.doc.id;
       console.log(a.payload);
       console.log({id, ...data });
@@ -42,7 +42,7 @@ export class CoffeeListComponent implements OnInit {
   }
 
   /** Edit Coffee */
-  editCoffee(coffee: ICoffee) {
+  editCoffee(coffee: Coffee) {
     console.log('Here is the coffee ', typeof coffee);
 
     // Set coffeeToEdit and editMode
@@ -65,7 +65,7 @@ export class CoffeeListComponent implements OnInit {
    */
   addCoffee() {
 
-    const newCoffee: ICoffee = {
+    const newCoffee: Coffee = {
       description: this.coffeeDesc,
       date: this.coffeeDate
     };
