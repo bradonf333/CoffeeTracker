@@ -27,7 +27,6 @@ export class CoffeeEditConfirmationComponent implements OnInit {
       this.mode = this.coffeeConfirmation.mode;
       this.coffeeToUpdate = this.coffeeConfirmation.coffee;
       this.coffeeId = this.coffeeConfirmation.coffee.id;
-      console.log(this.mode);
     }
 
     onNoClick(): void {

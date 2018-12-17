@@ -29,7 +29,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   // coffeeDate = moment().format('MM/DD/YYYY');
   coffeeDate: string;
 
-  // Coffee and Edit Object used to edit or delete the coffee
+  // Coffee and Edit Object used to edit or delete the coffee.
   coffeeConfirmation: ICoffeeConfirmation;
 
   constructor(
@@ -44,12 +44,11 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.actRoute.paramMap.subscribe(params => {
       this.id = params.get('id');
-      console.log(`Id from the Route: ${this.id}`);
-      console.log(`${this.id === 'new'}`);
     });
 
     /*
      * If this is a new Coffee, create a new object.
+     * If undefined, then re-route to home page.
      * If it is an existing Coffee, get all the information for that object.
      */
     if (this.id === 'new') {
@@ -58,7 +57,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
       this.coffeeConfirmation = {
         coffee: {
           description: this.coffeeDescription,
-          date: this.coffeeDate
+          date: moment(this.coffeeDate).format('MM/DD/YYYY')
         },
         mode: Mode.Add
       };
@@ -76,7 +75,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
         this.coffeeDescription = coffee.description;
         this.coffeeDate = moment(coffee.date).format('MM/DD/YYYY');
 
-        // Initialize the Coffee Objects here so that they are not null
+        // Initialize the Coffee Objects here so that they are not null.
         this.coffeeConfirmation = {
           coffee: coffee,
           mode: Mode.None
