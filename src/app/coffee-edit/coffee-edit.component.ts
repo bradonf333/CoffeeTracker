@@ -26,8 +26,8 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
 
   // Form Values
   coffeeDescription: string;
-  // coffeeDate = moment().format('MM/DD/YYYY');
-  coffeeDate: string;
+  coffeeDate = moment().format('MM/DD/YYYY');
+  // coffeeDate: string;
 
   // Coffee and Edit Object used to edit or delete the coffee.
   coffeeConfirmation: CoffeeConfirmation;
@@ -71,9 +71,13 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
       const coffeeObservable = this.coffeeService.getCoffee(this.id).valueChanges();
       coffeeObservable.subscribe(coffee => {
 
+        console.log(coffee.date);
+        console.log(this.coffeeDate);
         // Bind the form values to the Coffee from the DB.
         this.coffeeDescription = coffee.description;
-        this.coffeeDate = moment(coffee.date).format('MM/DD/YYYY');
+
+        // In order for the Material Datepicker to handle the date, needs to use ISOString.
+        this.coffeeDate = moment(coffee.date).toISOString();
 
         // Initialize the Coffee Objects here so that they are not null.
         this.coffeeConfirmation = {
