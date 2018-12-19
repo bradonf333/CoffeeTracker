@@ -5,15 +5,6 @@
     <!-- The following menu items will be hidden on both SM and XS screen sizes -->
     <div fxShow="true" fxHide.lt-md="true">
       
-      <!-- <button mat-button [routerLink]="['/']">
-        <mat-icon>home</mat-icon> Coffee Tracker
-      </button>
-      <button mat-button [routerLink]="['/coffee-list']">
-        <mat-icon>format_list_numbered</mat-icon> View Coffees
-      </button>
-      <button mat-button [routerLink]="['/coffee-data-list']">
-        <mat-icon>format_list_numbered</mat-icon> View Coffees Data List
-      </button> -->
 
     </div>
 
@@ -51,11 +42,8 @@
         <button (click)="sidenav.toggle()" style="text-align:justify" mat-button [routerLink]="['/']">
           <mat-icon>home</mat-icon> Coffee Tracker
         </button>
-        <button (click)="sidenav.toggle()" style="text-align:left" mat-button [routerLink]="['/coffee-list']">
-          <mat-icon>format_list_numbered</mat-icon> View Coffees
-        </button>
         <button (click)="sidenav.toggle()" style="text-align:left" mat-button [routerLink]="['/coffee-data-list']">
-          <mat-icon>format_list_numbered</mat-icon> View Coffees Data List
+          <mat-icon>format_list_numbered</mat-icon> View Coffees
         </button>
       </div>
     </mat-sidenav>

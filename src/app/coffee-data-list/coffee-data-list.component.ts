@@ -17,7 +17,7 @@ export class CoffeeDataListComponent implements OnInit {
   dataSource: CoffeeDataListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'description', 'date', 'options'];
+  displayedColumns = ['#', 'description', 'date', 'options'];
 
   constructor(private coffeeService: CoffeeService, public dialog: MatDialog, public snackBar: MatSnackBar) {}
 

@@ -39,8 +39,6 @@ export class CoffeeEditConfirmationComponent implements OnInit {
 
     if (this.mode === Mode.Edit) {
       this.coffeeService.updateCoffee(this.coffeeId, this.coffeeToUpdate);
-    } else if (this.mode === Mode.Delete) {
-      this.coffeeService.deleteCoffee(this.coffeeId);
     } else if (this.mode === Mode.Add) {
       this.coffeeService.addCoffee(this.coffeeToUpdate);
     }

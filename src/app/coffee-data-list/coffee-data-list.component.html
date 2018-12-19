@@ -3,8 +3,8 @@
       <!-- <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements"> -->
 
     <!-- Id Column -->
-    <ng-container class="coffee-data-list" matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-header>Id</th>
+    <ng-container class="coffee-data-list" matColumnDef="#">
+      <th mat-header-cell *matHeaderCellDef mat-header>#</th>
       <td mat-cell *matCellDef="let i = index" [attr.data-index]="i">{{ i + 1 }} </td>
     </ng-container>
 
@@ -20,13 +20,13 @@
         <td mat-cell *matCellDef="let row">{{row.date}}</td>
     </ng-container>
 
-    <!-- Edit Column -->
+    <!-- Options Column -->
     <ng-container matColumnDef="options">
       <th mat-header-cell *matHeaderCellDef mat-header>Options</th>
 
       <td mat-cell *matCellDef="let row">
       <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>more_vert</mat-icon>
+        <mat-icon>more_horiz</mat-icon>
       </button>
 
       <mat-menu #menu="matMenu" class="menu-overflow-hidden">

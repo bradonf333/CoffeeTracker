@@ -14,7 +14,6 @@ import * as moment from 'moment';
 })
 export class CoffeeEditComponent implements OnInit, OnDestroy {
 
-  now = moment().format();
   mode: Mode;
 
   // Form Validators
@@ -62,7 +61,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
         mode: Mode.Add
       };
       this.mode = Mode.Add;
-    } else if (this.id === 'undefined') {
+    } else if (!this.id) {
 
       // If undefined, then re-route because it is an error.
       // TODO: Create an error page/component.
@@ -109,12 +108,6 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   /** Add or Edit Coffee */
   submitCoffee() {
     this.setCoffeeAndMode();
-    this.confirmDialog();
-  }
-
-  /** Delete Coffee */
-  deleteCoffee() {
-    this.coffeeConfirmation.mode = Mode.Delete;
     this.confirmDialog();
   }
 

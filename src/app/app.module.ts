@@ -14,7 +14,6 @@ import { environment } from '../environments/environment';
 
 /* My created Component Imports */
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { CoffeeListComponent } from './coffee-list/coffee-list.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { CoffeeDataListComponent } from './coffee-data-list/coffee-data-list.component';
 import { CoffeeEditComponent } from './coffee-edit/coffee-edit.component';
@@ -24,7 +23,6 @@ import { CoffeeDetailComponent } from './coffee-detail/coffee-detail.component';
 import { CoffeeDeleteDialogComponent } from './coffee-delete-dialog/coffee-delete-dialog.component';
 
 const appRoutes: Routes = [
-  { path: 'coffee-list', component: CoffeeListComponent, pathMatch: 'full' },
   { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full'},
   { path: 'coffee-detail/:id', component: CoffeeDetailComponent, pathMatch: 'full'},
   { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full'},
@@ -36,7 +34,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavBarComponent,
-    CoffeeListComponent,
     WelcomeComponent,
     CoffeeDataListComponent,
     CoffeeEditComponent,
@@ -63,6 +60,6 @@ const appRoutes: Routes = [
   ],
   providers: [],
   bootstrap: [ AppComponent ],
-  exports: [ NavBarComponent, CoffeeListComponent ]
+  exports: [ NavBarComponent ]
 })
 export class AppModule { }
