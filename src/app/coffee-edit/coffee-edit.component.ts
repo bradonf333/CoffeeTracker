@@ -10,7 +10,7 @@ import * as moment from 'moment';
 @Component({
   selector: 'app-coffee-edit',
   templateUrl: './coffee-edit.component.html',
-  styleUrls: ['./coffee-edit.component.css']
+  styleUrls: ['./coffee-edit.component.scss']
 })
 export class CoffeeEditComponent implements OnInit, OnDestroy {
 

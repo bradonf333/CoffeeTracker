@@ -76,7 +76,7 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
         this.coffeeDescription = coffee.description;
 
         // In order for the Material Datepicker to handle the date, needs to use ISOString.
-        this.coffeeDate = moment(coffee.date).toISOString();
+        this.coffeeDate = moment(coffee.date).format('MM/DD/YYYY');
 
         // Initialize the Coffee Objects here so that they are not null.
         this.coffeeConfirmation = {
@@ -91,19 +91,6 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
-  }
-
-  getErrorMessage(validator: FormControl) {
-    return validator.hasError('required') ? 'You must enter a value' : '';
-  }
-
-  /** If any validation Errors then Disable the button */
-  disableButton() {
-    if (this.description.hasError('required') || this.date.hasError('required')) {
-      return true;
-    } else {
-      return false;
-    }
   }
 
   /** Add or Edit Coffee */

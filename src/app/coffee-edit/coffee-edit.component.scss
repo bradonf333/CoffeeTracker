@@ -3,8 +3,12 @@
   flex-direction: column;
 }
 
+.full-width-header {
+  width: 100%;
+}
+
 .example-container>* {
-  width: 50%;
+  // width: 50%;
   margin: 20px auto;
 }
 
@@ -21,7 +25,7 @@
 }
 
 .example-full-width {
-  width: 100%;
+  width: 80%;
 }
 
 .mat-form-field {
