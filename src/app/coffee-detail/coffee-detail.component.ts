@@ -8,11 +8,11 @@ import { Mode, CoffeeConfirmation } from '../CoffeeConfirmation';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-coffee-edit',
-  templateUrl: './coffee-edit.component.html',
-  styleUrls: ['./coffee-edit.component.css']
+  selector: 'app-coffee-detail',
+  templateUrl: './coffee-detail.component.html',
+  styleUrls: ['./coffee-detail.component.scss']
 })
-export class CoffeeEditComponent implements OnInit, OnDestroy {
+export class CoffeeDetailComponent implements OnInit, OnDestroy {
 
   now = moment().format();
   mode: Mode;

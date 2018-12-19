@@ -5,8 +5,9 @@
 }
 
 .coffee-data-list {
-  width: 80%;
+  width: 40%;
   margin: 20px auto;
+  @include mat-elevation(8);
 }
 
 .mat-row:hover {
@@ -14,11 +15,10 @@
 }
 
 .mat-header-cell {
-  text-align: justify;
-  font-weight: 600;
   font-size: medium;
+  color: $lightish-accent;
 }
 
-button {
-  margin: 5px;
+.table-button {
+  margin: 7px;
 }

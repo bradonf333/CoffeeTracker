@@ -20,10 +20,12 @@ import { CoffeeDataListComponent } from './coffee-data-list/coffee-data-list.com
 import { CoffeeEditComponent } from './coffee-edit/coffee-edit.component';
 import { CoffeeEditConfirmationComponent } from './coffee-edit-confirmation/coffee-edit-confirmation.component';
 import { AppMaterialModule } from './app-material/app-material.module';
+import { CoffeeDetailComponent } from './coffee-detail/coffee-detail.component';
 
 const appRoutes: Routes = [
   { path: 'coffee-list', component: CoffeeListComponent, pathMatch: 'full' },
   { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full'},
+  { path: 'coffee-detail/:id', component: CoffeeDetailComponent, pathMatch: 'full'},
   { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full'},
   { path: 'coffee-edit/undefined', redirectTo: '/coffee-data-list'},
   { path: '', component: WelcomeComponent, pathMatch: 'full' }
@@ -37,7 +39,8 @@ const appRoutes: Routes = [
     WelcomeComponent,
     CoffeeDataListComponent,
     CoffeeEditComponent,
-    CoffeeEditConfirmationComponent
+    CoffeeEditConfirmationComponent,
+    CoffeeDetailComponent
   ],
   imports: [
     RouterModule.forRoot(

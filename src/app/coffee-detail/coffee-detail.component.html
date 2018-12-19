@@ -1,0 +1,29 @@
+<div class="example-container">
+
+    <mat-card>
+  
+      <mat-card-header>
+        <mat-card-title>Coffee To {{ mode }}</mat-card-title>
+        </mat-card-header>
+      <div><img mat-card-image src="../../assets/img/coffee-edit.png"></div>
+  
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Description" [(ngModel)]="coffeeDescription" [formControl]="description" required>
+          <mat-error *ngIf="description.invalid">{{getErrorMessage(description)}}</mat-error>
+        </mat-form-field>
+  <br>
+        <mat-form-field class="example-full-width">
+          <input matInput [matDatepicker]="picker" [(ngModel)]="coffeeDate" [formControl]="date" placeholder="Choose a date" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="date.invalid">{{getErrorMessage(date)}}</mat-error>
+        </mat-form-field>
+  
+        <div class="example-button-row">
+          <button mat-raised-button [disabled]="disableButton()" color="accent" (click)="submitCoffee()">Submit</button>
+          <button *ngIf="(id !== 'new')" mat-raised-button [disabled]="disableButton()" color="warn" (click)="deleteCoffee()">Delete</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
