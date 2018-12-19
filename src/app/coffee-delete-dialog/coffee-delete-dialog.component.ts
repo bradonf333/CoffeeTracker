@@ -24,7 +24,6 @@ export class CoffeeDeleteDialogComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log(this.coffeeId);
     if (this.coffeeId === 'undefined') {
       this.snackBar.open('Sorry this is not a valid Coffee obejct.');
     }

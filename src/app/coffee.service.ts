@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { config } from './app.config';
 import { Coffee } from './Coffee';
 
-import 'rxjs/add/operator/toPromise';
 import { map } from 'rxjs/operators';
 
 import {
@@ -26,8 +25,17 @@ export class CoffeeService {
 
    /** Return the Coffees from the DB */
    getAllCoffees() {
-     const coffees = this.db.collection<Coffee>(config.collection_endpoint).valueChanges();
-     console.log('Coffees: ', coffees);
+
+    const coffees = this.db.collection<Coffee>(config.collection_endpoint)
+    .snapshotChanges()
+    .pipe(map(coffeeDocs => coffeeDocs.map(a => {
+      const data = a.payload.doc.data() as Coffee;
+      const id = a.payload.doc.id;
+      // console.log(a.payload);
+      // console.log({id, ...data });
+      return { id, ...data };
+    })));
+
      return coffees;
    }
 
@@ -57,24 +65,14 @@ export class CoffeeService {
       description: coffeeToUpdate.description,
       date: coffeeToUpdate.date,
       id: coffeeToUpdate.id
-  })
-  .then(function() {
+    })
+    .then(function() {
       console.log('Document successfully written!');
-  })
-  .catch(function(error) {
+    })
+    .catch(function(error) {
       console.error('Error writing document: ', error);
-  });
-
-    //  // Get the Coffee Document
-    //  this.coffeeDoc = this.getCoffee(id);
-
-    //  // Update the Coffee Document
-    //  this.coffeeDoc.update(coffeeToUpdate)
-    //  .catch(error => {
-    //    console.log(error);
-    //    throw new Error('Error: Could not update the Coffee.');
-    //  });
-   }
+    });
+  }
 
    /** Delete a Coffee */
    deleteCoffee(id) {
