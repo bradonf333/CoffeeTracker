@@ -43,4 +43,8 @@ export class CoffeeDataListComponent implements OnInit {
       this.snackBar.open('Sorry this is not a valid Coffee obejct.', 'Dismiss', {duration: 2000});
     }
   }
+
+  sorter(header: string) {
+    console.log(`Clicked ${header}`);
+  }
 }
