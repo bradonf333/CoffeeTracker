@@ -21,6 +21,7 @@ import { CoffeeEditComponent } from './coffee-edit/coffee-edit.component';
 import { CoffeeEditConfirmationComponent } from './coffee-edit-confirmation/coffee-edit-confirmation.component';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { CoffeeDetailComponent } from './coffee-detail/coffee-detail.component';
+import { CoffeeDeleteComponent } from './coffee-delete/coffee-delete.component';
 
 const appRoutes: Routes = [
   { path: 'coffee-list', component: CoffeeListComponent, pathMatch: 'full' },
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     CoffeeDataListComponent,
     CoffeeEditComponent,
     CoffeeEditConfirmationComponent,
-    CoffeeDetailComponent
+    CoffeeDetailComponent,
+    CoffeeDeleteComponent
   ],
   imports: [
     RouterModule.forRoot(
