@@ -1,7 +1,5 @@
 import { CoffeeService } from './../coffee.service';
 import { DataSource } from '@angular/cdk/collections';
-import { MatPaginator, MatSort } from '@angular/material';
-import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { Coffee } from '../Coffee';
 

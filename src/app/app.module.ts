@@ -21,7 +21,7 @@ import { CoffeeEditComponent } from './coffee-edit/coffee-edit.component';
 import { CoffeeEditConfirmationComponent } from './coffee-edit-confirmation/coffee-edit-confirmation.component';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { CoffeeDetailComponent } from './coffee-detail/coffee-detail.component';
-import { CoffeeDeleteComponent } from './coffee-delete/coffee-delete.component';
+import { CoffeeDeleteDialogComponent } from './coffee-delete-dialog/coffee-delete-dialog.component';
 
 const appRoutes: Routes = [
   { path: 'coffee-list', component: CoffeeListComponent, pathMatch: 'full' },
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     CoffeeEditComponent,
     CoffeeEditConfirmationComponent,
     CoffeeDetailComponent,
-    CoffeeDeleteComponent
+    CoffeeDeleteDialogComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -59,7 +59,7 @@ const appRoutes: Routes = [
     FlexLayoutModule
   ],
   entryComponents: [
-    CoffeeEditConfirmationComponent
+    CoffeeEditConfirmationComponent, CoffeeDeleteDialogComponent
   ],
   providers: [],
   bootstrap: [ AppComponent ],

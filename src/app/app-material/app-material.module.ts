@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {
   MatButtonModule, MatCheckboxModule, MatCardModule, MatToolbarModule
   , MatTableModule, MatInputModule, MatPaginatorModule, MatSortModule
-  , MatListModule
+  , MatListModule, MatSnackBarModule
 } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,13 +22,13 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatToolbarModule,
     MatSelectModule, MatInputModule, MatMenuModule, MatCardModule, MatIconModule,
     MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatListModule,
-    MatSidenavModule, MatDatepickerModule, MatMomentDateModule, HttpClientModule
+    MatSidenavModule, MatDatepickerModule, MatMomentDateModule, MatSnackBarModule, HttpClientModule
   ],
   exports: [
     MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatToolbarModule,
     MatSelectModule, MatInputModule, MatMenuModule, MatCardModule, MatIconModule,
     MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatListModule,
-    MatSidenavModule, MatDatepickerModule, MatMomentDateModule, HttpClientModule
+    MatSidenavModule, MatDatepickerModule, MatMomentDateModule, MatSnackBarModule, HttpClientModule
   ],
   declarations: []
 })

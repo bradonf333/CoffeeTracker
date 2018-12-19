@@ -32,7 +32,7 @@ export class CoffeeService {
    }
 
    /** Return the Coffees from the DB */
-   getCoffee(id) {
+   getCoffee(id: string) {
      return this.db.collection(config.collection_endpoint).doc<Coffee>(id);
   }
 
