@@ -1,9 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
-import { Mode, CoffeeConfirmation } from '../CoffeeConfirmation';
 import { CoffeeService } from '../coffee.service';
-import { stringify } from '@angular/core/src/render3/util';
 
 @Component({
   selector: 'app-coffee-delete-dialog',
@@ -22,22 +20,16 @@ export class CoffeeDeleteDialogComponent implements OnInit {
       this.coffeeId = id.coffeeId;
     }
 
-  ngOnInit() {
-
-    if (this.coffeeId === 'undefined') {
-      this.snackBar.open('Sorry this is not a valid Coffee obejct.');
-    }
-  }
+  ngOnInit() { }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  /**  */
+  /** Confirm Delete Button click */
   onOkClick(): void {
     this.dialogRef.close();
     this.coffeeService.deleteCoffee(this.coffeeId);
-    // this.router.navigate(['/coffee-data-list']);
   }
 
 }

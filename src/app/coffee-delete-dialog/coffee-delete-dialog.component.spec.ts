@@ -1,8 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CoffeeDeleteDialogComponent } from './coffee-delete-dialog.component';
 
-describe('CoffeeDeleteComponent', () => {
+describe('CoffeeDeleteDialogComponent', () => {
   let component: CoffeeDeleteDialogComponent;
   let fixture: ComponentFixture<CoffeeDeleteDialogComponent>;
 
