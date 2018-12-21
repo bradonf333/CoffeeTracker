@@ -12,12 +12,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class AppComponent implements OnInit {
   title = 'CoffeeTracker';
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
-    this.matIconRegistry.addSvgIcon(
-      'details',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/img/image2vector.svg')
-    );
-  }
+  constructor() {}
 
   ngOnInit() { }
 

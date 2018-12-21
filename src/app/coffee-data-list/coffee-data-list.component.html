@@ -1,8 +1,7 @@
 <div class="coffee-data-list" color="primary">
   <table mat-table class="full-width-table" [dataSource]="dataSource" aria-label="Elements" color="primary">
-      <!-- <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements"> -->
 
-    <!-- Id Column -->
+    <!-- Number Column -->
     <ng-container class="coffee-data-list" matColumnDef="#">
       <th mat-header-cell *matHeaderCellDef mat-header>#</th>
       <td mat-cell *matCellDef="let i = index" [attr.data-index]="i">{{ i + 1 }} </td>

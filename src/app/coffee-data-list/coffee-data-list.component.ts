@@ -2,9 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatDialog, MatSnackBar } from '@angular/material';
 import { CoffeeDataListDataSource } from './coffee-data-list-datasource';
 import { CoffeeService } from '../coffee.service';
-import { Mode } from '../CoffeeConfirmation';
 import { CoffeeDeleteDialogComponent } from '../coffee-delete-dialog/coffee-delete-dialog.component';
-import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-coffee-data-list',
