@@ -21,14 +21,7 @@ import { CoffeeEditConfirmationComponent } from './coffee-edit-confirmation/coff
 import { AppMaterialModule } from './app-material/app-material.module';
 import { CoffeeDetailComponent } from './coffee-detail/coffee-detail.component';
 import { CoffeeDeleteDialogComponent } from './coffee-delete-dialog/coffee-delete-dialog.component';
-
-const appRoutes: Routes = [
-  { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full'},
-  { path: 'coffee-detail/:id', component: CoffeeDetailComponent, pathMatch: 'full'},
-  { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full'},
-  { path: 'coffee-edit/undefined', redirectTo: '/coffee-data-list'},
-  { path: '', component: WelcomeComponent, pathMatch: 'full' }
-];
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -42,10 +35,7 @@ const appRoutes: Routes = [
     CoffeeDeleteDialogComponent
   ],
   imports: [
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: false } // <-- debugging purposes only
-    ),
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
