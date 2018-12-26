@@ -1,6 +1,6 @@
 <div class="example-container">
 
-  <mat-card class="mat-elevation-z8">
+  <mat-card class="mat-elevation-z8" style="margin-top: 0px;">
 
     <mat-card-header>
       <mat-card-title>Coffee To {{ mode }}</mat-card-title>
@@ -10,20 +10,43 @@
       <img mat-card-image src="../../assets/img/coffee-edit.png">
       <br>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Description" [(ngModel)]="coffeeDescription" [formControl]="description" required>
+        <input matInput placeholder="Name" [(ngModel)]="coffeeName" [formControl]="name" required>
         <mat-error *ngIf="description.invalid">{{getErrorMessage(description)}}</mat-error>
       </mat-form-field>
       <br>
       <mat-form-field class="example-full-width">
-        <input matInput [matDatepicker]="picker" [(ngModel)]="coffeeDate" [formControl]="date" placeholder="Choose a date" required>
+        <input matInput placeholder="Roaster" [(ngModel)]="coffeeRoaster" [formControl]="roaster" required>
+        <mat-error *ngIf="roaster.invalid">{{getErrorMessage(roaster)}}</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <input matInput [matDatepicker]="picker" [(ngModel)]="coffeeRoastDate" [formControl]="roastDate" placeholder="Coffee Roast Date" required>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="date.invalid">{{getErrorMessage(date)}}</mat-error>
+        <mat-error *ngIf="roastDate.invalid">{{getErrorMessage(roastDate)}}</mat-error>
+      </mat-form-field>
+      <!-- <br> -->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Regions" [(ngModel)]="coffeeRegions" [formControl]="regions" required>
+        <mat-error *ngIf="regions.invalid">{{getErrorMessage(regions)}}</mat-error>
+      </mat-form-field>
+      <!-- <br> -->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Description" [(ngModel)]="coffeeDescription" [formControl]="description" required>
+        <mat-error *ngIf="description.invalid">{{getErrorMessage(description)}}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Rating" [(ngModel)]="coffeeRating" [formControl]="rating"></textarea>
+        <mat-error *ngIf="rating.invalid">{{getErrorMessage(rating)}}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Notes" [(ngModel)]="coffeeNotes" [formControl]="notes">
+        <mat-error *ngIf="notes.invalid">{{getErrorMessage(notes)}}</mat-error>
       </mat-form-field>
 
       <div class="example-button-row">
         <button mat-raised-button [disabled]="disableButton()" color="accent" (click)="submitCoffee()">Submit</button>
-        <button *ngIf="(id !== 'new')" mat-raised-button [disabled]="disableButton()" color="warn" (click)="deleteCoffee()">Delete</button>
+        <!-- <button *ngIf="(id !== 'new')" mat-raised-button [disabled]="disableButton()" color="warn" (click)="deleteCoffee()">Delete</button> -->
       </div>
     </mat-card-content>
   </mat-card>

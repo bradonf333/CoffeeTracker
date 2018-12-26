@@ -23,7 +23,7 @@ export class CoffeeDataListComponent implements OnInit {
     this.dataSource = new CoffeeDataListDataSource(this.coffeeService);
   }
 
-  confirm(coffeeId: string): void {
+  confirmDelete(coffeeId: string): void {
 
     if ( coffeeId ) {
       const dialogRef = this.dialog.open(CoffeeDeleteDialogComponent, {

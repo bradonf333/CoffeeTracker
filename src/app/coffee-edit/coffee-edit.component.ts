@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material';
 import { CoffeeEditConfirmationComponent } from '../coffee-edit-confirmation/coffee-edit-confirmation.component';
 import { Mode, CoffeeConfirmation } from '../CoffeeConfirmation';
 import * as moment from 'moment';
+import { validateBasis } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-coffee-edit',
@@ -17,16 +18,27 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   mode: Mode;
 
   // Form Validators
+  name = new FormControl('', [Validators.required]);
+  roaster = new FormControl('', [Validators.required]);
+  roastDate = new FormControl('', [Validators.required]);
+  regions = new FormControl('', [Validators.required]);
+  rating = new FormControl('', [Validators.required]);
   description = new FormControl('', [Validators.required]);
-  date = new FormControl('', [Validators.required]);
+  notes = new FormControl('', [Validators.maxLength(255)]);
+  // date = new FormControl('', [Validators.required]);
 
   // Routing
   id: string;
   private sub: any;
 
   // Form Values
+  coffeeName: string;
+  coffeeRoaster: string;
+  coffeeRoastDate = moment().format('MM/DD/YYYY');
+  coffeeRegions: string;
+  coffeeRating: string;
   coffeeDescription: string;
-  coffeeDate = moment().format('MM/DD/YYYY');
+  coffeeNotes: string;
 
   // Coffee and Edit Object used to edit or delete the coffee.
   coffeeConfirmation: CoffeeConfirmation;
@@ -56,7 +68,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
       this.coffeeConfirmation = {
         coffee: {
           description: this.coffeeDescription,
-          date: moment(this.coffeeDate).format('MM/DD/YYYY')
+          date: moment(this.coffeeRoastDate).format('MM/DD/YYYY')
         },
         mode: Mode.Add
       };
@@ -75,7 +87,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
         this.coffeeDescription = coffee.description;
 
         // In order for the Material Datepicker to handle the date, needs to use ISOString.
-        this.coffeeDate = moment(coffee.date).toISOString();
+        this.coffeeRoastDate = moment(coffee.date).toISOString();
 
         // Initialize the Coffee Objects here so that they are not null.
         this.coffeeConfirmation = {
@@ -93,12 +105,24 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   }
 
   getErrorMessage(validator: FormControl) {
-    return validator.hasError('required') ? 'You must enter a value' : '';
+    if (validator.hasError('required')) {
+      return 'You must enter a value';
+    } else if (validator.hasError('maxlength')) {
+      return 'You have exceeded the Max Length';
+    } else {
+      return '';
+    }
   }
 
   /** If any validation Errors then Disable the button */
   disableButton() {
-    if (this.description.hasError('required') || this.date.hasError('required')) {
+    if (this.name.hasError('required')
+    || this.roaster.hasError('required')
+    || this.roastDate.hasError('required')
+    || this.regions.hasError('required')
+    || this.rating.hasError('required')
+    || this.description.hasError('required')
+    || this.notes.hasError('maxlength')) {
       return true;
     } else {
       return false;
@@ -113,7 +137,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
 
   /** Set the necessary values for the Coffee to be modified */
   setCoffeeAndMode() {
-    this.coffeeConfirmation.coffee.date = moment(this.coffeeDate).format('MM/DD/YYYY');
+    this.coffeeConfirmation.coffee.date = moment(this.coffeeRoastDate).format('MM/DD/YYYY');
     this.coffeeConfirmation.coffee.description = this.coffeeDescription;
 
     if (this.id === 'new') {
