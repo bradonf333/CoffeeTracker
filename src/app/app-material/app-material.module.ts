@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   imports: [
@@ -22,13 +23,15 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatToolbarModule,
     MatSelectModule, MatInputModule, MatMenuModule, MatCardModule, MatIconModule,
     MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatListModule,
-    MatSidenavModule, MatDatepickerModule, MatMomentDateModule, MatSnackBarModule, HttpClientModule
+    MatSidenavModule, MatDatepickerModule, MatMomentDateModule, MatSnackBarModule, HttpClientModule,
+    MatGridListModule
   ],
   exports: [
     MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatToolbarModule,
     MatSelectModule, MatInputModule, MatMenuModule, MatCardModule, MatIconModule,
     MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatListModule,
-    MatSidenavModule, MatDatepickerModule, MatMomentDateModule, MatSnackBarModule, HttpClientModule
+    MatSidenavModule, MatDatepickerModule, MatMomentDateModule, MatSnackBarModule, HttpClientModule,
+    MatGridListModule
   ],
   declarations: []
 })

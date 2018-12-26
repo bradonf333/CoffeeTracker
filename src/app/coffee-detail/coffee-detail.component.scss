@@ -44,6 +44,7 @@
 
 mat-card {
   @include mat-elevation(8);
+  width: 500px;
 }
 
 .mat-card-content {
@@ -60,14 +61,14 @@ input {
   color: black;
 }
 
-label {
+span.label {
   padding: 0px ;
   font-weight: 500;
   font-size: 12pt;
-  width: 40%;
+  // width: 40%;
 }
 
 span {
   font-size: 12pt;
-  width: 60%;
+  // width: 70%;
 }

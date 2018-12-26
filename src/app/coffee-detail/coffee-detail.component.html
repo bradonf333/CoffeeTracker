@@ -7,15 +7,50 @@
     </mat-card-header>
     <div><img mat-card-image src="../../assets/img/coffee-edit.png"></div>
     <mat-card-content>
-      <label>Description:</label>
-      <span>{{ coffeeDescription }}</span>
-      <label>Date:</label>
-      <span>{{coffeeDate}}</span>
+      <mat-grid-list cols="6" rowHeight="2:1">
 
-      <!-- <div class="example-button-row">
-          <button mat-raised-button [disabled]="disableButton()" color="accent" (click)="submitCoffee()">Submit</button>
-          <button *ngIf="(id !== 'new')" mat-raised-button [disabled]="disableButton()" color="warn" (click)="deleteCoffee()">Delete</button>
-        </div> -->
+        <!-- Row 1 -->
+        <mat-grid-tile colspan='2'></mat-grid-tile>
+        <mat-grid-tile colspan='1'>
+          <span class="label">Name:</span>
+        </mat-grid-tile>
+        <mat-grid-tile colspan='1'>
+          <div>{{ coffeeName }}</div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan='2'></mat-grid-tile>
+
+        <!-- Row 2 -->
+        <mat-grid-tile colspan='2'></mat-grid-tile>
+        <mat-grid-tile colspan='1'>
+          <span class="label">Roaster:</span>
+        </mat-grid-tile>
+        <mat-grid-tile colspan='2'>
+          <div>{{ coffeeRoaster }}</div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan='1'></mat-grid-tile>
+
+        <!-- Row 3 -->
+        <mat-grid-tile colspan='2'></mat-grid-tile>
+        <mat-grid-tile colspan='2'>
+          <span class="label">Roast Date:</span>
+        </mat-grid-tile>
+        <mat-grid-tile colspan='1'>
+          <div>{{ coffeeRoastDate }}</div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan='1'></mat-grid-tile>
+
+        <!-- Row 4 -->
+        <mat-grid-tile colspan='2'></mat-grid-tile>
+        <mat-grid-tile colspan='1'>
+          <span class="label">Name:</span>
+        </mat-grid-tile>
+        <mat-grid-tile colspan='1'>
+          <div>{{ coffeeName }}</div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan='2'></mat-grid-tile>
+
+        <!-- Row 5 -->
+      </mat-grid-list>
     </mat-card-content>
   </mat-card>
 </div>

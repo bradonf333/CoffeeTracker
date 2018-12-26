@@ -37,6 +37,21 @@ mat-toolbar-row {
   width: 100% !important;
 }
 
+// Styles for the Grid List on the Coffee Details Page.
+.mat-grid-tile .mat-figure {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute !important;
+  display: flex !important;
+  align-items: left !important;
+  justify-content: left !important;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 // .pad-sides {
 // 	padding-right: 1.5em;
 // 	padding-left: 1.5em;

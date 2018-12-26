@@ -23,7 +23,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   roastDate = new FormControl('', [Validators.required]);
   regions = new FormControl('', [Validators.required]);
   rating = new FormControl('', [Validators.required]);
-  description = new FormControl('', [Validators.required]);
+  description = new FormControl('', [Validators.required, Validators.maxLength(50)]);
   notes = new FormControl('', [Validators.maxLength(255)]);
   // date = new FormControl('', [Validators.required]);
 
@@ -131,6 +131,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     || this.regions.hasError('required')
     || this.rating.hasError('required')
     || this.description.hasError('required')
+    || this.description.hasError('maxlength')
     || this.notes.hasError('maxlength')) {
       return true;
     } else {
@@ -171,11 +172,11 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
       width: '80%',
       maxWidth: '450px',
       /*
-      * NOTE: The Object passed to the dialogRef has to be called data.
-      * However you can build this data object however you want.
-      * I want this data object to follow the model of my ICoffeeConfirmation interface.
-      * Then in the CoffeeEditConfirmationComponent it can now receive an ICoffeeConfirmation object and be strongly
-      */
+       * NOTE: The Object passed to the dialogRef has to be called data.
+       * However you can build this data object however you want.
+       * I want this data object to follow the model of my ICoffeeConfirmation interface.
+       * Then in the CoffeeEditConfirmationComponent it can now receive an ICoffeeConfirmation object and be strongly typed.
+       */
       data: {
         coffee: this.coffeeConfirmation.coffee,
         mode: this.coffeeConfirmation.mode
