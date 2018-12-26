@@ -102,6 +102,27 @@ export class CoffeeService {
     });
   }
 
+   /** Update an existing Coffee */
+   updateCoffee2(id: string, coffeeToUpdate: Coffee2) {
+
+    this.db.collection(config.collection_endpoint).doc<Coffee2>(id).set({
+      name: coffeeToUpdate.name,
+      roaster: coffeeToUpdate.roaster,
+      roastDate: coffeeToUpdate.roastDate,
+      regions: coffeeToUpdate.regions,
+      description: coffeeToUpdate.description,
+      rating: coffeeToUpdate.rating,
+      notes: coffeeToUpdate.notes
+      // id: coffeeToUpdate.id
+    })
+    .then(function() {
+      console.log('Document successfully written!');
+    })
+    .catch(function(error) {
+      console.error('Error writing document: ', error);
+    });
+  }
+
    /** Delete a Coffee */
    deleteCoffee(id: string) {
 

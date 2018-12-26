@@ -36,11 +36,11 @@
         <mat-error *ngIf="description.invalid">{{getErrorMessage(description)}}</mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="Rating" [(ngModel)]="coffeeRating" [formControl]="rating"></textarea>
+        <input matInput placeholder="Rating" type="number" [(ngModel)]="coffeeRating" [formControl]="rating">
         <mat-error *ngIf="rating.invalid">{{getErrorMessage(rating)}}</mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Notes" [(ngModel)]="coffeeNotes" [formControl]="notes">
+        <textarea matInput placeholder="Notes" [(ngModel)]="coffeeNotes" [formControl]="notes"></textarea>
         <mat-error *ngIf="notes.invalid">{{getErrorMessage(notes)}}</mat-error>
       </mat-form-field>
 

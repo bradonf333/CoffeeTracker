@@ -36,7 +36,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   coffeeRoaster: string;
   coffeeRoastDate = moment().format('MM/DD/YYYY');
   coffeeRegions: string;    // TODO: Need to figure out how to make this a list on the input.
-  coffeeRating: string;     // TODO: Need to make this a decimal
+  coffeeRating: number;
   coffeeDescription: string;
   coffeeNotes: string;
 
@@ -89,10 +89,14 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
       coffeeObservable.subscribe(coffee => {
 
         // Bind the form values to the Coffee from the DB.
-        this.coffeeDescription = coffee.description;
-
+        this.coffeeName = coffee.name;
+        this.coffeeRoaster = coffee.roaster;
         // In order for the Material Datepicker to handle the date, needs to use ISOString.
         this.coffeeRoastDate = moment(coffee.roastDate).toISOString();
+        [this.coffeeRegions] = coffee.regions;
+        this.coffeeDescription = coffee.description;
+        this.coffeeRating = coffee.rating;
+        this.coffeeNotes = coffee.notes;
 
         // Initialize the Coffee Objects here so that they are not null.
         this.coffeeConfirmation = {
@@ -150,15 +154,10 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     this.coffeeConfirmation.coffee.rating = this.coffeeRating;
     this.coffeeConfirmation.coffee.notes = this.coffeeNotes ? this.coffeeNotes : '';
 
-    // if (!this.coffeeNotes) {
-    //   this.coffeeNotes = '';
-    // }
-
-    // this.coffeeConfirmation.coffee.notes = this.coffeeNotes;
-
     if (this.id === 'new') {
       this.coffeeConfirmation.mode = Mode.Add;
     } else {
+      this.coffeeConfirmation.coffee.id = this.id;
       this.coffeeConfirmation.mode = Mode.Edit;
     }
   }
