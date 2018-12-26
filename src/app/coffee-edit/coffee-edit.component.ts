@@ -35,8 +35,8 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   coffeeName: string;
   coffeeRoaster: string;
   coffeeRoastDate = moment().format('MM/DD/YYYY');
-  coffeeRegions: string;
-  coffeeRating: string;
+  coffeeRegions: string;    // TODO: Need to figure out how to make this a list on the input.
+  coffeeRating: string;     // TODO: Need to make this a decimal
   coffeeDescription: string;
   coffeeNotes: string;
 

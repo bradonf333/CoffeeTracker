@@ -19,8 +19,7 @@ export class CoffeeService {
 
   coffees: AngularFirestoreCollection<Coffee>;
   coffees2: AngularFirestoreCollection<Coffee2>;
-  private coffeeDoc: AngularFirestoreDocument<Coffee>;
-  private coffeeDoc2: AngularFirestoreDocument<Coffee2>;
+  private coffeeDoc: AngularFirestoreDocument<Coffee2>;
 
   constructor(private db: AngularFirestore) {
     this.coffees = db.collection<Coffee>(config.collection_endpoint);
@@ -104,10 +103,10 @@ export class CoffeeService {
   }
 
    /** Delete a Coffee */
-   deleteCoffee(id) {
+   deleteCoffee(id: string) {
 
     // Get the Coffee Document
-    this.coffeeDoc = this.getCoffee(id);
+    this.coffeeDoc = this.getCoffee2(id);
 
     // Delete the Coffee Document
     this.coffeeDoc.delete();
