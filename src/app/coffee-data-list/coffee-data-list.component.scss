@@ -2,11 +2,13 @@
 
 .full-width-table {
   width: 100%;
+  text-align: left;
 }
 
 .coffee-data-list {
   width: 40%;
   margin: 20px auto;
+  text-align: left;
   @include mat-elevation(8);
 }
 
