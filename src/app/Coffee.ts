@@ -14,5 +14,5 @@ export interface Coffee2 {
     description: string;
     // TODO: This will be for future use. Once I start tracking daily espresso shots, I will use this.
     // date: string;
-    notes: string;
+    notes?: string;
 }

@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CoffeeService } from '../coffee.service';
 import { MatDialog } from '@angular/material';
 import { CoffeeEditConfirmationComponent } from '../coffee-edit-confirmation/coffee-edit-confirmation.component';
-import { Mode, CoffeeConfirmation } from '../CoffeeConfirmation';
+import { Mode, CoffeeConfirmation, CoffeeConfirmation2 } from '../CoffeeConfirmation';
 import * as moment from 'moment';
 import { validateBasis } from '@angular/flex-layout';
 
@@ -41,7 +41,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   coffeeNotes: string;
 
   // Coffee and Edit Object used to edit or delete the coffee.
-  coffeeConfirmation: CoffeeConfirmation;
+  coffeeConfirmation: CoffeeConfirmation2;
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -67,8 +67,13 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
       // At this point the form will be blank, so these form values will be empty.
       this.coffeeConfirmation = {
         coffee: {
+          name: this.coffeeName,
+          roaster: this.coffeeRoaster,
+          roastDate: moment(this.coffeeRoastDate).format('MM/DD/YYYY'),
+          regions: [this.coffeeRegions],
           description: this.coffeeDescription,
-          date: moment(this.coffeeRoastDate).format('MM/DD/YYYY')
+          rating: this.coffeeRating,
+          notes: this.coffeeNotes
         },
         mode: Mode.Add
       };
@@ -80,14 +85,14 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
       this.router.navigate(['']);
     } else {
 
-      const coffeeObservable = this.coffeeService.getCoffee(this.id).valueChanges();
+      const coffeeObservable = this.coffeeService.getCoffee2(this.id).valueChanges();
       coffeeObservable.subscribe(coffee => {
 
         // Bind the form values to the Coffee from the DB.
         this.coffeeDescription = coffee.description;
 
         // In order for the Material Datepicker to handle the date, needs to use ISOString.
-        this.coffeeRoastDate = moment(coffee.date).toISOString();
+        this.coffeeRoastDate = moment(coffee.roastDate).toISOString();
 
         // Initialize the Coffee Objects here so that they are not null.
         this.coffeeConfirmation = {
@@ -137,8 +142,19 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
 
   /** Set the necessary values for the Coffee to be modified */
   setCoffeeAndMode() {
-    this.coffeeConfirmation.coffee.date = moment(this.coffeeRoastDate).format('MM/DD/YYYY');
+    this.coffeeConfirmation.coffee.name = this.coffeeName;
+    this.coffeeConfirmation.coffee.roaster = this.coffeeRoaster;
+    this.coffeeConfirmation.coffee.roastDate = moment(this.coffeeRoastDate).format('MM/DD/YYYY');
+    this.coffeeConfirmation.coffee.regions = [this.coffeeRegions];
     this.coffeeConfirmation.coffee.description = this.coffeeDescription;
+    this.coffeeConfirmation.coffee.rating = this.coffeeRating;
+    this.coffeeConfirmation.coffee.notes = this.coffeeNotes ? this.coffeeNotes : '';
+
+    // if (!this.coffeeNotes) {
+    //   this.coffeeNotes = '';
+    // }
+
+    // this.coffeeConfirmation.coffee.notes = this.coffeeNotes;
 
     if (this.id === 'new') {
       this.coffeeConfirmation.mode = Mode.Add;

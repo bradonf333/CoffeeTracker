@@ -24,6 +24,7 @@ export class CoffeeService {
 
   constructor(private db: AngularFirestore) {
     this.coffees = db.collection<Coffee>(config.collection_endpoint);
+    this.coffees2 = db.collection<Coffee2>(config.collection_endpoint);
    }
 
    /** Return the Coffees from the DB */
