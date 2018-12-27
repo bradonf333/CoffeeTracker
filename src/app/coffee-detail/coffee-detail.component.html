@@ -1,55 +1,88 @@
 <div class="example-container">
 
-  <mat-card class="mat-elevation-z8">
+  <mat-card style="margin-top: 0px;">
 
     <mat-card-header>
       <mat-card-title>Coffee Details</mat-card-title>
     </mat-card-header>
     <div><img mat-card-image src="../../assets/img/coffee-edit.png"></div>
     <mat-card-content>
-      <mat-grid-list cols="6" rowHeight="2:1">
+      <mat-grid-list cols="8" rowHeight="2:1">
 
         <!-- Row 1 -->
         <mat-grid-tile colspan='2'></mat-grid-tile>
-        <mat-grid-tile colspan='1'>
+        <mat-grid-tile colspan='2'>
           <span class="label">Name:</span>
         </mat-grid-tile>
-        <mat-grid-tile colspan='1'>
+        <mat-grid-tile colspan='2'>
           <div>{{ coffeeName }}</div>
         </mat-grid-tile>
         <mat-grid-tile colspan='2'></mat-grid-tile>
 
         <!-- Row 2 -->
         <mat-grid-tile colspan='2'></mat-grid-tile>
-        <mat-grid-tile colspan='1'>
+        <mat-grid-tile colspan='2'>
           <span class="label">Roaster:</span>
         </mat-grid-tile>
         <mat-grid-tile colspan='2'>
           <div>{{ coffeeRoaster }}</div>
         </mat-grid-tile>
-        <mat-grid-tile colspan='1'></mat-grid-tile>
+        <mat-grid-tile colspan='2'></mat-grid-tile>
 
         <!-- Row 3 -->
         <mat-grid-tile colspan='2'></mat-grid-tile>
         <mat-grid-tile colspan='2'>
           <span class="label">Roast Date:</span>
         </mat-grid-tile>
-        <mat-grid-tile colspan='1'>
+        <mat-grid-tile colspan='2'>
           <div>{{ coffeeRoastDate }}</div>
         </mat-grid-tile>
-        <mat-grid-tile colspan='1'></mat-grid-tile>
+        <mat-grid-tile colspan='2'></mat-grid-tile>
 
         <!-- Row 4 -->
         <mat-grid-tile colspan='2'></mat-grid-tile>
-        <mat-grid-tile colspan='1'>
-          <span class="label">Name:</span>
+        <mat-grid-tile colspan='2'>
+          <span class="label">Region:</span>
         </mat-grid-tile>
-        <mat-grid-tile colspan='1'>
-          <div>{{ coffeeName }}</div>
+        <mat-grid-tile colspan='2'>
+          <div>{{ coffeeRegions }}</div>
         </mat-grid-tile>
         <mat-grid-tile colspan='2'></mat-grid-tile>
 
         <!-- Row 5 -->
+        <mat-grid-tile colspan='2'></mat-grid-tile>
+        <mat-grid-tile colspan='2'>
+          <span class="label">Description:</span>
+        </mat-grid-tile>
+        <mat-grid-tile colspan='2'>
+          <div>{{ coffeeDescription }}</div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan='2'></mat-grid-tile>
+
+        <!-- Row 6 -->
+        <mat-grid-tile colspan='2'></mat-grid-tile>
+        <mat-grid-tile colspan='2'>
+          <span class="label">Rating:</span>
+        </mat-grid-tile>
+        <mat-grid-tile colspan='2'>
+          <div>{{ coffeeRating }}</div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan='2'></mat-grid-tile>
+
+
+        <!-- Row 7 -->
+        <mat-grid-tile colspan='2'></mat-grid-tile>
+        <mat-grid-tile colspan='2'>
+          <span class="label">Notes:</span>
+        </mat-grid-tile>
+        <mat-grid-tile colspan='4'></mat-grid-tile>
+
+        <!-- Rows 8-10 -->
+        <mat-grid-tile colspan='2'></mat-grid-tile>
+        <mat-grid-tile colspan='6' rowspan='3'>
+          <div class="notes">{{ coffeeNotes }}</div>
+        </mat-grid-tile>
+
       </mat-grid-list>
     </mat-card-content>
   </mat-card>

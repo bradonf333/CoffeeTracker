@@ -15,12 +15,6 @@
   margin: 20px auto;
 }
 
-.hello mat-card-header {
-  text-align: right;
-  font-weight: 900;
-  margin: 30px auto;
-}
-
 .example-form {
   min-width: 150px;
   max-width: 500px;
@@ -71,4 +65,8 @@ span.label {
 span {
   font-size: 12pt;
   // width: 70%;
+}
+
+div.notes {
+  margin-bottom: 30px;
 }
