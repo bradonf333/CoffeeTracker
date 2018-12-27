@@ -2,21 +2,27 @@
   <table mat-table class="full-width-table" [dataSource]="dataSource" aria-label="Elements" color="primary">
 
     <!-- Number Column -->
-    <ng-container class="coffee-data-list" matColumnDef="#">
+    <!-- <ng-container class="coffee-data-list" matColumnDef="#">
       <th mat-header-cell *matHeaderCellDef mat-header>#</th>
       <td mat-cell *matCellDef="let i = index" [attr.data-index]="i">{{ i + 1 }} </td>
+    </ng-container> -->
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-header (click)="sorter('name')">Name</th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
     </ng-container>
 
-    <!-- Description Column -->
-    <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef mat-header (click)="sorter('description')">Description</th>
-      <td mat-cell *matCellDef="let row">{{row.description}}</td>
+    <!-- Roaster Column -->
+    <ng-container matColumnDef="roaster">
+      <th mat-header-cell *matHeaderCellDef mat-header (click)="sorter('roaster')">Roaster</th>
+      <td mat-cell *matCellDef="let row">{{row.roaster}}</td>
     </ng-container>
 
-    <!-- Date Column -->
-    <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef mat-header (click)="sorter('date')">Date</th>
-        <td mat-cell *matCellDef="let row">{{row.date}}</td>
+    <!-- Rating Column -->
+    <ng-container matColumnDef="rating">
+      <th mat-header-cell *matHeaderCellDef mat-header (click)="sorter('rating')">Rating</th>
+      <td mat-cell *matCellDef="let row">{{row.rating}}</td>
     </ng-container>
 
     <!-- Options Column -->
@@ -24,24 +30,24 @@
       <th mat-header-cell *matHeaderCellDef mat-header>Options</th>
 
       <td mat-cell *matCellDef="let row">
-      <button mat-mini-fab [matMenuTriggerFor]="menu">
-        <mat-icon>more_horiz</mat-icon>
-      </button>
+        <button mat-mini-fab [matMenuTriggerFor]="menu">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
 
-      <mat-menu #menu="matMenu" class="menu-overflow-hidden">
-        <button mat-menu-item [routerLink]="['/coffee-detail', row.id]">
-          <mat-icon>description</mat-icon>
-          <span>View Details</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/coffee-edit', row.id]">
-          <mat-icon>create</mat-icon>
-          <span>Edit</span>
-        </button>
-        <button mat-menu-item (click)="confirmDelete(row.id)">
-          <mat-icon>delete</mat-icon>
-          <span>Delete</span>
-        </button>
-      </mat-menu>
+        <mat-menu #menu="matMenu" class="menu-overflow-hidden">
+          <button mat-menu-item [routerLink]="['/coffee-detail', row.id]">
+            <mat-icon>description</mat-icon>
+            <span>View Details</span>
+          </button>
+          <button mat-menu-item [routerLink]="['/coffee-edit', row.id]">
+            <mat-icon>create</mat-icon>
+            <span>Edit</span>
+          </button>
+          <button mat-menu-item (click)="confirmDelete(row.id)">
+            <mat-icon>delete</mat-icon>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
 
     </ng-container>
 

@@ -7,8 +7,8 @@
 
 .coffee-data-list {
   min-width: 375px;
-  width: 40%;
-  margin: 20px auto;
+  width: 75%;
+  margin: auto;
   text-align: left;
   @include mat-elevation(8);
 }
@@ -18,7 +18,7 @@
 }
 
 .mat-header-cell {
-  font-size: medium;
+  // font-size: x-small;
   color: $lightish-accent;
 }
 

@@ -27,7 +27,7 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
   coffeeRoastDate = moment().format('MM/DD/YYYY');
   coffeeRegions: string;    // TODO: Need to figure out how to make this a list on the input.
   coffeeRating: number;
-  coffeeDescription: string;
+  coffeeFlavors: string;
   coffeeNotes: string;
 
   // Coffee and Edit Object used to edit or delete the coffee.
@@ -69,7 +69,7 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
         this.coffeeRoaster = coffee.roaster;
         this.coffeeRoastDate = moment(coffee.roastDate).format('MM/DD/YYYY');
         [this.coffeeRegions] = coffee.regions;
-        this.coffeeDescription = coffee.description;
+        this.coffeeFlavors = coffee.flavors;
         this.coffeeRating = coffee.rating;
         this.coffeeNotes = coffee.notes;
       });

@@ -29,10 +29,10 @@ export class CoffeeService {
    /** Return the Coffees from the DB */
    getAllCoffees() {
 
-    const coffees = this.db.collection<Coffee>(config.collection_endpoint)
+    const coffees = this.db.collection<Coffee2>(config.collection_endpoint)
     .snapshotChanges()
     .pipe(map(coffeeDocs => coffeeDocs.map(a => {
-      const data = a.payload.doc.data() as Coffee;
+      const data = a.payload.doc.data() as Coffee2;
       const id = a.payload.doc.id;
       // console.log(a.payload);
       // console.log({id, ...data });
@@ -74,7 +74,7 @@ export class CoffeeService {
       roastDate: coffee.roastDate,
       regions: coffee.regions,
       rating: coffee.rating,
-      description: coffee.description,
+      flavors: coffee.flavors,
       // date: coffee.date,
       notes: coffee.notes
      })
@@ -110,7 +110,7 @@ export class CoffeeService {
       roaster: coffeeToUpdate.roaster,
       roastDate: coffeeToUpdate.roastDate,
       regions: coffeeToUpdate.regions,
-      description: coffeeToUpdate.description,
+      flavors: coffeeToUpdate.flavors,
       rating: coffeeToUpdate.rating,
       notes: coffeeToUpdate.notes
       // id: coffeeToUpdate.id

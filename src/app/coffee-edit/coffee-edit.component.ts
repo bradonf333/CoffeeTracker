@@ -37,7 +37,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   coffeeRoastDate = moment().format('MM/DD/YYYY');
   coffeeRegions: string;    // TODO: Need to figure out how to make this a list on the input.
   coffeeRating: number;
-  coffeeDescription: string;
+  coffeeFlavors: string;
   coffeeNotes: string;
 
   // Coffee and Edit Object used to edit or delete the coffee.
@@ -71,7 +71,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
           roaster: this.coffeeRoaster,
           roastDate: moment(this.coffeeRoastDate).format('MM/DD/YYYY'),
           regions: [this.coffeeRegions],
-          description: this.coffeeDescription,
+          flavors: this.coffeeFlavors,
           rating: this.coffeeRating,
           notes: this.coffeeNotes
         },
@@ -94,7 +94,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
         // In order for the Material Datepicker to handle the date, needs to use ISOString.
         this.coffeeRoastDate = moment(coffee.roastDate).toISOString();
         [this.coffeeRegions] = coffee.regions;
-        this.coffeeDescription = coffee.description;
+        this.coffeeFlavors = coffee.flavors;
         this.coffeeRating = coffee.rating;
         this.coffeeNotes = coffee.notes;
 
@@ -151,7 +151,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     this.coffeeConfirmation.coffee.roaster = this.coffeeRoaster;
     this.coffeeConfirmation.coffee.roastDate = moment(this.coffeeRoastDate).format('MM/DD/YYYY');
     this.coffeeConfirmation.coffee.regions = [this.coffeeRegions];
-    this.coffeeConfirmation.coffee.description = this.coffeeDescription;
+    this.coffeeConfirmation.coffee.flavors = this.coffeeFlavors;
     this.coffeeConfirmation.coffee.rating = this.coffeeRating;
     this.coffeeConfirmation.coffee.notes = this.coffeeNotes ? this.coffeeNotes : '';
 

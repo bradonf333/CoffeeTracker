@@ -11,7 +11,7 @@ export interface Coffee2 {
     roastDate: string;
     regions: string[];
     rating: number;
-    description: string;
+    flavors: string;
     // TODO: This will be for future use. Once I start tracking daily espresso shots, I will use this.
     // date: string;
     notes?: string;
