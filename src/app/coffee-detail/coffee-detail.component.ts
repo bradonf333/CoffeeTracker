@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CoffeeService } from '../coffee.service';
 import { MatDialog } from '@angular/material';
 import { CoffeeEditConfirmationComponent } from '../coffee-edit-confirmation/coffee-edit-confirmation.component';
-import { Mode, CoffeeConfirmation, CoffeeConfirmation2 } from '../CoffeeConfirmation';
+import { Mode, CoffeeConfirmation } from '../CoffeeConfirmation';
 import * as moment from 'moment';
 
 @Component({
@@ -59,7 +59,7 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
       this.router.navigate(['']);
     } else {
 
-      const coffeeObservable = this.coffeeService.getCoffee2(this.id).valueChanges();
+      const coffeeObservable = this.coffeeService.getCoffee(this.id).valueChanges();
       coffeeObservable.subscribe(coffee => {
 
         console.log('Coffee: ', coffee);

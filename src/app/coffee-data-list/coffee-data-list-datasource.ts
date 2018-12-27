@@ -1,15 +1,15 @@
 import { CoffeeService } from './../coffee.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import { Coffee, Coffee2 } from '../Coffee';
+import { Coffee } from '../Coffee';
 
 /**
  * Data source for the CoffeeDataList view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class CoffeeDataListDataSource extends DataSource<Coffee2> {
-  data: Coffee2[] = [];
+export class CoffeeDataListDataSource extends DataSource<Coffee> {
+  data: Coffee[] = [];
 
   constructor(private coffeeService: CoffeeService) {
     super();
@@ -26,7 +26,7 @@ export class CoffeeDataListDataSource extends DataSource<Coffee2> {
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<Coffee2[]> {
+  connect(): Observable<Coffee[]> {
 
     return this.coffeeService.getAllCoffees();
     // this.coffeeService.getAllCoffees().subscribe((coffees) => {

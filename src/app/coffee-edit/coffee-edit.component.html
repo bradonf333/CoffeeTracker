@@ -11,29 +11,25 @@
       <br>
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Name" [(ngModel)]="coffeeName" [formControl]="name" required>
-        <mat-error *ngIf="description.invalid">{{getErrorMessage(description)}}</mat-error>
+        <mat-error *ngIf="name.invalid">{{getErrorMessage(name)}}</mat-error>
       </mat-form-field>
-      <br>
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Roaster" [(ngModel)]="coffeeRoaster" [formControl]="roaster" required>
         <mat-error *ngIf="roaster.invalid">{{getErrorMessage(roaster)}}</mat-error>
       </mat-form-field>
-      <br>
       <mat-form-field class="example-full-width">
         <input matInput [matDatepicker]="picker" [(ngModel)]="coffeeRoastDate" [formControl]="roastDate" placeholder="Coffee Roast Date" required>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-error *ngIf="roastDate.invalid">{{getErrorMessage(roastDate)}}</mat-error>
       </mat-form-field>
-      <!-- <br> -->
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Regions" [(ngModel)]="coffeeRegions" [formControl]="regions" required>
         <mat-error *ngIf="regions.invalid">{{getErrorMessage(regions)}}</mat-error>
       </mat-form-field>
-      <!-- <br> -->
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Description" [(ngModel)]="coffeeDescription" [formControl]="description" required>
-        <mat-error *ngIf="description.invalid">{{getErrorMessage(description)}}</mat-error>
+        <input matInput placeholder="Flavors" [(ngModel)]="coffeeFlavors" [formControl]="flavors" required>
+        <mat-error *ngIf="flavors.invalid">{{getErrorMessage(flavors)}}</mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Rating" type="number" [(ngModel)]="coffeeRating" [formControl]="rating">

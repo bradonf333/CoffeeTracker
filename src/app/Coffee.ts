@@ -1,11 +1,5 @@
 export interface Coffee {
     id?: string;
-    description: string;
-    date: string;
-}
-
-export interface Coffee2 {
-    id?: string;
     name: string;
     roaster: string;
     roastDate: string;

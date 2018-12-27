@@ -1,10 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { CoffeeConfirmation, CoffeeConfirmation2 } from '../CoffeeConfirmation';
+import { CoffeeConfirmation } from '../CoffeeConfirmation';
 import { Mode } from '../CoffeeConfirmation';
 import { CoffeeService } from '../coffee.service';
-import { Coffee, Coffee2 } from '../Coffee';
+import { Coffee } from '../Coffee';
 
 @Component({
   selector: 'app-coffee-edit-confirmation',
@@ -15,22 +15,21 @@ export class CoffeeEditConfirmationComponent implements OnInit {
 
   mode: Mode;
   coffeeToUpdate: Coffee;
-  coffeeToUpdate2: Coffee2;
   coffeeId: string;
 
   constructor(
     public dialogRef: MatDialogRef<CoffeeEditConfirmationComponent>,
     private coffeeService: CoffeeService,
-    @Inject(MAT_DIALOG_DATA) public coffeeConfirmation: CoffeeConfirmation2, private router: Router) {}
+    @Inject(MAT_DIALOG_DATA) public coffeeConfirmation: CoffeeConfirmation, private router: Router) {}
 
     ngOnInit() {
 
       console.log(this.coffeeConfirmation);
       this.mode = this.coffeeConfirmation.mode;
-      this.coffeeToUpdate2 = this.coffeeConfirmation.coffee;
+      this.coffeeToUpdate = this.coffeeConfirmation.coffee;
       this.coffeeId = this.coffeeConfirmation.coffee.id;
 
-      console.log(this.coffeeToUpdate2);
+      console.log(this.coffeeToUpdate);
     }
 
     onNoClick(): void {
@@ -42,9 +41,9 @@ export class CoffeeEditConfirmationComponent implements OnInit {
     this.dialogRef.close();
 
     if (this.mode === Mode.Edit) {
-      this.coffeeService.updateCoffee2(this.coffeeId, this.coffeeToUpdate2);
+      this.coffeeService.updateCoffee(this.coffeeId, this.coffeeToUpdate);
     } else if (this.mode === Mode.Add) {
-      this.coffeeService.addCoffee2(this.coffeeToUpdate2);
+      this.coffeeService.addCoffee(this.coffeeToUpdate);
     }
     this.router.navigate(['/coffee-data-list']);
   }

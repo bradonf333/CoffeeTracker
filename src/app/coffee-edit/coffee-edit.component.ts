@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CoffeeService } from '../coffee.service';
 import { MatDialog } from '@angular/material';
 import { CoffeeEditConfirmationComponent } from '../coffee-edit-confirmation/coffee-edit-confirmation.component';
-import { Mode, CoffeeConfirmation, CoffeeConfirmation2 } from '../CoffeeConfirmation';
+import { Mode, CoffeeConfirmation } from '../CoffeeConfirmation';
 import * as moment from 'moment';
 import { validateBasis } from '@angular/flex-layout';
 
@@ -22,8 +22,8 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   roaster = new FormControl('', [Validators.required]);
   roastDate = new FormControl('', [Validators.required]);
   regions = new FormControl('', [Validators.required]);
-  rating = new FormControl('', [Validators.required]);
-  description = new FormControl('', [Validators.required, Validators.maxLength(50)]);
+  rating = new FormControl('', [Validators.required, Validators.min(0), Validators.max(10)]);
+  flavors = new FormControl('', [Validators.required, Validators.maxLength(50)]);
   notes = new FormControl('', [Validators.maxLength(255)]);
   // date = new FormControl('', [Validators.required]);
 
@@ -41,7 +41,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   coffeeNotes: string;
 
   // Coffee and Edit Object used to edit or delete the coffee.
-  coffeeConfirmation: CoffeeConfirmation2;
+  coffeeConfirmation: CoffeeConfirmation;
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -85,7 +85,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
       this.router.navigate(['']);
     } else {
 
-      const coffeeObservable = this.coffeeService.getCoffee2(this.id).valueChanges();
+      const coffeeObservable = this.coffeeService.getCoffee(this.id).valueChanges();
       coffeeObservable.subscribe(coffee => {
 
         // Bind the form values to the Coffee from the DB.
@@ -118,6 +118,8 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
       return 'You must enter a value';
     } else if (validator.hasError('maxlength')) {
       return 'You have exceeded the Max Length';
+    } else if (validator.hasError('min') || validator.hasError('max')) {
+      return 'You must enter a number between 0 and 10';
     } else {
       return '';
     }
@@ -130,8 +132,10 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     || this.roastDate.hasError('required')
     || this.regions.hasError('required')
     || this.rating.hasError('required')
-    || this.description.hasError('required')
-    || this.description.hasError('maxlength')
+    || this.rating.hasError('min')
+    || this.rating.hasError('max')
+    || this.flavors.hasError('required')
+    || this.flavors.hasError('maxlength')
     || this.notes.hasError('maxlength')) {
       return true;
     } else {

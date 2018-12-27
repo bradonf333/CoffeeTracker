@@ -1,4 +1,4 @@
-import { Coffee, Coffee2 } from './Coffee';
+import { Coffee } from './Coffee';
 
 /**
  * CoffeeConfirmation Interface.
@@ -7,11 +7,6 @@ import { Coffee, Coffee2 } from './Coffee';
  */
 export interface CoffeeConfirmation {
   coffee: Coffee;
-  mode: Mode;
-}
-
-export interface CoffeeConfirmation2 {
-  coffee: Coffee2;
   mode: Mode;
 }
 
