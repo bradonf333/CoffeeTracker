@@ -13,25 +13,17 @@ import { Observable } from 'rxjs';
 import { Coffee } from '../Coffee';
 import { CoffeeService } from '../coffee.service';
 import * as moment from 'moment';
-
-class MockCoffeeService {
-  coffees = new Observable<Coffee>();
-  coffeess = [];
-  coffee: Coffee = {
-    description: 'test',
-    date: moment().format('MM/DD/YYYY'),
-    id: 'new'
-  };
-
-  getAllCoffeess() {
-    return this.coffeess.push(this.coffee);
-  }
-}
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppMaterialModule } from '../app-material/app-material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 describe('CoffeeDetailComponent', () => {
   let component: CoffeeDetailComponent;
   let fixture: ComponentFixture<CoffeeDetailComponent>;
-  let service: MockCoffeeService;
 
   const appRoutes: Routes = [
     { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full'},
@@ -51,13 +43,20 @@ describe('CoffeeDetailComponent', () => {
       ],
       imports: [
         RouterTestingModule.withRoutes(appRoutes),
-        NoopAnimationsModule
+        NoopAnimationsModule,
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        AppMaterialModule,
+        FlexLayoutModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule.enablePersistence(),
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue: '/' }
       ]
     }).compileComponents();
-    service = new MockCoffeeService();
   }));
 
   beforeEach(() => {
@@ -66,24 +65,7 @@ describe('CoffeeDetailComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
-
-  it('should set coffeeConfirmationMode to Add when id is new', () => {
-
-    component.coffeeConfirmation = {
-      coffee: {
-      description: 'test',
-      date: '12/01/2018',
-      id: '0'
-    },
-    mode: Mode.None
-  };
-    component.id = 'new';
-
-    component.setCoffeeAndMode();
-
-    expect(component.coffeeConfirmation.mode).toBe(Mode.Add);
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });
