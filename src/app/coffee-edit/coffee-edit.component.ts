@@ -6,7 +6,8 @@ import { MatDialog } from '@angular/material';
 import { CoffeeEditConfirmationComponent } from '../coffee-edit-confirmation/coffee-edit-confirmation.component';
 import { Mode, CoffeeConfirmation } from '../CoffeeConfirmation';
 import * as moment from 'moment';
-import { validateBasis } from '@angular/flex-layout';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MatChipInputEvent } from '@angular/material';
 
 @Component({
   selector: 'app-coffee-edit',
@@ -25,7 +26,6 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   rating = new FormControl('', [Validators.required, Validators.min(0), Validators.max(10)]);
   flavors = new FormControl('', [Validators.required, Validators.maxLength(50)]);
   notes = new FormControl('', [Validators.maxLength(255)]);
-  // date = new FormControl('', [Validators.required]);
 
   // Routing
   id: string;
@@ -35,10 +35,21 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   coffeeName: string;
   coffeeRoaster: string;
   coffeeRoastDate = moment().format('MM/DD/YYYY');
-  coffeeRegions: string;    // TODO: Need to figure out how to make this a list on the input.
+  coffeeRegions: string[] = [];
   coffeeRating: number;
-  coffeeFlavors: string;
+  coffeeFlavors: string[] = [];
   coffeeNotes: string;
+
+  // PlaceHolderValues
+  coffeeRegionsPlaceholder = 'Regions...';
+  coffeeFlavorsPlaceholder = 'Flavors...';
+
+  // MatChip variables
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
   // Coffee and Edit Object used to edit or delete the coffee.
   coffeeConfirmation: CoffeeConfirmation;
@@ -70,7 +81,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
           name: this.coffeeName,
           roaster: this.coffeeRoaster,
           roastDate: moment(this.coffeeRoastDate).format('MM/DD/YYYY'),
-          regions: [this.coffeeRegions],
+          regions: this.coffeeRegions,
           flavors: this.coffeeFlavors,
           rating: this.coffeeRating,
           notes: this.coffeeNotes
@@ -93,7 +104,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
         this.coffeeRoaster = coffee.roaster;
         // In order for the Material Datepicker to handle the date, needs to use ISOString.
         this.coffeeRoastDate = moment(coffee.roastDate).toISOString();
-        [this.coffeeRegions] = coffee.regions;
+        this.coffeeRegions = coffee.regions;
         this.coffeeFlavors = coffee.flavors;
         this.coffeeRating = coffee.rating;
         this.coffeeNotes = coffee.notes;
@@ -111,6 +122,34 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+    const placeHolder = input.placeholder;
+
+    // Add our fruit
+    if ((value || '').trim()) {
+      if (placeHolder === this.coffeeRegionsPlaceholder) {
+        this.coffeeRegions.push(value.trim());
+      } else if (placeHolder === this.coffeeFlavorsPlaceholder) {
+        this.coffeeFlavors.push(value.trim());
+      }
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  remove(region: string): void {
+    const index = this.coffeeRegions.indexOf(region);
+
+    if (index >= 0) {
+      this.coffeeRegions.splice(index, 1);
+    }
   }
 
   getErrorMessage(validator: FormControl) {
@@ -154,7 +193,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     this.coffeeConfirmation.coffee.name = this.coffeeName;
     this.coffeeConfirmation.coffee.roaster = this.coffeeRoaster;
     this.coffeeConfirmation.coffee.roastDate = moment(this.coffeeRoastDate).format('MM/DD/YYYY');
-    this.coffeeConfirmation.coffee.regions = [this.coffeeRegions];
+    this.coffeeConfirmation.coffee.regions = this.coffeeRegions;
     this.coffeeConfirmation.coffee.flavors = this.coffeeFlavors;
     this.coffeeConfirmation.coffee.rating = this.coffeeRating;
     this.coffeeConfirmation.coffee.notes = this.coffeeNotes ? this.coffeeNotes : '';

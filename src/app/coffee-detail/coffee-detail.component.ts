@@ -69,7 +69,7 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
         this.coffeeRoaster = coffee.roaster;
         this.coffeeRoastDate = moment(coffee.roastDate).format('MM/DD/YYYY');
         [this.coffeeRegions] = coffee.regions;
-        this.coffeeFlavors = coffee.flavors;
+        [this.coffeeFlavors] = coffee.flavors;
         this.coffeeRating = coffee.rating;
         this.coffeeNotes = coffee.notes;
       });

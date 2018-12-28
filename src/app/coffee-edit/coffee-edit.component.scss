@@ -55,3 +55,7 @@ mat-card{
 .mat-raised-button {
   margin: 2px;
 }
+
+.mat-chip.mat-standard-chip {
+  background-color: $medium-accent !important;
+}

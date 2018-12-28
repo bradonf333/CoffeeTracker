@@ -16,6 +16,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   imports: [
@@ -24,14 +25,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatSelectModule, MatInputModule, MatMenuModule, MatCardModule, MatIconModule,
     MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatListModule,
     MatSidenavModule, MatDatepickerModule, MatMomentDateModule, MatSnackBarModule, HttpClientModule,
-    MatGridListModule
+    MatGridListModule, MatChipsModule
   ],
   exports: [
     MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatToolbarModule,
     MatSelectModule, MatInputModule, MatMenuModule, MatCardModule, MatIconModule,
     MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatListModule,
     MatSidenavModule, MatDatepickerModule, MatMomentDateModule, MatSnackBarModule, HttpClientModule,
-    MatGridListModule
+    MatGridListModule, MatChipsModule
   ],
   declarations: []
 })
