@@ -24,10 +24,6 @@
         <mat-error *ngIf="roastDate.invalid">{{getErrorMessage(roastDate)}}</mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Regions" [(ngModel)]="coffeeRegions" [formControl]="regions" required>
-        <mat-error *ngIf="regions.invalid">{{getErrorMessage(regions)}}</mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
         <mat-chip-list #regionList>
           <mat-chip 
           *ngFor="let coffeeRegion of coffeeRegions"
