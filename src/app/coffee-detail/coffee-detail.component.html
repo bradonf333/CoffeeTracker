@@ -7,65 +7,60 @@
     </mat-card-header>
     <div><img mat-card-image src="../../assets/img/coffee-edit.png"></div>
     <mat-card-content>
-      <mat-grid-list cols="15" rowHeight="6:7">
+      <mat-grid-list cols="12" rowHeight="5:3">
 
         <!-- Row 1 -->
-        <mat-grid-tile colspan='2'></mat-grid-tile>
-        <mat-grid-tile colspan='3'>
+        <mat-grid-tile colspan='2'>
           <span class="label">Name:</span>
         </mat-grid-tile>
-        <mat-grid-tile colspan='1'></mat-grid-tile>
-        <mat-grid-tile colspan='9'>{{ coffeeName }}</mat-grid-tile>
+        <mat-grid-tile colspan='10'>{{ coffeeName }}</mat-grid-tile>
 
         <!-- Row 2 -->
-        <mat-grid-tile colspan='2'></mat-grid-tile>
-        <mat-grid-tile colspan='3'>
+        <mat-grid-tile colspan='2'>
           <span class="label">Roaster:</span>
         </mat-grid-tile>
-        <mat-grid-tile colspan='1'></mat-grid-tile>
-        <mat-grid-tile colspan='9'>{{ coffeeRoaster }}</mat-grid-tile>
+        <mat-grid-tile colspan='10'>{{ coffeeRoaster }}</mat-grid-tile>
 
         <!-- Row 3 -->
-        <mat-grid-tile colspan='2'></mat-grid-tile>
-        <mat-grid-tile colspan='3'>
+        <mat-grid-tile colspan='2'>
           <span class="label">Roast Date:</span>
         </mat-grid-tile>
-        <mat-grid-tile colspan='1'></mat-grid-tile>
-        <mat-grid-tile colspan='9'>{{ coffeeRoastDate }}</mat-grid-tile>
+        <mat-grid-tile colspan='10'>{{ coffeeRoastDate }}</mat-grid-tile>
 
         <!-- Row 4 -->
-        <mat-grid-tile colspan='2'></mat-grid-tile>
-        <mat-grid-tile colspan='3'>
+        <mat-grid-tile colspan='2'>
           <span class="label">Regions:</span>
         </mat-grid-tile>
-        <mat-grid-tile colspan='1'></mat-grid-tile>
-        <mat-grid-tile colspan='9'>{{ coffeeRegions }}</mat-grid-tile>
+        <mat-grid-tile colspan='10'>
+          <mat-chip-list>
+            <mat-chip *ngFor="let region of coffeeRegions">{{region}}</mat-chip>
+          </mat-chip-list>
+        </mat-grid-tile>
 
         <!-- Rows 5 & 6 -->
-        <mat-grid-tile colspan='2'></mat-grid-tile>
-        <mat-grid-tile colspan='3'>
+        <mat-grid-tile colspan='2'>
           <span class="label">Flavors:</span>
-        </mat-grid-tile><mat-grid-tile colspan='1'></mat-grid-tile>
-        <mat-grid-tile colspan='9'>{{ coffeeFlavors }}</mat-grid-tile>
+        </mat-grid-tile>
+        <mat-grid-tile colspan='10'>
+          <mat-chip-list>
+            <mat-chip *ngFor="let flavor of coffeeFlavors">{{flavor}}</mat-chip>
+          </mat-chip-list>
+        </mat-grid-tile>
 
         <!-- Row 7 -->
-        <mat-grid-tile colspan='2'></mat-grid-tile>
-        <mat-grid-tile colspan='3'>
+        <mat-grid-tile colspan='2'>
           <span class="label">Rating:</span>
         </mat-grid-tile>
-        <mat-grid-tile colspan='1'></mat-grid-tile>
-        <mat-grid-tile colspan='9'>{{ coffeeRating }}</mat-grid-tile>
+        <mat-grid-tile colspan='10'>{{ coffeeRating }}</mat-grid-tile>
 
         <!-- Row 8 -->
-        <mat-grid-tile colspan='2'></mat-grid-tile>
-        <mat-grid-tile colspan='3'>
+        <mat-grid-tile colspan='2'>
           <span class="label">Notes:</span>
         </mat-grid-tile>
         <mat-grid-tile colspan='10'></mat-grid-tile>
 
         <!-- Rows 9-11 -->
-        <mat-grid-tile colspan='2'></mat-grid-tile>
-        <mat-grid-tile colspan='13'>{{ coffeeNotes }}</mat-grid-tile>
+        <mat-grid-tile colspan='12'>{{ coffeeNotes }}</mat-grid-tile>
 
       </mat-grid-list>
     </mat-card-content>

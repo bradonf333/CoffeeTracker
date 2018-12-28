@@ -25,9 +25,9 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
   coffeeName: string;
   coffeeRoaster: string;
   coffeeRoastDate = moment().format('MM/DD/YYYY');
-  coffeeRegions: string;    // TODO: Need to figure out how to make this a list on the input.
+  coffeeRegions: string[] = [];    // TODO: Need to figure out how to make this a list on the input.
   coffeeRating: number;
-  coffeeFlavors: string;
+  coffeeFlavors: string[] = [];
   coffeeNotes: string;
 
   // Coffee and Edit Object used to edit or delete the coffee.
@@ -68,8 +68,8 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
         this.coffeeName = coffee.name;
         this.coffeeRoaster = coffee.roaster;
         this.coffeeRoastDate = moment(coffee.roastDate).format('MM/DD/YYYY');
-        [this.coffeeRegions] = coffee.regions;
-        [this.coffeeFlavors] = coffee.flavors;
+        this.coffeeRegions = coffee.regions;
+        this.coffeeFlavors = coffee.flavors;
         this.coffeeRating = coffee.rating;
         this.coffeeNotes = coffee.notes;
       });

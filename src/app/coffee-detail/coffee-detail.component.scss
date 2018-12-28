@@ -38,7 +38,18 @@
 
 mat-card {
   @include mat-elevation(8);
-  width: 500px;
+  width: 550px;
+  min-width: 375px;
+}
+
+.mat-chip.mat-standard-chip {
+  background-color: $medium-accent !important;
+  font-size: 13px !important;
+  // height: 10px !important;
+  // line-height: 10px !important;
+  // border-radius: 10px !important;
+  min-height: 23px;
+  // padding: 2px 7px;
 }
 
 .mat-card-content {
@@ -58,7 +69,7 @@ input {
 span.label {
   padding: 0px 5px 0px 0px;
   font-weight: 500;
-  font-size: 12pt;
+  font-size: 11pt;
   // width: 40%;
 }
 
