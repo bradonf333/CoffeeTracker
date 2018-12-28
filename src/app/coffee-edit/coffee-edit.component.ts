@@ -144,11 +144,19 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     }
   }
 
-  remove(region: string): void {
+  removeRegion(region: string): void {
     const index = this.coffeeRegions.indexOf(region);
 
     if (index >= 0) {
       this.coffeeRegions.splice(index, 1);
+    }
+  }
+
+  removeFlavor(flavor: string): void {
+    const index = this.coffeeFlavors.indexOf(flavor);
+
+    if (index >= 0) {
+      this.coffeeFlavors.splice(index, 1);
     }
   }
 
@@ -169,12 +177,12 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     if (this.name.hasError('required')
     || this.roaster.hasError('required')
     || this.roastDate.hasError('required')
-    || this.regions.hasError('required')
+    // || this.regions.hasError('required')
     || this.rating.hasError('required')
     || this.rating.hasError('min')
     || this.rating.hasError('max')
-    || this.flavors.hasError('required')
-    || this.flavors.hasError('maxlength')
+    // || this.flavors.hasError('required')
+    // || this.flavors.hasError('maxlength')
     || this.notes.hasError('maxlength')) {
       return true;
     } else {
