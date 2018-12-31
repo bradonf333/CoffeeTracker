@@ -24,6 +24,10 @@ export class CoffeeDataListComponent implements OnInit {
     this.dataSource = new CoffeeDataListDataSource(this.coffeeService);
   }
 
+  /**
+   * Open the CoffeeDeleteDialogComponent in order to confirm deletion.
+   * @param coffeeId The id of the Coffee that should be deleted.
+   */
   confirmDelete(coffeeId: string): void {
 
     if ( coffeeId ) {
@@ -43,6 +47,7 @@ export class CoffeeDataListComponent implements OnInit {
     }
   }
 
+  // TODO: This should call a sorted query from the service.
   sorter(header: string) {
     console.log(`Clicked ${header}`);
   }

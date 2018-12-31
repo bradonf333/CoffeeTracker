@@ -124,12 +124,16 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+  /**
+   * When a new MatChipInputEvent has been detected add it to the appropriate list.
+   * @param event MatChipInputEvent
+   */
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
     const placeHolder = input.placeholder;
 
-    // Add our fruit
+    // Add value to the appropriate list.
     if ((value || '').trim()) {
       if (placeHolder === this.coffeeRegionsPlaceholder) {
         this.coffeeRegions.push(value.trim());
@@ -144,6 +148,10 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * When a MatChip has been removed on the CoffeeRegion FormControl,
+   * remove it from the list.
+   */
   removeRegion(region: string): void {
     const index = this.coffeeRegions.indexOf(region);
 
@@ -152,6 +160,10 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * When a MatChip has been removed on the CoffeeFlavor FormControl,
+   * remove it from the list.
+   */
   removeFlavor(flavor: string): void {
     const index = this.coffeeFlavors.indexOf(flavor);
 
@@ -160,6 +172,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     }
   }
 
+  /** Get FormControl Error Messages */
   getErrorMessage(validator: FormControl) {
     if (validator.hasError('required')) {
       return 'You must enter a value';
@@ -172,7 +185,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
     }
   }
 
-  /** If any validation Errors then Disable the button */
+  /** If any validation Errors then Disable the Submit Button */
   disableButton() {
     if (this.name.hasError('required')
     || this.roaster.hasError('required')
@@ -226,7 +239,7 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
        * NOTE: The Object passed to the dialogRef has to be called data.
        * However you can build this data object however you want.
        * I want this data object to follow the model of my ICoffeeConfirmation interface.
-       * Then in the CoffeeEditConfirmationComponent it can now receive an ICoffeeConfirmation object and be strongly typed.
+       * Then in the CoffeeEditConfirmationComponent it can now receive an CoffeeConfirmation object and be strongly typed.
        */
       data: {
         coffee: this.coffeeConfirmation.coffee,

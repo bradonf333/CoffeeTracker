@@ -25,7 +25,7 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
   coffeeName: string;
   coffeeRoaster: string;
   coffeeRoastDate = moment().format('MM/DD/YYYY');
-  coffeeRegions: string[] = [];    // TODO: Need to figure out how to make this a list on the input.
+  coffeeRegions: string[] = [];
   coffeeRating: number;
   coffeeFlavors: string[] = [];
   coffeeNotes: string;
@@ -48,9 +48,8 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
     });
 
     /*
-     * If this is a new Coffee, create a new object.
+     * If valid then get all the information for that object.
      * If undefined, then re-route to home page.
-     * If it is an existing Coffee, get all the information for that object.
      */
     if (this.id === this.undefinedId) {
 
