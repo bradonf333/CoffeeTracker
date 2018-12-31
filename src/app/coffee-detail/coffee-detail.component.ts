@@ -15,6 +15,8 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
   now = moment().format();
   mode: Mode;
 
+  undefinedId = 'undefined';
+
   // Routing
   id: string;
   private sub: any;
@@ -50,7 +52,7 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
      * If undefined, then re-route to home page.
      * If it is an existing Coffee, get all the information for that object.
      */
-    if (this.id === 'undefined') {
+    if (this.id === this.undefinedId) {
 
       // If undefined, then re-route because it is an error.
       // TODO: Create an error page/component.
