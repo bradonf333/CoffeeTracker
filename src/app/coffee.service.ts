@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { config } from './app.config';
-import { Coffee } from './Coffee';
+import { Coffee } from './Models/Coffee';
 
 import { map } from 'rxjs/operators';
 

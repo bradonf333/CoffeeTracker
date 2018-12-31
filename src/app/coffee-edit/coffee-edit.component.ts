@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CoffeeService } from '../coffee.service';
 import { MatDialog } from '@angular/material';
 import { CoffeeEditConfirmationComponent } from '../coffee-edit-confirmation/coffee-edit-confirmation.component';
-import { Mode, CoffeeConfirmation } from '../CoffeeConfirmation';
+import { Mode, CoffeeConfirmation } from '../Models/CoffeeConfirmation';
 import * as moment from 'moment';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material';

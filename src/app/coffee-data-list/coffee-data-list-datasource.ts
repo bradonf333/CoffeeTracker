@@ -1,7 +1,7 @@
 import { CoffeeService } from './../coffee.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import { Coffee } from '../Coffee';
+import { Coffee } from '../Models/Coffee';
 
 /**
  * Data source for the CoffeeDataList view. This class should

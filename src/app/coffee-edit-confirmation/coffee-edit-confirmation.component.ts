@@ -1,10 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { CoffeeConfirmation } from '../CoffeeConfirmation';
-import { Mode } from '../CoffeeConfirmation';
+import { CoffeeConfirmation } from '../Models/CoffeeConfirmation';
+import { Mode } from '../Models/CoffeeConfirmation';
 import { CoffeeService } from '../coffee.service';
-import { Coffee } from '../Coffee';
+import { Coffee } from '../Models/Coffee';
 
 @Component({
   selector: 'app-coffee-edit-confirmation',
