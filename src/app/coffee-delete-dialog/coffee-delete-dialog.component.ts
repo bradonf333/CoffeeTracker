@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 import { CoffeeService } from '../coffee.service';
 
+/**
+ * MatDialog Componenet used to confirm deletion of a coffee object before calling
+ * the service to make the deletion in the database.
+ */
 @Component({
   selector: 'app-coffee-delete-dialog',
   templateUrl: './coffee-delete-dialog.component.html',

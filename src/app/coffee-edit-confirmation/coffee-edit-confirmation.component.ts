@@ -6,6 +6,10 @@ import { Mode } from '../Models/CoffeeConfirmation';
 import { CoffeeService } from '../coffee.service';
 import { Coffee } from '../Models/Coffee';
 
+/**
+ * MatDialog Componenet used to confirm editing a coffee before calling
+ * the service to make the edit in the database.
+ */
 @Component({
   selector: 'app-coffee-edit-confirmation',
   templateUrl: 'coffee-edit-confirmation.component.html',
