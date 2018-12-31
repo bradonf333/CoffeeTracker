@@ -64,4 +64,8 @@ describe('WelcomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`should have 'CoffeeTracker' as title`, () => {
+    expect(component.title).toEqual('CoffeeTracker');
+  });
 });

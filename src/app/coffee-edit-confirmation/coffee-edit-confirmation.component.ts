@@ -23,20 +23,19 @@ export class CoffeeEditConfirmationComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public coffeeConfirmation: CoffeeConfirmation, private router: Router) {}
 
     ngOnInit() {
-
-      console.log(this.coffeeConfirmation);
       this.mode = this.coffeeConfirmation.mode;
       this.coffeeToUpdate = this.coffeeConfirmation.coffee;
       this.coffeeId = this.coffeeConfirmation.coffee.id;
-
-      console.log(this.coffeeToUpdate);
     }
 
     onNoClick(): void {
       this.dialogRef.close();
   }
 
-  /**  */
+  /**
+   * When the  Accept button is pressed determines whether to add or update a Coffee.
+   * After calling the service, route back to the Coffee Data List.
+   */
   onOkClick(): void {
     this.dialogRef.close();
 

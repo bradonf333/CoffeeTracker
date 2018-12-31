@@ -1,9 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CoffeeService } from '../coffee.service';
 import { MatDialog } from '@angular/material';
-import { CoffeeEditConfirmationComponent } from '../coffee-edit-confirmation/coffee-edit-confirmation.component';
 import { Mode, CoffeeConfirmation } from '../Models/CoffeeConfirmation';
 import * as moment from 'moment';
 
@@ -61,8 +59,6 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
 
       const coffeeObservable = this.coffeeService.getCoffee(this.id).valueChanges();
       coffeeObservable.subscribe(coffee => {
-
-        console.log('Coffee: ', coffee);
 
         // Bind the form values to the Coffee from the DB.
         this.coffeeName = coffee.name;
