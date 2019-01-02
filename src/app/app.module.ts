@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
 
 /* Firestore Imports */
 import { AngularFireModule } from '@angular/fire';
@@ -43,7 +44,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     AngularFirestoreModule.enablePersistence(),
     BrowserAnimationsModule,
     AppMaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
   entryComponents: [
     CoffeeEditConfirmationComponent, CoffeeDeleteDialogComponent

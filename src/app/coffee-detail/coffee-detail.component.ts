@@ -4,6 +4,7 @@ import { CoffeeService } from '../coffee.service';
 import { MatDialog } from '@angular/material';
 import { Mode, CoffeeConfirmation } from '../Models/CoffeeConfirmation';
 import * as moment from 'moment';
+import { WeatherService } from '../weather.service';
 
 @Component({
   selector: 'app-coffee-detail',
@@ -30,6 +31,12 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
   coffeeFlavors: string[] = [];
   coffeeNotes: string;
 
+  // Grid Values
+  totalCols = 5;
+  labelColspan = 1;
+  dataColspan = this.totalCols - this.labelColspan;
+
+
   // Coffee and Edit Object used to edit or delete the coffee.
   coffeeConfirmation: CoffeeConfirmation;
 
@@ -37,14 +44,17 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
     private actRoute: ActivatedRoute,
     private router: Router,
     private coffeeService: CoffeeService,
+    private weatherService: WeatherService,
     public dialog: MatDialog
   ) {
-    // this.actRoute.params.subscribe();
+    this.actRoute.params.subscribe();
   }
 
   ngOnInit() {
-    this.actRoute.paramMap.subscribe(params => {
+    this.sub = this.actRoute.paramMap.subscribe(params => {
       this.id = params.get('id');
+
+      this.getWeather();
     });
 
     /*
@@ -71,6 +81,11 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
         this.coffeeNotes = coffee.notes;
       });
     }
+  }
+
+  getWeather() {
+    const x = this.weatherService.getWeather('abc');
+    console.log('Weather ', x);
   }
 
   ngOnDestroy() {
