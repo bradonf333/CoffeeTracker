@@ -39,11 +39,11 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
     private coffeeService: CoffeeService,
     public dialog: MatDialog
   ) {
-    this.actRoute.params.subscribe();
+    // this.actRoute.params.subscribe();
   }
 
   ngOnInit() {
-    this.sub = this.actRoute.paramMap.subscribe(params => {
+    this.actRoute.paramMap.subscribe(params => {
       this.id = params.get('id');
     });
 

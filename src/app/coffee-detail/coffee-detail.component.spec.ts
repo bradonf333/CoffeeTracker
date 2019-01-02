@@ -18,12 +18,16 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 import { convertToParamMap, ParamMap, Params } from '@angular/router';
+export { ActivatedRoute } from '@angular/router';
 import { ReplaySubject } from 'rxjs';
 
-// tslint:disable-next-line:prefer-const
 let activatedRoute: ActivatedRouteStub;
+let component: CoffeeDetailComponent;
+let fixture: ComponentFixture<CoffeeDetailComponent>;
 
 export class ActivatedRouteStub {
+  // Use a ReplaySubject to share previous values with subscribers
+  // and pump new values into the `paramMap` observable
   private subject = new ReplaySubject<ParamMap>();
 
   constructor(initialParams?: Params) {
@@ -39,9 +43,10 @@ export class ActivatedRouteStub {
   }
 }
 
+
+
+
 describe('CoffeeDetailComponent', () => {
-  let component: CoffeeDetailComponent;
-  let fixture: ComponentFixture<CoffeeDetailComponent>;
 
   const appRoutes: Routes = [
     { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full'},
@@ -52,6 +57,8 @@ describe('CoffeeDetailComponent', () => {
   ];
 
   beforeEach(async(() => {
+    activatedRoute = new ActivatedRouteStub();
+
     TestBed.configureTestingModule({
       declarations: [
         CoffeeDataListComponent,
@@ -78,18 +85,44 @@ describe('CoffeeDetailComponent', () => {
     }).compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     fixture = TestBed.createComponent(CoffeeDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
 
-  it('should create', () => {
+
+  }));
+
+  it('should create',  async(() => {
+
     expect(component).toBeTruthy();
-  });
+  }));
+});
 
-  it('should be undefined', () => {
-    activatedRoute.setParamMap({ id: 'undefined'});
-    expect(component.id).toBe('undefined');
+////////////////////////////////////////////////////////////////
+
+describe('when navigate to existing coffee', () => {
+
+  beforeEach(async(() => {
+    // activatedRoute.setParamMap({ id: 123456});
+    activatedRoute.setParamMap({paramMap: 123});
+    createComponent();
+  }));
+
+  it('should display that coffee\'s name', () => {
   });
 });
+
+
+/** Create the CoffeeDetailComponent, initialize it, set test variables  */
+function createComponent() {
+  fixture = TestBed.createComponent(CoffeeDetailComponent);
+  component = fixture.componentInstance;
+
+  // 1st change detection triggers ngOnInit which gets a hero
+  fixture.detectChanges();
+  return fixture.whenStable().then(() => {
+    // 2nd change detection displays the async-fetched hero
+    fixture.detectChanges();
+  });
+}
