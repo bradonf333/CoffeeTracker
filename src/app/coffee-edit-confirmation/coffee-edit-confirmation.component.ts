@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { CoffeeConfirmation } from '../Models/CoffeeConfirmation';
 import { Mode } from '../Models/CoffeeConfirmation';
-import { CoffeeService } from '../coffee.service';
+import { CoffeeService } from '../Services/coffee.service';
 import { Coffee } from '../Models/Coffee';
 
 /**

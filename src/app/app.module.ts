@@ -23,6 +23,7 @@ import { AppMaterialModule } from './app-material/app-material.module';
 import { CoffeeDetailComponent } from './coffee-detail/coffee-detail.component';
 import { CoffeeDeleteDialogComponent } from './coffee-delete-dialog/coffee-delete-dialog.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { WeatherDetailComponent } from './weather-detail/weather-detail.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     CoffeeEditComponent,
     CoffeeEditConfirmationComponent,
     CoffeeDetailComponent,
-    CoffeeDeleteDialogComponent
+    CoffeeDeleteDialogComponent,
+    WeatherDetailComponent
   ],
   imports: [
     AppRoutingModule,

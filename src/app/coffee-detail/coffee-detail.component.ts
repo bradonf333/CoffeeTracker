@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CoffeeService } from '../coffee.service';
+import { CoffeeService } from '../Services/coffee.service';
 import { MatDialog } from '@angular/material';
 import { Mode, CoffeeConfirmation } from '../Models/CoffeeConfirmation';
 import * as moment from 'moment';
-import { WeatherService } from '../weather.service';
+import { WeatherService } from '../Services/weather.service';
 
 @Component({
   selector: 'app-coffee-detail',
@@ -13,9 +13,7 @@ import { WeatherService } from '../weather.service';
 })
 export class CoffeeDetailComponent implements OnInit, OnDestroy {
 
-  now = moment().format();
   mode: Mode;
-
   undefinedId = 'undefined';
 
   // Routing
@@ -36,6 +34,9 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
   labelColspan = 1;
   dataColspan = this.totalCols - this.labelColspan;
 
+  // Weather Object
+  // TODO: Create an Interface for this object later.
+  weather: any;
 
   // Coffee and Edit Object used to edit or delete the coffee.
   coffeeConfirmation: CoffeeConfirmation;
@@ -53,8 +54,6 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.actRoute.paramMap.subscribe(params => {
       this.id = params.get('id');
-
-      this.getWeather();
     });
 
     /*
@@ -84,8 +83,10 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
   }
 
   getWeather() {
-    const x = this.weatherService.getWeather('abc');
-    console.log('Weather ', x);
+    this.weatherService.getWeather(this.coffeeRegions[0])
+    .subscribe(weather => {
+      this.weather = weather;
+    });
   }
 
   ngOnDestroy() {

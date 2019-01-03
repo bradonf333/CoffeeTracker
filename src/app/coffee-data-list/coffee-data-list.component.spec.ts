@@ -3,7 +3,7 @@ import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform
 import { MatPaginatorModule, MatSortModule, MatTableModule } from '@angular/material';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CoffeeDataListDataSource } from './coffee-data-list-datasource';
-import { CoffeeService } from '../coffee.service';
+import { CoffeeService } from '../Services/coffee.service';
 import { CoffeeDeleteDialogComponent } from '../coffee-delete-dialog/coffee-delete-dialog.component';
 
 import { CoffeeDataListComponent } from './coffee-data-list.component';

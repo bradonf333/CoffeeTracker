@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CoffeeService } from '../coffee.service';
+import { CoffeeService } from '../Services/coffee.service';
 import { MatDialog } from '@angular/material';
 import { CoffeeEditConfirmationComponent } from '../coffee-edit-confirmation/coffee-edit-confirmation.component';
 import { Mode, CoffeeConfirmation } from '../Models/CoffeeConfirmation';

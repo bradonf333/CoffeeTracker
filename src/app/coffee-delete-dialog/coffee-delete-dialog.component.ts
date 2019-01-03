@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
-import { CoffeeService } from '../coffee.service';
+import { CoffeeService } from '../Services/coffee.service';
 
 /**
  * MatDialog Componenet used to confirm deletion of a coffee object before calling

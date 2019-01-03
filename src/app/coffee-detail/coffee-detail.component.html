@@ -65,4 +65,9 @@
       </mat-grid-list>
     </mat-card-content>
   </mat-card>
+  
+  <mat-card>
+    <button mat-raised-button color="accent" (click)="getWeather()">Get Weather</button>
+    <div *ngIf='weather'>{{ weather | json }}</div>
+  </mat-card>
 </div>
