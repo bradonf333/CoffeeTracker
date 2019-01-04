@@ -3,7 +3,6 @@ import * as _ from 'underscore';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,6 +13,5 @@ export class AppComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() { }
-
+  ngOnInit() {}
 }

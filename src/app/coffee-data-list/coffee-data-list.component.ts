@@ -7,7 +7,7 @@ import { CoffeeDeleteDialogComponent } from '../coffee-delete-dialog/coffee-dele
 @Component({
   selector: 'app-coffee-data-list',
   templateUrl: './coffee-data-list.component.html',
-  styleUrls: ['./coffee-data-list.component.scss'],
+  styleUrls: ['./coffee-data-list.component.scss']
 })
 export class CoffeeDataListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -18,7 +18,11 @@ export class CoffeeDataListComponent implements OnInit {
   // displayedColumns = ['#', 'name', 'roaster', 'rating', 'options'];
   displayedColumns = ['name', 'roaster', 'rating', 'options'];
 
-  constructor(private coffeeService: CoffeeService, public dialog: MatDialog, public snackBar: MatSnackBar) {}
+  constructor(
+    private coffeeService: CoffeeService,
+    public dialog: MatDialog,
+    public snackBar: MatSnackBar
+  ) {}
 
   ngOnInit() {
     this.dataSource = new CoffeeDataListDataSource(this.coffeeService);
@@ -29,8 +33,7 @@ export class CoffeeDataListComponent implements OnInit {
    * @param coffeeId The id of the Coffee that should be deleted.
    */
   confirmDelete(coffeeId: string): void {
-
-    if ( coffeeId ) {
+    if (coffeeId) {
       const dialogRef = this.dialog.open(CoffeeDeleteDialogComponent, {
         width: '80%',
         maxWidth: '450px',
@@ -43,7 +46,9 @@ export class CoffeeDataListComponent implements OnInit {
         // console.log('The dialog was closed');
       });
     } else {
-      this.snackBar.open('Sorry this is not a valid Coffee obejct.', 'Dismiss', {duration: 2000});
+      this.snackBar.open('Sorry this is not a valid Coffee obejct.', 'Dismiss', {
+        duration: 2000
+      });
     }
   }
 

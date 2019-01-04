@@ -6,7 +6,10 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { CoffeeDataListComponent } from '../coffee-data-list/coffee-data-list.component';
 import { CoffeeEditComponent } from '../coffee-edit/coffee-edit.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
-import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  NoopAnimationsModule,
+  BrowserAnimationsModule
+} from '@angular/platform-browser/animations';
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,7 +18,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-
 
 import { convertToParamMap, ParamMap, Params } from '@angular/router';
 export { ActivatedRoute } from '@angular/router';
@@ -43,16 +45,12 @@ export class ActivatedRouteStub {
   }
 }
 
-
-
-
 describe('CoffeeDetailComponent', () => {
-
   const appRoutes: Routes = [
-    { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full'},
-    { path: 'coffee-detail/:id', component: CoffeeDetailComponent, pathMatch: 'full'},
-    { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full'},
-    { path: 'coffee-edit/undefined', redirectTo: '/coffee-data-list'},
+    { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full' },
+    { path: 'coffee-detail/:id', component: CoffeeDetailComponent, pathMatch: 'full' },
+    { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full' },
+    { path: 'coffee-edit/undefined', redirectTo: '/coffee-data-list' },
     { path: '', component: WelcomeComponent, pathMatch: 'full' }
   ];
 
@@ -76,7 +74,7 @@ describe('CoffeeDetailComponent', () => {
         AppMaterialModule,
         FlexLayoutModule,
         AngularFireModule.initializeApp(environment.firebase),
-        AngularFirestoreModule.enablePersistence(),
+        AngularFirestoreModule.enablePersistence()
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue: '/' },
@@ -89,12 +87,9 @@ describe('CoffeeDetailComponent', () => {
     fixture = TestBed.createComponent(CoffeeDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-
-
   }));
 
-  it('should create',  async(() => {
-
+  it('should create', async(() => {
     expect(component).toBeTruthy();
   }));
 });
@@ -102,17 +97,14 @@ describe('CoffeeDetailComponent', () => {
 ////////////////////////////////////////////////////////////////
 
 describe('when navigate to existing coffee', () => {
-
   beforeEach(async(() => {
     // activatedRoute.setParamMap({ id: 123456});
-    activatedRoute.setParamMap({paramMap: 123});
+    activatedRoute.setParamMap({ paramMap: 123 });
     createComponent();
   }));
 
-  it('should display that coffee\'s name', () => {
-  });
+  it("should display that coffee's name", () => {});
 });
-
 
 /** Create the CoffeeDetailComponent, initialize it, set test variables  */
 function createComponent() {

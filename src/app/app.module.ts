@@ -49,11 +49,9 @@ import { WeatherDetailComponent } from './weather-detail/weather-detail.componen
     FlexLayoutModule,
     HttpClientModule
   ],
-  entryComponents: [
-    CoffeeEditConfirmationComponent, CoffeeDeleteDialogComponent
-  ],
+  entryComponents: [CoffeeEditConfirmationComponent, CoffeeDeleteDialogComponent],
   providers: [],
-  bootstrap: [ AppComponent ],
-  exports: [ NavBarComponent ]
+  bootstrap: [AppComponent],
+  exports: [NavBarComponent]
 })
-export class AppModule { }
+export class AppModule {}

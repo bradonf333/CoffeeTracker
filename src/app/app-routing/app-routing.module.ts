@@ -7,10 +7,10 @@ import { CoffeeEditComponent } from '../coffee-edit/coffee-edit.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 
 const appRoutes: Routes = [
-  { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full'},
-  { path: 'coffee-detail/:id', component: CoffeeDetailComponent, pathMatch: 'full'},
-  { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full'},
-  { path: 'coffee-edit/undefined', redirectTo: '/coffee-data-list'},
+  { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full' },
+  { path: 'coffee-detail/:id', component: CoffeeDetailComponent, pathMatch: 'full' },
+  { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full' },
+  { path: 'coffee-edit/undefined', redirectTo: '/coffee-data-list' },
   { path: '', component: WelcomeComponent, pathMatch: 'full' }
 ];
 
@@ -22,7 +22,7 @@ const appRoutes: Routes = [
       { enableTracing: false } // <-- debugging purposes only
     )
   ],
-  exports: [ RouterModule ],
+  exports: [RouterModule],
   declarations: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

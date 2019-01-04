@@ -3,9 +3,16 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import {
-  MatButtonModule, MatCheckboxModule, MatCardModule, MatToolbarModule
-  , MatTableModule, MatInputModule, MatPaginatorModule, MatSortModule
-  , MatListModule, MatSnackBarModule
+  MatButtonModule,
+  MatCheckboxModule,
+  MatCardModule,
+  MatToolbarModule,
+  MatTableModule,
+  MatInputModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatListModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 import { MatDialogModule } from '@angular/material/dialog';
@@ -23,19 +30,53 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   imports: [
     CommonModule,
-    MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatToolbarModule,
-    MatSelectModule, MatInputModule, MatMenuModule, MatCardModule, MatIconModule,
-    MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatListModule,
-    MatSidenavModule, MatDatepickerModule, MatMomentDateModule, MatSnackBarModule, HttpClientModule,
-    MatGridListModule, MatChipsModule, MatTooltipModule
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatToolbarModule,
+    MatSelectModule,
+    MatInputModule,
+    MatMenuModule,
+    MatCardModule,
+    MatIconModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule,
+    MatListModule,
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    MatGridListModule,
+    MatChipsModule,
+    MatTooltipModule
   ],
   exports: [
-    MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatToolbarModule,
-    MatSelectModule, MatInputModule, MatMenuModule, MatCardModule, MatIconModule,
-    MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatListModule,
-    MatSidenavModule, MatDatepickerModule, MatMomentDateModule, MatSnackBarModule, HttpClientModule,
-    MatGridListModule, MatChipsModule, MatTooltipModule
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatToolbarModule,
+    MatSelectModule,
+    MatInputModule,
+    MatMenuModule,
+    MatCardModule,
+    MatIconModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule,
+    MatListModule,
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    MatGridListModule,
+    MatChipsModule,
+    MatTooltipModule
   ],
   declarations: []
 })
-export class AppMaterialModule { }
+export class AppMaterialModule {}

@@ -27,7 +27,6 @@ export class CoffeeDataListDataSource extends DataSource<Coffee> {
    * @returns A stream of the items to be rendered.
    */
   connect(): Observable<Coffee[]> {
-
     return this.coffeeService.getAllCoffees();
     // this.coffeeService.getAllCoffees().subscribe((coffees) => {
     //   this.data = coffees as CoffeeDataListItem[];

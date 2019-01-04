@@ -13,7 +13,6 @@ import { Weather } from '../Models/Weather';
   styleUrls: ['./coffee-detail.component.scss']
 })
 export class CoffeeDetailComponent implements OnInit, OnDestroy {
-
   mode: Mode;
   undefinedId = 'undefined';
 
@@ -62,15 +61,12 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
      * If undefined, then re-route to home page.
      */
     if (this.id === this.undefinedId) {
-
       // If undefined, then re-route because it is an error.
       // TODO: Create an error page/component.
       this.router.navigate(['']);
     } else {
-
       const coffeeObservable = this.coffeeService.getCoffee(this.id).valueChanges();
       coffeeObservable.subscribe(coffee => {
-
         // Bind the form values to the Coffee from the DB.
         this.coffeeName = coffee.name;
         this.coffeeRoaster = coffee.roaster;
@@ -84,8 +80,7 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
   }
 
   getWeather(region: string) {
-    this.weatherService.getWeather(region)
-    .subscribe(weather => {
+    this.weatherService.getWeather(region).subscribe(weather => {
       console.log(weather);
       this.weatherObj = weather;
       this.setWeather();

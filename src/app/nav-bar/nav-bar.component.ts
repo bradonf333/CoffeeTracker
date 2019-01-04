@@ -7,7 +7,6 @@ import { MediaMatcher } from '@angular/cdk/layout';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
 
@@ -17,7 +16,5 @@ export class NavBarComponent implements OnInit {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

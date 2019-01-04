@@ -7,7 +7,10 @@ import { CoffeeDetailComponent } from '../coffee-detail/coffee-detail.component'
 import { CoffeeEditComponent } from '../coffee-edit/coffee-edit.component';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { RouterModule, Routes } from '@angular/router';
-import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  NoopAnimationsModule,
+  BrowserAnimationsModule
+} from '@angular/platform-browser/animations';
 import { AppMaterialModule } from '../app-material/app-material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,10 +25,10 @@ describe('CoffeeDeleteDialogComponent', () => {
   let fixture: ComponentFixture<CoffeeDeleteDialogComponent>;
 
   const appRoutes: Routes = [
-    { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full'},
-    { path: 'coffee-detail/:id', component: CoffeeDetailComponent, pathMatch: 'full'},
-    { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full'},
-    { path: 'coffee-edit/undefined', redirectTo: '/coffee-data-list'},
+    { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full' },
+    { path: 'coffee-detail/:id', component: CoffeeDetailComponent, pathMatch: 'full' },
+    { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full' },
+    { path: 'coffee-edit/undefined', redirectTo: '/coffee-data-list' },
     { path: '', component: WelcomeComponent, pathMatch: 'full' }
   ];
 
@@ -50,11 +53,9 @@ describe('CoffeeDeleteDialogComponent', () => {
         AppMaterialModule,
         FlexLayoutModule,
         AngularFireModule.initializeApp(environment.firebase),
-        AngularFirestoreModule.enablePersistence(),
+        AngularFirestoreModule.enablePersistence()
       ],
-      providers: [
-        { provide: APP_BASE_HREF, useValue: '/' }
-      ]
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
     }).compileComponents();
   }));
 

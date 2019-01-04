@@ -1,5 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  NoopAnimationsModule,
+  BrowserAnimationsModule
+} from '@angular/platform-browser/animations';
 import { MatPaginatorModule, MatSortModule, MatTableModule } from '@angular/material';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CoffeeDataListDataSource } from './coffee-data-list-datasource';
@@ -27,10 +30,10 @@ describe('CoffeeDataListComponent', () => {
   let fixture: ComponentFixture<CoffeeDataListComponent>;
 
   const appRoutes: Routes = [
-    { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full'},
-    { path: 'coffee-detail/:id', component: CoffeeDetailComponent, pathMatch: 'full'},
-    { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full'},
-    { path: 'coffee-edit/undefined', redirectTo: '/coffee-data-list'},
+    { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full' },
+    { path: 'coffee-detail/:id', component: CoffeeDetailComponent, pathMatch: 'full' },
+    { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full' },
+    { path: 'coffee-edit/undefined', redirectTo: '/coffee-data-list' },
     { path: '', component: WelcomeComponent, pathMatch: 'full' }
   ];
 
@@ -55,11 +58,9 @@ describe('CoffeeDataListComponent', () => {
         AppMaterialModule,
         FlexLayoutModule,
         AngularFireModule.initializeApp(environment.firebase),
-        AngularFirestoreModule.enablePersistence(),
+        AngularFirestoreModule.enablePersistence()
       ],
-      providers: [
-        { provide: APP_BASE_HREF, useValue: '/' }
-      ]
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
     }).compileComponents();
   }));
 

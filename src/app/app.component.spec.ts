@@ -17,12 +17,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { environment } from 'src/environments/environment';
 
 describe('AppComponent', () => {
-
   const appRoutes: Routes = [
-    { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full'},
-    { path: 'coffee-detail/:id', component: CoffeeDetailComponent, pathMatch: 'full'},
-    { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full'},
-    { path: 'coffee-edit/undefined', redirectTo: '/coffee-data-list'},
+    { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full' },
+    { path: 'coffee-detail/:id', component: CoffeeDetailComponent, pathMatch: 'full' },
+    { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full' },
+    { path: 'coffee-edit/undefined', redirectTo: '/coffee-data-list' },
     { path: '', component: WelcomeComponent, pathMatch: 'full' }
   ];
 
@@ -47,9 +46,7 @@ describe('AppComponent', () => {
         AppMaterialModule,
         FlexLayoutModule
       ],
-      providers: [
-        { provide: APP_BASE_HREF, useValue: '/' }
-      ]
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
     }).compileComponents();
   }));
 

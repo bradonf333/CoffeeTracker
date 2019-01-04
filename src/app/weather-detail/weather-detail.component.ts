@@ -8,16 +8,14 @@ import * as moment from 'moment';
   styleUrls: ['./weather-detail.component.scss']
 })
 export class WeatherDetailComponent implements OnInit {
-
   @Input()
   weatherData: Weather;
 
   currentDate = moment.now();
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     console.log(this.weatherData);
   }
-
 }

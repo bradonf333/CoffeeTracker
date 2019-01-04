@@ -15,7 +15,6 @@ import { MatChipInputEvent } from '@angular/material';
   styleUrls: ['./coffee-edit.component.scss']
 })
 export class CoffeeEditComponent implements OnInit, OnDestroy {
-
   mode: Mode;
 
   // Form Validators
@@ -23,7 +22,11 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   roaster = new FormControl('', [Validators.required]);
   roastDate = new FormControl('', [Validators.required]);
   regions = new FormControl('', [Validators.required]);
-  rating = new FormControl('', [Validators.required, Validators.min(0), Validators.max(10)]);
+  rating = new FormControl('', [
+    Validators.required,
+    Validators.min(0),
+    Validators.max(10)
+  ]);
   flavors = new FormControl('', [Validators.required, Validators.maxLength(50)]);
   notes = new FormControl('', [Validators.maxLength(255)]);
 
@@ -74,7 +77,6 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
      * If it is an existing Coffee, get all the information for that object.
      */
     if (this.id === 'new') {
-
       // At this point the form will be blank, so these form values will be empty.
       this.coffeeConfirmation = {
         coffee: {
@@ -90,15 +92,12 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
       };
       this.mode = Mode.Add;
     } else if (!this.id) {
-
       // If undefined, then re-route because it is an error.
       // TODO: Create an error page/component.
       this.router.navigate(['']);
     } else {
-
       const coffeeObservable = this.coffeeService.getCoffee(this.id).valueChanges();
       coffeeObservable.subscribe(coffee => {
-
         // Bind the form values to the Coffee from the DB.
         this.coffeeName = coffee.name;
         this.coffeeRoaster = coffee.roaster;
@@ -187,16 +186,18 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
 
   /** If any validation Errors then Disable the Submit Button */
   disableButton() {
-    if (this.name.hasError('required')
-    || this.roaster.hasError('required')
-    || this.roastDate.hasError('required')
-    // || this.regions.hasError('required')
-    || this.rating.hasError('required')
-    || this.rating.hasError('min')
-    || this.rating.hasError('max')
-    // || this.flavors.hasError('required')
-    // || this.flavors.hasError('maxlength')
-    || this.notes.hasError('maxlength')) {
+    if (
+      this.name.hasError('required') ||
+      this.roaster.hasError('required') ||
+      this.roastDate.hasError('required') ||
+      // || this.regions.hasError('required')
+      this.rating.hasError('required') ||
+      this.rating.hasError('min') ||
+      this.rating.hasError('max') ||
+      // || this.flavors.hasError('required')
+      // || this.flavors.hasError('maxlength')
+      this.notes.hasError('maxlength')
+    ) {
       return true;
     } else {
       return false;
@@ -213,7 +214,9 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
   setCoffeeAndMode() {
     this.coffeeConfirmation.coffee.name = this.coffeeName;
     this.coffeeConfirmation.coffee.roaster = this.coffeeRoaster;
-    this.coffeeConfirmation.coffee.roastDate = moment(this.coffeeRoastDate).format('MM/DD/YYYY');
+    this.coffeeConfirmation.coffee.roastDate = moment(this.coffeeRoastDate).format(
+      'MM/DD/YYYY'
+    );
     this.coffeeConfirmation.coffee.regions = this.coffeeRegions;
     this.coffeeConfirmation.coffee.flavors = this.coffeeFlavors;
     this.coffeeConfirmation.coffee.rating = this.coffeeRating;
@@ -239,7 +242,8 @@ export class CoffeeEditComponent implements OnInit, OnDestroy {
        * NOTE: The Object passed to the dialogRef has to be called data.
        * However you can build this data object however you want.
        * I want this data object to follow the model of my ICoffeeConfirmation interface.
-       * Then in the CoffeeEditConfirmationComponent it can now receive an CoffeeConfirmation object and be strongly typed.
+       * Then in the CoffeeEditConfirmationComponent it can now receive a
+       * CoffeeConfirmation object and be strongly typed.
        */
       data: {
         coffee: this.coffeeConfirmation.coffee,

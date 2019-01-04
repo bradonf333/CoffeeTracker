@@ -13,10 +13,9 @@ import { Coffee } from '../Models/Coffee';
 @Component({
   selector: 'app-coffee-edit-confirmation',
   templateUrl: 'coffee-edit-confirmation.component.html',
-  styleUrls: ['./coffee-edit-confirmation.component.css'],
+  styleUrls: ['./coffee-edit-confirmation.component.css']
 })
 export class CoffeeEditConfirmationComponent implements OnInit {
-
   mode: Mode;
   coffeeToUpdate: Coffee;
   coffeeId: string;
@@ -24,16 +23,18 @@ export class CoffeeEditConfirmationComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<CoffeeEditConfirmationComponent>,
     private coffeeService: CoffeeService,
-    @Inject(MAT_DIALOG_DATA) public coffeeConfirmation: CoffeeConfirmation, private router: Router) {}
+    @Inject(MAT_DIALOG_DATA) public coffeeConfirmation: CoffeeConfirmation,
+    private router: Router
+  ) {}
 
-    ngOnInit() {
-      this.mode = this.coffeeConfirmation.mode;
-      this.coffeeToUpdate = this.coffeeConfirmation.coffee;
-      this.coffeeId = this.coffeeConfirmation.coffee.id;
-    }
+  ngOnInit() {
+    this.mode = this.coffeeConfirmation.mode;
+    this.coffeeToUpdate = this.coffeeConfirmation.coffee;
+    this.coffeeId = this.coffeeConfirmation.coffee.id;
+  }
 
-    onNoClick(): void {
-      this.dialogRef.close();
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
   /**
@@ -51,4 +52,3 @@ export class CoffeeEditConfirmationComponent implements OnInit {
     this.router.navigate(['/coffee-data-list']);
   }
 }
-

@@ -13,18 +13,19 @@ import { CoffeeService } from '../Services/coffee.service';
   styleUrls: ['./coffee-delete-dialog.component.scss']
 })
 export class CoffeeDeleteDialogComponent implements OnInit {
-
   coffeeId: string;
 
   constructor(
     public dialogRef: MatDialogRef<CoffeeDeleteDialogComponent>,
     public snackBar: MatSnackBar,
     private coffeeService: CoffeeService,
-    @Inject(MAT_DIALOG_DATA) public id, private router: Router) {
-      this.coffeeId = id.coffeeId;
-    }
+    @Inject(MAT_DIALOG_DATA) public id,
+    private router: Router
+  ) {
+    this.coffeeId = id.coffeeId;
+  }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -35,5 +36,4 @@ export class CoffeeDeleteDialogComponent implements OnInit {
     this.dialogRef.close();
     this.coffeeService.deleteCoffee(this.coffeeId);
   }
-
 }

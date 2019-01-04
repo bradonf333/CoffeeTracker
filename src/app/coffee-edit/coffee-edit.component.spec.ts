@@ -5,7 +5,10 @@ import { CoffeeDataListComponent } from '../coffee-data-list/coffee-data-list.co
 import { CoffeeDetailComponent } from '../coffee-detail/coffee-detail.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  NoopAnimationsModule,
+  BrowserAnimationsModule
+} from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppMaterialModule } from '../app-material/app-material.module';
@@ -20,10 +23,10 @@ describe('CoffeeEditComponent', () => {
   let component: CoffeeEditComponent;
   let fixture: ComponentFixture<CoffeeEditComponent>;
   const appRoutes: Routes = [
-    { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full'},
-    { path: 'coffee-detail/:id', component: CoffeeDetailComponent, pathMatch: 'full'},
-    { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full'},
-    { path: 'coffee-edit/undefined', redirectTo: '/coffee-data-list'},
+    { path: 'coffee-data-list', component: CoffeeDataListComponent, pathMatch: 'full' },
+    { path: 'coffee-detail/:id', component: CoffeeDetailComponent, pathMatch: 'full' },
+    { path: 'coffee-edit/:id', component: CoffeeEditComponent, pathMatch: 'full' },
+    { path: 'coffee-edit/undefined', redirectTo: '/coffee-data-list' },
     { path: '', component: WelcomeComponent, pathMatch: 'full' }
   ];
 
@@ -45,11 +48,9 @@ describe('CoffeeEditComponent', () => {
         AppMaterialModule,
         FlexLayoutModule,
         AngularFireModule.initializeApp(environment.firebase),
-        AngularFirestoreModule.enablePersistence(),
+        AngularFirestoreModule.enablePersistence()
       ],
-      providers: [
-        { provide: APP_BASE_HREF, useValue: '/' }
-      ]
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
     }).compileComponents();
   }));
 

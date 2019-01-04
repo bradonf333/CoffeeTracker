@@ -10,7 +10,8 @@
     "build-prod": "ng build CoffeeTracker --configuration=production",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "standardize": "prettier **/*.ts --write"
   },
   "private": true,
   "dependencies": {
@@ -65,9 +66,8 @@
   },
   "prettier": {
     "printWidth": 90,
-    "semi": false,
+    "semi": true,
     "singleQuote": true,
-    "trailingComma": "es5",
     "parser": "typescript"
   }
 }
