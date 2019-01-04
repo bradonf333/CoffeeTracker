@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material';
 import { Mode, CoffeeConfirmation } from '../Models/CoffeeConfirmation';
 import * as moment from 'moment';
 import { WeatherService } from '../Services/weather.service';
+import { Weather } from '../Models/Weather';
 
 @Component({
   selector: 'app-coffee-detail',
@@ -35,8 +36,8 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
   dataColspan = this.totalCols - this.labelColspan;
 
   // Weather Object
-  // TODO: Create an Interface for this object later.
-  weather: any;
+  weatherObj: any;
+  weather: Weather;
 
   // Coffee and Edit Object used to edit or delete the coffee.
   coffeeConfirmation: CoffeeConfirmation;
@@ -82,11 +83,27 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  getWeather() {
-    this.weatherService.getWeather(this.coffeeRegions[0])
+  getWeather(region: string) {
+    this.weatherService.getWeather(region)
     .subscribe(weather => {
-      this.weather = weather;
+      console.log(weather);
+      this.weatherObj = weather;
+      this.setWeather();
     });
+  }
+
+  setWeather() {
+    this.weather = {
+      humidity: this.weatherObj.main.humidity,
+      temperature: this.weatherObj.main.temp,
+      temp_max: this.weatherObj.main.temp_max,
+      temp_min: this.weatherObj.main.temp_min,
+      city: this.weatherObj.name,
+      country: this.weatherObj.sys.country,
+      id: this.weatherObj.weather[0].id,
+      description: this.weatherObj.weather[0].description,
+      mainWeatherDesc: this.weatherObj.weather[0].main
+    };
   }
 
   ngOnDestroy() {

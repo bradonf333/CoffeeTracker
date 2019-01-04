@@ -17,4 +17,10 @@ export class WeatherService {
   getWeather(city: string) {
     return this.http.get(`${this.baseWeatherUrl}${city}&units=${this.units}&appid=${this.apiKey}`);
   }
+
+  getWeatherAsHTML(city: string) {
+    const response = this.http.get(`${this.baseWeatherUrl}${city}&mode=html&units=${this.units}&appid=${this.apiKey}`,
+    {responseType: 'text'});
+    return response;
+  }
 }
