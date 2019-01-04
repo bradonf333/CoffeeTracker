@@ -33,13 +33,10 @@
         </mat-grid-tile>
         <mat-grid-tile [colspan]=dataColspan>
           <mat-chip-list>
-            <mat-chip
-              *ngFor="let region of coffeeRegions" 
-              matTooltip="Click the Region to get detailed weather information"
-              aria-label="Button that displays a tooltip when focused or hovered over"
-              matTooltipPosition="after"
-              (click)=getWeather(region)>
-            {{region}}
+            <mat-chip *ngFor="let region of coffeeRegions" matTooltip="Click the Region to get detailed weather information"
+              aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="after"
+              (click)=getCurrentWeather(region)>
+              {{region}}
             </mat-chip>
           </mat-chip-list>
         </mat-grid-tile>
@@ -73,8 +70,6 @@
     </mat-card-content>
   </mat-card>
 
-  <mat-card *ngIf='weather'>
-    <app-weather-detail [weatherData]=weather></app-weather-detail>
-    <!-- <div *ngIf='weather'>{{ weather | json }}</div> -->
-  </mat-card>
+  <app-weather-detail class="example-container" [weatherData]=weather></app-weather-detail>
+
 </div>

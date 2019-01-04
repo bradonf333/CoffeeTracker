@@ -37,7 +37,7 @@
 }
 
 mat-card {
-  @include mat-elevation(8);
+  @include mat-elevation(12);
   width: 550px;
   min-width: 375px;
 }

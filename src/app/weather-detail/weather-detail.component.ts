@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Weather } from '../Models/Weather';
+import { CurrentWeather } from '../Models/WeatherModels';
 import * as moment from 'moment';
 
 @Component({
@@ -9,7 +9,7 @@ import * as moment from 'moment';
 })
 export class WeatherDetailComponent implements OnInit {
   @Input()
-  weatherData: Weather;
+  weatherData: CurrentWeather;
 
   currentDate = moment.now();
 

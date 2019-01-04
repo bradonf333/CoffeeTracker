@@ -1,21 +1,30 @@
-<div>{{ weatherData.city }}</div>
-<div>{{ weatherData.temperature }}</div>
+<div class="weather-container" *ngIf="weatherData">
 
-<div *ngIf="weatherData">
-  <div fxLayout="row">
-    <div fxFlex="66%">{{weatherData.city}}, {{weatherData.country}}</div>
-    <div fxFlex>{{currentDate | date:'fullDate'}}</div>
-  </div>
-  <div fxLayout="row">
-    <div fxFlex="66%">
-      <!-- <img [src]='weatherData.image'> -->
-    </div>
-     <div fxFlex>{{ weatherData.temperature }}&#176;F</div>
-   </div>
-   <div>
-    {{weatherData.description}}
-  </div>
- </div>
+  <mat-card style="margin-top: 0px;">
+
+    <mat-card-header>
+      <mat-card-title>Current Weather for {{weatherData.city}}, {{weatherData.country}}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div fxLayout="row">
+        <div fxFlex>{{currentDate | date:'fullDate'}}</div>
+      </div>
+      <div fxLayout="row">
+        <div fxFlex="75%">
+          <img [src]='weatherData.image'>
+        </div>
+        <div fxFlex>{{ weatherData.temperature }}&#176;F</div>
+      </div>
+      <div>
+        {{weatherData.description}}
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+</div>
+
+
 
 <!-- <html lang="en">
 <head>
