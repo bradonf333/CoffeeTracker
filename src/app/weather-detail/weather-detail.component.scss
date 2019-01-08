@@ -3,11 +3,40 @@
 
 .weather-container {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
 }
 
 mat-card {
   @include mat-elevation(12);
   width: 550px;
   min-width: 375px;
+}
+
+.weatherCard {
+  text-align: left;
+}
+
+img {
+  width: 200px;
+  margin-top: -50px;
+  margin-left: -50px;
+}
+
+.weatherMain {
+  font-weight: 300;
+  color: #3F3F3F;
+  font-size: 17pt;
+}
+
+.weatherTemp {
+  font-size: 40pt;
+  font-weight: 400;
+  padding-left: 20px;
+  margin-top: -50px;
+  margin-left: -50px;
+}
+
+.degrees {
+  font-size: 20pt;
+  margin-top: 10px;
 }

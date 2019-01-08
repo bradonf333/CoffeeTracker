@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { weatherApiKeys } from '../app.config';
-import { CurrentWeatherData, CurrentWeather } from '../Models/WeatherModels';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { weatherApiKeys } from '../app.config';
+import { CurrentWeather, CurrentWeatherData } from '../Models/WeatherModels';
 
 @Injectable({
   providedIn: 'root'
@@ -42,8 +42,22 @@ export class WeatherService {
       country: data.sys.country,
       description: data.weather[0].description,
       mainDesc: data.weather[0].main,
-      image: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
+      image: this.setWeatherIcon(data.weather[0].description),
       date: data.dt * 1000
     };
+  }
+
+  private setWeatherIcon(weatherDesc: string): string {
+    if (weatherDesc.indexOf('rain') >= 0) {
+      return '../assets/img/weather/climacons/Cloud-Rain.svg';
+    } else if (weatherDesc.indexOf('cloud') >= 0) {
+      return '../assets/img/weather/climacons/Cloud.svg';
+    } else if (weatherDesc.indexOf('clear') >= 0) {
+      return '../assets/img/weather/climacons/Sun.svg';
+    } else if (weatherDesc.indexOf('cloud') >= 0) {
+      return '../assets/img/weather/climacons/Cloud.svg';
+    } else if (weatherDesc.indexOf('cloud') >= 0) {
+      return '../assets/img/weather/climacons/Cloud.svg';
+    }
   }
 }
