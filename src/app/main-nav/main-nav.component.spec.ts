@@ -6,7 +6,7 @@ import {
   MatIconModule,
   MatListModule,
   MatSidenavModule,
-  MatToolbarModule,
+  MatToolbarModule
 } from '@angular/material';
 
 import { MainNavComponent } from './main-nav.component';
@@ -25,7 +25,7 @@ describe('MainNavComponent', () => {
         MatIconModule,
         MatListModule,
         MatSidenavModule,
-        MatToolbarModule,
+        MatToolbarModule
       ]
     }).compileComponents();
   }));
