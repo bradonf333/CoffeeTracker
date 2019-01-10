@@ -1,0 +1,33 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <!-- <mat-toolbar>Menu</mat-toolbar> -->
+    <mat-card color="primary" class="mat-elevation-z0">
+      <img mat-card-image src="../../assets/img/avatar_many.png">
+      <mat-card-content>
+        <h4><b>Bradon Fredrickson</b></h4>
+        <p>Jr. Engineer - Test Automation</p>
+      </mat-card-content>
+      <hr style="padding: 0px margin 0px;" />
+      <mat-card-header></mat-card-header>
+    </mat-card>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/']">
+        <mat-icon>home</mat-icon> Coffee Tracker
+      </a>
+      <a mat-list-item [routerLink]="['/coffee-data-list']">
+        <mat-icon>format_list_numbered</mat-icon> View Coffees
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>CoffeeTracker</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

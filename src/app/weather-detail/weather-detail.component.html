@@ -19,7 +19,9 @@
         <div fxFlex="25%">
           <img [src]='weatherData.image'>
         </div>
-        <div class="weatherTemp" fxFlex="50%">{{ weatherData.temperature | number:'1.0-0' }}<span class="degrees" fxFlex="50%">&#176;F</span></div>
+        <div class="weatherTemp" fxFlex="50%">{{ weatherData.temperature | number:'1.0-0' }}
+          <span class="degrees" fxFlex="50%">&#176;F</span>
+        </div>
       </div>
 
     </mat-card-content>

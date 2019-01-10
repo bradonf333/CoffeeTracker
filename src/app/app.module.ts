@@ -1,4 +1,5 @@
 /* Angular Imports */
+import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 /* Firestore Imports */
@@ -6,6 +7,13 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  MatButtonModule,
+  MatIconModule,
+  MatListModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
@@ -17,22 +25,21 @@ import { CoffeeDeleteDialogComponent } from './coffee-delete-dialog/coffee-delet
 import { CoffeeDetailComponent } from './coffee-detail/coffee-detail.component';
 import { CoffeeEditConfirmationComponent } from './coffee-edit-confirmation/coffee-edit-confirmation.component';
 import { CoffeeEditComponent } from './coffee-edit/coffee-edit.component';
-/* My created Component Imports */
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
 import { WeatherDetailComponent } from './weather-detail/weather-detail.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
     WelcomeComponent,
     CoffeeDataListComponent,
     CoffeeEditComponent,
     CoffeeEditConfirmationComponent,
     CoffeeDetailComponent,
     CoffeeDeleteDialogComponent,
-    WeatherDetailComponent
+    WeatherDetailComponent,
+    MainNavComponent
   ],
   imports: [
     AppRoutingModule,
@@ -44,11 +51,17 @@ import { WelcomeComponent } from './welcome/welcome.component';
     BrowserAnimationsModule,
     AppMaterialModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   entryComponents: [CoffeeEditConfirmationComponent, CoffeeDeleteDialogComponent],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [NavBarComponent]
+  exports: [MainNavComponent]
 })
 export class AppModule {}

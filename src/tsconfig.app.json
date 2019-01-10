@@ -6,6 +6,7 @@
       "underscore"
     ]
   },
+  "moduleResolution": "node",
   "exclude": [
     "test.ts",
     "**/*.spec.ts"

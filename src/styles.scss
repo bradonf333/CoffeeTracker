@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.css";
+// @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
 @import '~@angular/material/theming';
 
@@ -35,7 +35,7 @@ mat-toolbar-row {
   color: white;
 }
 
-.mat-card-header-text{
+.mat-card-header-text {
   width: 100% !important;
 }
 
@@ -60,5 +60,15 @@ mat-toolbar-row {
 // }
 
 .text-center {
-	text-align: center;
+  text-align: center;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

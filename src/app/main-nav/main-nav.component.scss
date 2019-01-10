@@ -1,0 +1,29 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  align-content: center;
+}
+
+.mat-icon {
+  padding: 0px 10px 0px 0px;
+}
+
+.mat-card-image {
+  max-width: 100px;
+  max-height: 100px;
+  margin: 0px;
+  padding: 20px 0px 0px 0px;
+}

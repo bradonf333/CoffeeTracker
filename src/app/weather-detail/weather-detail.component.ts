@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CurrentWeather } from '../Models/WeatherModels';
+import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { CurrentWeather } from '../Models/WeatherModels';
 
 @Component({
   selector: 'app-weather-detail',
