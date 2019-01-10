@@ -7,16 +7,11 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {
-  MatButtonModule,
-  MatIconModule,
-  MatListModule,
-  MatSidenavModule,
-  MatToolbarModule
-} from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+/* Misc Imports */
 import { environment } from '../environments/environment';
+/* Custom/My Components */
 import { AppMaterialModule } from './app-material/app-material.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -52,12 +47,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     AppMaterialModule,
     FlexLayoutModule,
     HttpClientModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule
+    LayoutModule
   ],
   entryComponents: [CoffeeEditConfirmationComponent, CoffeeDeleteDialogComponent],
   providers: [],
