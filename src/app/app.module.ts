@@ -21,20 +21,22 @@ import { CoffeeDetailComponent } from './coffee-detail/coffee-detail.component';
 import { CoffeeEditConfirmationComponent } from './coffee-edit-confirmation/coffee-edit-confirmation.component';
 import { CoffeeEditComponent } from './coffee-edit/coffee-edit.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
+import { TestDashboardComponent } from './test-dashboard/test-dashboard.component';
 import { WeatherDetailComponent } from './weather-detail/weather-detail.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent,
     CoffeeDataListComponent,
-    CoffeeEditComponent,
-    CoffeeEditConfirmationComponent,
     CoffeeDetailComponent,
     CoffeeDeleteDialogComponent,
+    CoffeeEditComponent,
+    CoffeeEditConfirmationComponent,
+    MainNavComponent,
+    TestDashboardComponent,
     WeatherDetailComponent,
-    MainNavComponent
+    WelcomeComponent
   ],
   imports: [
     AppRoutingModule,
