@@ -1,4 +1,4 @@
-<div class="example-container">
+<div>
 
   <mat-card style="margin-top: 0px;">
 
@@ -6,70 +6,75 @@
       <mat-card-title>Coffee Details</mat-card-title>
     </mat-card-header>
     <div><img mat-card-image src="../../assets/img/coffee-edit.png"></div>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+    </mat-card-header>
     <mat-card-content>
-      <mat-grid-list [cols]=totalCols rowHeight="4:1">
+      <div class="centeredMatCard">
+        <mat-grid-list [cols]="coffeeGrid.columns" [rowHeight]="coffeeGrid.rowHeight">
 
-        <!-- Row 1 -->
-        <mat-grid-tile [colspan]=labelColspan>
-          <span class="label">Name:</span>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]=dataColspan>{{ coffeeName }}</mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeName.blank.colSpan" [rowspan]="coffeeGrid.coffeeName.blank.rowSpan"></mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeName.label.colSpan" [rowspan]="coffeeGrid.coffeeName.label.rowSpan">Name:</mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeName.data.colSpan" [rowspan]="coffeeGrid.coffeeName.data.rowSpan">{{
+            coffeeName }}</mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeName.blank2.colSpan" [rowspan]="coffeeGrid.coffeeName.blank2.rowSpan"></mat-grid-tile>
 
-        <!-- Row 2 -->
-        <mat-grid-tile [colspan]=labelColspan>
-          <span class="label">Roaster:</span>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]=dataColspan>{{ coffeeRoaster }}</mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRoaster.blank.colSpan" [rowspan]="coffeeGrid.coffeeRoaster.blank.rowSpan"></mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRoaster.label.colSpan" [rowspan]="coffeeGrid.coffeeRoaster.label.rowSpan">Roaster:</mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRoaster.data.colSpan" [rowspan]="coffeeGrid.coffeeRoaster.data.rowSpan">
+            {{ coffeeRoaster }} </mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRoaster.blank2.colSpan" [rowspan]="coffeeGrid.coffeeRoaster.blank2.rowSpan"></mat-grid-tile>
 
-        <!-- Row 3 -->
-        <mat-grid-tile [colspan]=labelColspan>
-          <span class="label">Roast Date:</span>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]=dataColspan>{{ coffeeRoastDate }}</mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRoastDate.blank.colSpan" [rowspan]="coffeeGrid.coffeeRoastDate.blank.rowSpan">
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRoastDate.label.colSpan" [rowspan]="coffeeGrid.coffeeRoastDate.label.rowSpan">
+            RoastDate: </mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRoastDate.data.colSpan" [rowspan]="coffeeGrid.coffeeRoastDate.data.rowSpan">
+            {{ coffeeRoastDate }} </mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRoastDate.blank2.colSpan" [rowspan]="coffeeGrid.coffeeRoastDate.blank2.rowSpan"></mat-grid-tile>
 
-        <!-- Row 4 -->
-        <mat-grid-tile [colspan]=labelColspan>
-          <span class="label">Regions:</span>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]=dataColspan>
-          <mat-chip-list>
-            <mat-chip *ngFor="let region of coffeeRegions" matTooltip="Click the Region to get detailed weather information"
-              aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="after"
-              (click)=getCurrentWeather(region)>
-              {{region}}
-            </mat-chip>
-          </mat-chip-list>
-        </mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRegions.blank.colSpan" [rowspan]="coffeeGrid.coffeeRegions.blank.rowSpan"></mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRegions.label.colSpan" [rowspan]="coffeeGrid.coffeeRegions.label.rowSpan">Regions:</mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRegions.data.colSpan" [rowspan]="coffeeGrid.coffeeRegions.data.rowSpan">
+            <mat-chip-list>
+              <mat-chip *ngFor="let region of coffeeRegions" matTooltip="Click the Region to get detailed weather information"
+                aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="after"
+                (click)=getCurrentWeather(region)>{{region}}
+              </mat-chip>
+            </mat-chip-list>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRegions.blank2.colSpan" [rowspan]="coffeeGrid.coffeeRegions.blank2.rowSpan">
+          </mat-grid-tile>
 
-        <!-- Rows 5 & 6 -->
-        <mat-grid-tile [colspan]=labelColspan>
-          <span class="label">Flavors:</span>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]=dataColspan>
-          <mat-chip-list>
-            <mat-chip *ngFor="let flavor of coffeeFlavors">{{flavor}}</mat-chip>
-          </mat-chip-list>
-        </mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeFlavors.blank.colSpan" [rowspan]="coffeeGrid.coffeeFlavors.blank.rowSpan"></mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeFlavors.label.colSpan" [rowspan]="coffeeGrid.coffeeFlavors.label.rowSpan">Flavors:</mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeFlavors.data.colSpan" [rowspan]="coffeeGrid.coffeeFlavors.data.rowSpan">
+            <mat-chip-list>
+              <mat-chip *ngFor="let flavor of coffeeFlavors">{{ flavor }}</mat-chip>
+            </mat-chip-list>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeFlavors.blank2.colSpan" [rowspan]="coffeeGrid.coffeeFlavors.blank2.rowSpan"></mat-grid-tile>
 
-        <!-- Row 7 -->
-        <mat-grid-tile [colspan]=labelColspan>
-          <span class="label">Rating:</span>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]=dataColspan>{{ coffeeRating }}</mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRating.blank.colSpan" [rowspan]="coffeeGrid.coffeeRating.blank.rowSpan"></mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRating.label.colSpan" [rowspan]="coffeeGrid.coffeeRating.label.rowSpan">Rating:</mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRating.data.colSpan" [rowspan]="coffeeGrid.coffeeRating.data.rowSpan">{{
+            coffeeRating }}</mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeRating.blank2.colSpan" [rowspan]="coffeeGrid.coffeeRating.blank2.rowSpan"></mat-grid-tile>
 
-        <!-- Row 8 -->
-        <mat-grid-tile [colspan]=labelColspan>
-          <span class="label">Notes:</span>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]=dataColspan></mat-grid-tile>
-
-        <!-- Rows 9-11 -->
-        <mat-grid-tile [colspan]=totalCols>{{ coffeeNotes }}</mat-grid-tile>
-
-      </mat-grid-list>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeNotes.blank.colSpan" [rowspan]="coffeeGrid.coffeeNotes.blank.rowSpan"></mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeNotes.label.colSpan" [rowspan]="coffeeGrid.coffeeNotes.label.rowSpan">Notes:</mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeNotes.data.colSpan" [rowspan]="coffeeGrid.coffeeNotes.data.rowSpan">{{
+            coffeeNotes }}</mat-grid-tile>
+          <mat-grid-tile [colspan]="coffeeGrid.coffeeNotes.blank2.colSpan" [rowspan]="coffeeGrid.coffeeNotes.blank2.rowSpan"></mat-grid-tile>
+        </mat-grid-list>
+      </div>
     </mat-card-content>
   </mat-card>
 
-  <app-weather-detail class="example-container" [weatherData]=weather></app-weather-detail>
+  <div *ngIf="weather">
+    <app-weather-detail [weatherData]="weather"></app-weather-detail>
+  </div>
 
 </div>

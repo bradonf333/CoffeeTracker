@@ -1,45 +1,10 @@
 @import '../../theme/theme.scss';
 @import '~@angular/material/theming';
 
-.example-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.full-width-header {
-  width: 100%;
-}
-
-.example-container>* {
-  // width: 50%;
-  margin: 20px auto;
-}
-
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
-
-.example-full-width {
-  width: 80%;
-}
-
-.mat-form-field {
-  margin-bottom: 9px;
-  font-size: 110%;
-}
-
 .mat-card-image {
   margin: 15px;
   max-width: 60px;
   max-height: 60px;
-}
-
-mat-card {
-  @include mat-elevation(12);
-  width: 550px;
-  min-width: 375px;
 }
 
 .mat-chip.mat-standard-chip {
@@ -52,37 +17,30 @@ mat-card {
   // padding: 2px 7px;
 }
 
-.mat-card-content {
-  margin-left: 20px;
-  text-align: left;
-}
-
 mat-card-title {
   margin-bottom: 0px;
-}
-
-input {
-  font-weight: 500;
-  color: black;
 }
 
 span.label {
   padding: 0px 5px 0px 0px;
   font-weight: 500;
   font-size: 11pt;
-  // width: 40%;
 }
 
-span {
-  font-size: 12pt;
-  position: absolute;
-  // width: 70%;
+.grid-container {
+  margin: 20px;
 }
 
-div.content {
-  position: absolute;
+.centeredMatCard {
+  margin: 0% 20%;
+  align-content: center;
+  text-align: left;
 }
 
-div.notes {
-  margin-bottom: 30px;
+.weatherCard {
+  display: flex;
+  width: 100%;
+  min-width: 300px;
+  width: 50% auto;
+  flex-direction: column;
 }
