@@ -1,6 +1,13 @@
 @import '../../theme/theme.scss';
 @import '~@angular/material/theming';
 
+.coffee-detail-form {
+  max-width: 450px;
+  margin: auto;
+  text-align: left;
+  @include mat-elevation(8);
+}
+
 .mat-card-image {
   margin: 15px;
   max-width: 60px;

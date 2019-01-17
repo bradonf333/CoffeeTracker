@@ -1,35 +1,36 @@
 @import '../../theme/theme.scss';
 
-.example-container {
-  display: flex;
-  min-width: 300px;
-  width: 50% auto;
-  flex-direction: column;
+.coffee-edit-form {
+  max-width: 425px;
+  margin: auto;
+  text-align: left;
+  @include mat-elevation(8);
 }
 
-.full-width-header {
-  width: 100%;
-}
+// .full-width-header {
+//   width: 100%;
+// }
 
-.example-container>* {
-  // width: 50%;
-  margin: 20px auto;
-}
+// .example-container>* {
+//   // width: 50%;
+//   margin: 20px auto;
+// }
 
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
+// .example-form {
+//   min-width: 150px;
+//   max-width: 500px;
+//   width: 100%;
+// }
 
 .example-full-width {
-  width: 80%;
+  width: 100%;
+  margin: auto;
 }
 
-.mat-form-field {
-  margin-bottom: 9px;
-  font-size: 110%;
-}
+// .mat-form-field {
+//   margin-bottom: 9px;
+//   font-size: 110%;
+// }
 
 .mat-card-image {
   margin: 15px;
@@ -37,15 +38,16 @@
   max-height: 60px;
 }
 
-mat-card {
-  margin: 0px 20px 20px 20px;
-  @include mat-elevation(24);
-  width: 550px;
-  max-width: 550px;
-}
+// mat-card {
+//   margin: 0px 20px 20px 20px;
+//   @include mat-elevation(24);
+//   width: 550px;
+//   max-width: 550px;
+// }
 
-.mat-card-content {
-  margin-left: 20px;
+.mat-chip.mat-standard-chip {
+  background-color: $medium-accent !important;
+  min-height: 26px;
 }
 
 .example-button-row button,
@@ -55,9 +57,4 @@ mat-card {
 
 .mat-raised-button {
   margin: 2px;
-}
-
-.mat-chip.mat-standard-chip {
-  background-color: $medium-accent !important;
-  min-height: 26px;
 }

@@ -1,8 +1,9 @@
 <div class="weather-container" *ngIf="weatherData">
 
-  <mat-card style="margin-top: 0px;" class="weatherCard">
+  <mat-card style="margin-top: 0px;" class="mat-elevation-z0" style="margin-top: 0px;padding-left: 0px;">
 
-    <mat-card-header style="text-align: center;">
+    <mat-card-header style="
+    text-align: center;">
       <mat-card-title>
         Current Weather for {{ weatherData.city }}, {{ weatherData.country }}
       </mat-card-title>
@@ -32,26 +33,17 @@
 
       <div *ngIf="!isSmallDevice.matches">
         <div class="weatherMain" fxLayout="row wrap" fxLayoutAlign="center">
-
-          <div fxFlex=30%></div>
           <div fxFlex=70%>{{ currentDate | date:'fullDate' }}</div>
-          <!-- <div fxFlex=25%></div> -->
-
-          <div fxFlex=30%></div>
           <div fxFlex=70%>{{ weatherData.description }}</div>
-          <!-- <div fxFlex=25%></div> -->
-
-          <div fxFlex=30%></div>
           <div fxFlex=70%>{{ weatherData.mainDesc }}</div>
-          <!-- <div fxFlex=25%></div> -->
         </div>
         <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="20px">
-          <div fxFlex=30%></div>
-          <div>
+          <div fxFlex="25%"></div>
+          <div fxFlex="25%">
             <img [src]='weatherData.image'>
           </div>
-          <div class="weatherTemp" fxFlex="35%">{{ weatherData.temperature | number:'1.0-0' }}
-            <span class="degrees" fxFlex="35%">&#176;F</span>
+          <div class="weatherTemp" fxFlex="25%">{{ weatherData.temperature | number:'1.0-0' }}
+            <span class="degrees" fxFlex="25%">&#176;F</span>
           </div>
         </div>
       </div>

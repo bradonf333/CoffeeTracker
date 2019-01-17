@@ -1,4 +1,4 @@
-<div>
+<div class="coffee-detail-form">
 
   <mat-card style="margin-top: 0px;">
 
@@ -13,37 +13,34 @@
     </mat-card-header>
     <mat-card-content>
 
-      <div class="centeredDiv">
-        <div fxLayout="column" fxLayoutAlign="start start">
-          <div class="label">Name:</div>
-          <div class="data">{{ coffeeName }}</div>
-          <div class="label">Roaster:</div>
-          <div class="data">{{ coffeeRoaster }}</div>
-          <div class="label">RoastDate:</div>
-          <div class="data">{{ coffeeRoastDate }}</div>
-          <div class="label">Regions:</div>
-          <div class="data" fxLayout="row" fxLayoutAlign="start start">
-            <mat-chip *ngFor="let region of coffeeRegions" matTooltip="Click the Region to get detailed weather information"
-              aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="after"
-              (click)=getCurrentWeather(region)>{{region}}
-            </mat-chip>
-          </div>
-          <div class="label">Flavors:</div>
-          <div class="data" fxLayout="row" fxLayoutAlign="start start">
-            <mat-chip *ngFor="let flavor of coffeeFlavors">{{flavor}}
-            </mat-chip>
-          </div>
-          <div class="label">Rating:</div>
-          <div class="data">{{ coffeeRating }}</div>
-          <div class="label">Notes:</div>
-          <div class="data">{{ coffeeNotes }}</div>
+      <div fxLayout="column" fxLayoutAlign="start start">
+        <div class="label">Name:</div>
+        <div class="data">{{ coffeeName }}</div>
+        <div class="label">Roaster:</div>
+        <div class="data">{{ coffeeRoaster }}</div>
+        <div class="label">RoastDate:</div>
+        <div class="data">{{ coffeeRoastDate }}</div>
+        <div class="label">Regions:</div>
+        <div class="data" fxLayout="row" fxLayoutAlign="start start">
+          <mat-chip *ngFor="let region of coffeeRegions" matTooltip="Click the Region to get detailed weather information"
+            aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="after" (click)=getCurrentWeather(region)>{{region}}
+          </mat-chip>
         </div>
+        <div class="label">Flavors:</div>
+        <div class="data" fxLayout="row" fxLayoutAlign="start start">
+          <mat-chip *ngFor="let flavor of coffeeFlavors">{{flavor}}</mat-chip>
+        </div>
+        <div class="label">Rating:</div>
+        <div class="data">{{ coffeeRating }}</div>
+        <div class="label">Notes:</div>
+        <div class="data">{{ coffeeNotes }}</div>
+
+        <app-weather-detail *ngIf="weather" [weatherData]="weather"></app-weather-detail>
       </div>
+
     </mat-card-content>
   </mat-card>
 
-  <div *ngIf="weather">
-    <app-weather-detail [weatherData]="weather"></app-weather-detail>
-  </div>
+
 
 </div>

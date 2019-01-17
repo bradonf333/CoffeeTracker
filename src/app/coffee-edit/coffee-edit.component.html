@@ -1,4 +1,4 @@
-<div class="example-container">
+<div class="coffee-edit-form">
 
   <mat-card style="margin-top: 0px;">
 
@@ -18,43 +18,32 @@
         <mat-error *ngIf="roaster.invalid">{{getErrorMessage(roaster)}}</mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput [matDatepicker]="picker" [(ngModel)]="coffeeRoastDate" [formControl]="roastDate" placeholder="Coffee Roast Date" required>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="coffeeRoastDate" [formControl]="roastDate" placeholder="Coffee Roast Date"
+          required>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-error *ngIf="roastDate.invalid">{{getErrorMessage(roastDate)}}</mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-chip-list #regionList>
-          <mat-chip 
-          *ngFor="let coffeeRegion of coffeeRegions"
-          color="primary"
-          [selectable]="selectable"
-          [removable]="removable" 
-          (removed)="removeRegion(coffeeRegion)">
+          <mat-chip *ngFor="let coffeeRegion of coffeeRegions" color="primary" [selectable]="selectable" [removable]="removable"
+            (removed)="removeRegion(coffeeRegion)">
             {{coffeeRegion}}<mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
           </mat-chip>
-          <input [placeholder]="coffeeRegionsPlaceholder"
-                 [matChipInputFor]="regionList"
-                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                 [matChipInputAddOnBlur]="addOnBlur"
-                 (matChipInputTokenEnd)="add($event)">
+          <input [placeholder]="coffeeRegionsPlaceholder" [matChipInputFor]="regionList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)">
         </mat-chip-list>
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-chip-list #flavorList>
-          <mat-chip 
-          *ngFor="let coffeeFlavor of coffeeFlavors"
-          color="primary"
-          [selectable]="selectable"
-          [removable]="removable" 
-          (removed)="removeFlavor(coffeeFlavor)">
+          <mat-chip *ngFor="let coffeeFlavor of coffeeFlavors" color="primary" [selectable]="selectable" [removable]="removable"
+            (removed)="removeFlavor(coffeeFlavor)">
             {{coffeeFlavor}}<mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
           </mat-chip>
-          <input [placeholder]="coffeeFlavorsPlaceholder"
-                 [matChipInputFor]="flavorList"
-                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                 [matChipInputAddOnBlur]="addOnBlur"
-                 (matChipInputTokenEnd)="add($event)">
+          <input [placeholder]="coffeeFlavorsPlaceholder" [matChipInputFor]="flavorList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)">
         </mat-chip-list>
       </mat-form-field>
       <mat-form-field class="example-full-width">
@@ -66,7 +55,7 @@
         <mat-error *ngIf="notes.invalid">{{getErrorMessage(notes)}}</mat-error>
       </mat-form-field>
 
-      
+
 
       <div class="example-button-row">
         <button mat-raised-button [disabled]="disableButton()" color="accent" (click)="submitCoffee()">Submit</button>
