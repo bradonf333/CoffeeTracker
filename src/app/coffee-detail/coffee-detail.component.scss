@@ -44,3 +44,7 @@ span.label {
   width: 50% auto;
   flex-direction: column;
 }
+
+.mat-grid-tile.label.mat-grid-tile {
+  font-weight: 500 !important;
+}

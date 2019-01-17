@@ -10,27 +10,49 @@
 
     <mat-card-content>
 
-      <div class="weatherMain" fxLayout="row wrap" fxLayoutAlign="center">
+      <div *ngIf="isSmallDevice.matches">
+        <div class="weatherMain" fxLayout="row wrap" fxLayoutAlign="start">
 
-        <div fxFlex=30%></div>
-        <div fxFlex=70%>{{ currentDate | date:'fullDate' }}</div>
-        <!-- <div fxFlex=25%></div> -->
+          <div fxFlex=70%>{{ currentDate | date:'fullDate' }}</div>
 
-        <div fxFlex=30%></div>
-        <div fxFlex=70%>{{ weatherData.description }}</div>
-        <!-- <div fxFlex=25%></div> -->
+          <div fxFlex=100%>{{ weatherData.description }}</div>
 
-        <div fxFlex=30%></div>
-        <div fxFlex=70%>{{ weatherData.mainDesc }}</div>
-        <!-- <div fxFlex=25%></div> -->
-      </div>
-      <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="20px">
-        <div fxFlex=30%></div>
-        <div>
-          <img [src]='weatherData.image'>
+          <div fxFlex=100%>{{ weatherData.mainDesc }}</div>
+
         </div>
-        <div class="weatherTemp" fxFlex="35%">{{ weatherData.temperature | number:'1.0-0' }}
-          <span class="degrees" fxFlex="35%">&#176;F</span>
+
+        <div class="weatherTemp" fxFlex="60%" fxLayout="row wrap" fxLayoutAlign="start">
+          {{ weatherData.temperature | number:'1.0-0' }}
+          <span class="degrees" fxFlex="40%">&#176;F</span>
+          <div>
+            <img [src]='weatherData.image'>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="!isSmallDevice.matches">
+        <div class="weatherMain" fxLayout="row wrap" fxLayoutAlign="center">
+
+          <div fxFlex=30%></div>
+          <div fxFlex=70%>{{ currentDate | date:'fullDate' }}</div>
+          <!-- <div fxFlex=25%></div> -->
+
+          <div fxFlex=30%></div>
+          <div fxFlex=70%>{{ weatherData.description }}</div>
+          <!-- <div fxFlex=25%></div> -->
+
+          <div fxFlex=30%></div>
+          <div fxFlex=70%>{{ weatherData.mainDesc }}</div>
+          <!-- <div fxFlex=25%></div> -->
+        </div>
+        <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="20px">
+          <div fxFlex=30%></div>
+          <div>
+            <img [src]='weatherData.image'>
+          </div>
+          <div class="weatherTemp" fxFlex="35%">{{ weatherData.temperature | number:'1.0-0' }}
+            <span class="degrees" fxFlex="35%">&#176;F</span>
+          </div>
         </div>
       </div>
 

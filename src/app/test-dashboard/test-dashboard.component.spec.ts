@@ -6,7 +6,7 @@ import {
   MatCardModule,
   MatGridListModule,
   MatIconModule,
-  MatMenuModule,
+  MatMenuModule
 } from '@angular/material';
 
 import { TestDashboardComponent } from './test-dashboard.component';
@@ -25,7 +25,7 @@ describe('TestDashboardComponent', () => {
         MatCardModule,
         MatGridListModule,
         MatIconModule,
-        MatMenuModule,
+        MatMenuModule
       ]
     }).compileComponents();
   }));
