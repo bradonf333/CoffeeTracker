@@ -9,22 +9,12 @@
 
 .mat-chip.mat-standard-chip {
   background-color: $medium-accent !important;
-  font-size: 13px !important;
-  // height: 10px !important;
-  // line-height: 10px !important;
-  // border-radius: 10px !important;
   min-height: 23px;
-  // padding: 2px 7px;
+  margin: 0px 2px;
 }
 
 mat-card-title {
   margin-bottom: 0px;
-}
-
-span.label {
-  padding: 0px 5px 0px 0px;
-  font-weight: 500;
-  font-size: 11pt;
 }
 
 .grid-container {
@@ -47,4 +37,21 @@ span.label {
 
 .mat-grid-tile.label.mat-grid-tile {
   font-weight: 500 !important;
+}
+
+.centeredDiv {
+  width: 500px;
+  margin: auto;
+}
+
+.label {
+  // font-weight: 500;
+  font-size: 10pt;
+  color: rgb(83, 83, 83);
+}
+
+.data {
+  font-size: 110%;
+  margin-bottom: 15px;
+  font-weight: 400;
 }

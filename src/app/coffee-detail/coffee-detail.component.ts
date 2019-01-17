@@ -74,8 +74,6 @@ export class CoffeeDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.actRoute.paramMap.subscribe(params => {
       this.id = params.get('id');
-      // this.setCoffeeGrid('large');
-      console.log(this.coffeeGrid);
     });
 
     /*
