@@ -11,13 +11,18 @@
 .mat-card-image {
   margin: 15px;
   max-width: 60px;
-  max-height: 60px;
+  max-height: 120px;
 }
+
+// .mat-chip.mat-standard-chip {
+//   background-color: $medium-accent !important;
+//   min-height: 23px;
+//   margin: 0px 2px;
+// }
 
 .mat-chip.mat-standard-chip {
   background-color: $medium-accent !important;
-  min-height: 23px;
-  margin: 0px 2px;
+  min-height: 26px;
 }
 
 mat-card-title {
