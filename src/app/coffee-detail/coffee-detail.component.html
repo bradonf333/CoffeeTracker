@@ -22,9 +22,12 @@
         <div class="data">{{ coffeeRoastDate }}</div>
         <div class="label">Regions:</div>
         <div class="data" fxLayout="row" fxLayoutAlign="start start">
-          <mat-chip *ngFor="let region of coffeeRegions" matTooltip="Click the Region to get detailed weather information"
-            aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="after" (click)=getCurrentWeather(region)>{{region}}
-          </mat-chip>
+          <mat-chip-list>
+            <mat-chip *ngFor="let region of coffeeRegions" matTooltip="Click the Region to get detailed weather information"
+              aria-label="Button that displays a tooltip when focused or hovered over" matTooltipPosition="after"
+              (click)=getCurrentWeather(region)>{{region}}
+            </mat-chip>
+          </mat-chip-list>
         </div>
         <div class="label">Flavors:</div>
         <div class="data" fxLayout="row" fxLayoutAlign="start start">
